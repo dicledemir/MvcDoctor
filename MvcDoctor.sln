@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MvcDoctor", "MvcDoctor\MvcDoctor.csproj", "{263335F0-A5F5-40D9-960C-99C4C82BF25A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Entity", "Entity\Entity.csproj", "{29BED72E-6D3C-467E-B43D-4DD4D8F3A787}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DAL", "DAL\DAL.csproj", "{C3B83815-71C4-442B-9941-2AB66506C85B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{263335F0-A5F5-40D9-960C-99C4C82BF25A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{263335F0-A5F5-40D9-960C-99C4C82BF25A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{263335F0-A5F5-40D9-960C-99C4C82BF25A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{263335F0-A5F5-40D9-960C-99C4C82BF25A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{29BED72E-6D3C-467E-B43D-4DD4D8F3A787}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{29BED72E-6D3C-467E-B43D-4DD4D8F3A787}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{29BED72E-6D3C-467E-B43D-4DD4D8F3A787}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{29BED72E-6D3C-467E-B43D-4DD4D8F3A787}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C3B83815-71C4-442B-9941-2AB66506C85B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C3B83815-71C4-442B-9941-2AB66506C85B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C3B83815-71C4-442B-9941-2AB66506C85B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C3B83815-71C4-442B-9941-2AB66506C85B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
