@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace Entity
 {
-  public  class Notification: IEntity
+    interface IEntity
     {
-        public int Id { get; set; }
+        int Id { get; set; }
     }
 }

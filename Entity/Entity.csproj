@@ -60,6 +60,7 @@
     <Compile Include="Appointment.cs" />
     <Compile Include="Category.cs" />
     <Compile Include="Contact.cs" />
+    <Compile Include="IEntity.cs" />
     <Compile Include="Notification.cs" />
     <Compile Include="Person.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

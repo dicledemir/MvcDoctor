@@ -3,78 +3,39 @@
 <head>
 
     <title>@ViewBag.Title - My ASP.NET Application</title>
-
     <title>DOCTOR - Responsive HTML &amp; Bootstrap Template</title>
+
     <link rel="stylesheet" href="/Content/css/font-awesome.min.css">
+
     <link rel="stylesheet" href="/Content/css/bootstrap.min.css">
+
     <link rel="stylesheet" href="/Content/css/style.css">
 
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:600italic,400,800,700,300' rel='stylesheet' type='text/css'>
+
     <link href='http://fonts.googleapis.com/css?family=BenchNine:300,400,700' rel='stylesheet' type='text/css'>
     <script src="/Content/js/modernizr.js"></script>
 
+    <script src="/Content/js/jquery-2.1.1.js"></script>
+
+    <script src="http://maps.google.com/maps/api/js?sensor=true"></script>
+
+    <script src="/Content/js/gmaps.js"></script>
+    <script src="/Content/js/smoothscroll.js"></script>
+    @*<script src="/Content/js/bootstrap.min.js"></script>*@
+    <script src="/Content/js/custom.js"></script>
+
+    @RenderSection("CSS", false)
 </head>
 
-<header class="top-header">
-    <div class="container">
-        <div class="row">
-            <div class="col-xs-2 header-logo">
-                <br>
-                <a href="index.html"><img src="/Content/img/logo.png" alt="" class="img-responsive logo"></a>
-            </div>
-            <div class="col-md-9">
-                <nav class="navbar navbar-default">
-                    <div class="container-fluid nav-bar">
-                        <!-- Brand and toggle get grouped for better mobile display -->
-                        <div class="navbar-header">
-                            @*<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                                <span class="sr-only">Toggle navigation</span>
-                                <span class="icon-bar"></span>
-                                <span class="icon-bar"></span>
-                                <span class="icon-bar"></span>
-                            </button>*@
-                        </div>
-                        <!-- Collect the nav links, forms, and other content for toggling -->
-                        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-
-                            <ul class="nav navbar-nav navbar-right">
-                                <li><a class="menu active" href="#home">Anasayfa</a></li>
-                                <li><a class="menu" href="#about">Hakkımızda</a></li>
-                                <li><a class="menu" href="#service">our services </a></li>
-                                <li><a class="menu" href="#team">our team</a></li>
-                                <li><a class="menu" href="#contact">İletişim</a></li>
-                              
-
-                                    @if (User.Identity.IsAuthenticated)
-                                    {
-                                        <li class="dropdown">
-                                            <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown">Bana Özel              <span class="caret"></span></a>
-                                            <ul class="dropdown-menu" role="menu">
-                                                <li>  @Html.ActionLink("Hesabım", "MyAccount", "Members")</li>
-                                                <li>@Html.ActionLink("Şifremi Değiştir", "ChangePass", "Members")</li>
-                                                <li class="divider"></li>
-                                                <li>@Html.ActionLink("Kelime İstekleri", "Index", "WordRequests")</li>
-
-                                            </ul>
-                                        </li>
-                                    }
-                                    else
-                                    {
-                                        <li><a class="menu" href="#team">Giriş</a></li>
-                                     
-
-                                    }
-
-                                </ul>
-                            </div><!-- /navbar-collapse -->
-                        </div><!-- / .container-fluid -->
-                    </nav>
-                </div>
-            </div>
-        </div>
-    </header>
-
+ @Html.Action("_Header","Home")
     <body>
         @RenderBody()
+
+        @RenderSection("Scripts", false)
     </body>
 </html>

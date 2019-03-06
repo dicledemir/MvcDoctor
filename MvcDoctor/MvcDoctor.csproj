@@ -312,6 +312,7 @@
     <Content Include="Views\Home\_Write.cshtml" />
     <Content Include="Views\Home\_Header.cshtml" />
     <Content Include="Views\Members\Login.cshtml" />
+    <Content Include="Views\Members\ChangePass.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
