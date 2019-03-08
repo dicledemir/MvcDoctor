@@ -1,21 +1,26 @@
-﻿ <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
- 
+﻿
+@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
 
 <!------ Include the above in your HEAD tag ---------->
- <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
-<script src="//code.jquery.com/jquery-1.11.1.min.js"></script> 
-@section CSS{
+   
 <style>
-    
+
+ 
+
 * {
   margin: 0px auto;
   padding: 0px;
   text-align: center;
   font-family: 'Open Sans', sans-serif;
+  
 }
+.cotn_principal{
+    overflow-y:hidden;
+}
+
 
 .cotn_principal {
   position: absolute;
@@ -73,7 +78,7 @@ transition: all 0.5s;
 
 .cont_forms_active_login {
 box-shadow: 1px 10px 30px -10px rgba(0,0,0,0.5);
- height: 550px;  
+    height: 550px;  
 top:20px;
 left: 0px;
   -webkit-transition: all 0.5s;
@@ -86,7 +91,7 @@ transition: all 0.5s;
 
 .cont_forms_active_sign_up {
 box-shadow: 1px 10px 30px -10px rgba(0,0,0,0.5);
-  height: 550px;  
+  height: 550px;   
 top:20px;
 left:320px;
 -webkit-transition: all 0.5s;
@@ -357,60 +362,9 @@ font-weight: 400;
     margin: 10px;
 margin-left: 30px;
 }
-
-
-
-
-
-
-     li{
-        display:inline-block  !important;
-    }
-
-
-
-
-
-
-    .navbar-default {
-    background-color: transparent !important;
-    border-color: transparent !important;
-    margin-bottom: 0 !important;
-    margin-top: 8px !important;
-    transition: all .5s ease 0s !important;
-    -webkit-transition: all .5s ease 0s;
-    -moz-transition: all .5s ease 0s ;
-    -o-transition: all .5s ease 0s ;
-    -ms-transition: all .5s ease 0s;
-    font-family: 'BenchNine', sans-serif;
-}
-    .fa-facebook {
-  background: #3B5998;
-  color: white;
-   padding: 20px;
-  font-size: 30px;
-  width: 80px;
-  text-align: center;
-  text-decoration: none;
-  margin: 5px 2px;
-}
-    .fa-google {
-  background: #dd4b39;
-  color: white;
-  padding: 20px;
-  font-size: 30px;
-  width: 80px;
-  text-align: center;
-  text-decoration: none;
-  margin: 5px 2px;
-}
-
-
 </style>
-    }
 
-
-<div class="cotn_principal " style="margin-top:300px">
+<div class="cotn_principal">
     <div class="cont_centrar">
         <div class="cont_login">
             <div class="cont_info_log_sign_up">
@@ -451,26 +405,16 @@ margin-left: 30px;
                     <br /><br />
                     veya
                     <div class="social-buttons">
-                        <a href="#" class="btn btn-fb"><i class="fa fa-facebook"></i>  </a>
-                        <a href="#" class="btn btn-tw"><i class="fa fa-google"></i> </a>
+                        <a href="#" class="btn btn-fb"><i class="fa fa-facebook"></i>  aa</a>
+                        <a href="#" class="btn btn-tw"><i class="fa fa-google"></i> aaa</a>
                     </div>
-                   
+
                 </div>
 
-
-
-
                 <div class="cont_form_sign_up">
-
                     <a href="#" onclick="ocultar_login_sign_up()"><i class="material-icons"></i></a>
                     <h2>SIGN UP</h2>
                     <input type="text" placeholder="Username" />
-                    <input type="email" placeholder="Email" />
-                    <div class="form-group">
-                        <input type="radio" name="gender" id="gender" value="girl" />Kadın
-                        <input type="radio" name="gender" id="gender" value="boy" />Erkek
-                    </div>
-                    <input type="file" placeholder="Resim" />
                     <input type="password" placeholder="Password" />
                     <input type="password" placeholder="Confirm Password" />
                     <button class="btn_sign_up" onclick="cambiar_sign_up()">SIGN UP</button>
@@ -480,53 +424,53 @@ margin-left: 30px;
         </div>
     </div>
 </div>
-
-
-
 <script>
+    /* ------------------------------------ Click on login and Sign Up to  changue and view the effect
+---------------------------------------
+*/
 
-    function cambiar_login() {
-        document.querySelector('.cont_forms').className = "cont_forms cont_forms_active_login";
-        document.querySelector('.cont_form_login').style.display = "block";
-        document.querySelector('.cont_form_sign_up').style.opacity = "0";
+function cambiar_login() {
+  document.querySelector('.cont_forms').className = "cont_forms cont_forms_active_login";
+document.querySelector('.cont_form_login').style.display = "block";
+document.querySelector('.cont_form_sign_up').style.opacity = "0";
 
-        setTimeout(function () { document.querySelector('.cont_form_login').style.opacity = "1"; }, 400);
+setTimeout(function(){  document.querySelector('.cont_form_login').style.opacity = "1"; },400);
 
-        setTimeout(function () {
-            document.querySelector('.cont_form_sign_up').style.display = "none";
-        }, 200);
-    }
+setTimeout(function(){
+document.querySelector('.cont_form_sign_up').style.display = "none";
+},200);
+  }
 
-    function cambiar_sign_up(at) {
-        document.querySelector('.cont_forms').className = "cont_forms cont_forms_active_sign_up";
-        document.querySelector('.cont_form_sign_up').style.display = "block";
-        document.querySelector('.cont_form_login').style.opacity = "0";
+function cambiar_sign_up(at) {
+  document.querySelector('.cont_forms').className = "cont_forms cont_forms_active_sign_up";
+  document.querySelector('.cont_form_sign_up').style.display = "block";
+document.querySelector('.cont_form_login').style.opacity = "0";
 
-        setTimeout(function () {
-            document.querySelector('.cont_form_sign_up').style.opacity = "1";
-        }, 100);
+setTimeout(function(){  document.querySelector('.cont_form_sign_up').style.opacity = "1";
+},100);
 
-        setTimeout(function () {
-            document.querySelector('.cont_form_login').style.display = "none";
-        }, 400);
-
-
-    }
+setTimeout(function(){   document.querySelector('.cont_form_login').style.display = "none";
+},400);
 
 
+}
 
-    function ocultar_login_sign_up() {
 
-        document.querySelector('.cont_forms').className = "cont_forms";
-        document.querySelector('.cont_form_sign_up').style.opacity = "0";
-        document.querySelector('.cont_form_login').style.opacity = "0";
 
-        setTimeout(function () {
-            document.querySelector('.cont_form_sign_up').style.display = "none";
-            document.querySelector('.cont_form_login').style.display = "none";
-        }, 500);
+function ocultar_login_sign_up() {
 
-    }
+document.querySelector('.cont_forms').className = "cont_forms";
+document.querySelector('.cont_form_sign_up').style.opacity = "0";
+document.querySelector('.cont_form_login').style.opacity = "0";
+
+setTimeout(function(){
+document.querySelector('.cont_form_sign_up').style.display = "none";
+document.querySelector('.cont_form_login').style.display = "none";
+},500);
+
+  }
+
+
 
 
 </script>

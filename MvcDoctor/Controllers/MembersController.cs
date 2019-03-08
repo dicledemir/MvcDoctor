@@ -18,5 +18,11 @@ namespace MvcDoctor.Controllers
         {
             return View();
         }
+
+        public ActionResult _LoginModal() //partial view olduğu için_ ile başladık
+        {
+            return View();
+        }
+
     }
 }

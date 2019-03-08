@@ -51,20 +51,31 @@ namespace DAL
 
             modelBuilder.Entity<Write>()
                 .HasMany(x => x.WriteComments)
-                .WithMany();
-               
-         
-             modelBuilder.Entity<Category>()
-                .HasMany(x => x.Writes)
-                .WithMany();
+                .WithRequired(x => x.Write)
+                .HasForeignKey(x => x.WriteId);
+
+
+            modelBuilder.Entity<Category>()
+               .HasMany(x => x.Writes)
+               .WithRequired(x=>x.Category)
+               .HasForeignKey(x=>x.CategoryId);
+
 
             modelBuilder.Entity<Person>()
                 .HasMany(x => x.Appointments)
-                .WithMany();
+                .WithRequired(x=>x.person)
+                .HasForeignKey(x=>x.PersonId);
+
 
             modelBuilder.Entity<Person>()
              .HasMany(x => x.WriteComments)
-             .WithMany();
+             .WithRequired(x => x.Person)
+             .HasForeignKey(x => x.PersonId);
+
+            modelBuilder.Entity<Person>()
+                .HasMany(x => x.Notifications)
+                .WithMany();
+                
 
             //modelBuilder.Entity<Language>()
             //.HasMany(x => x.Words)

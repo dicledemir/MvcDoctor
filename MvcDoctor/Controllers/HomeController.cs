@@ -12,27 +12,12 @@ namespace MvcDoctor.Controllers
         {
             return View();
         }
+
+
         public ActionResult _Header()
         {
             return View();
         }
-        public ActionResult _About()
-        {
-            return View();
-        }
-        public ActionResult _Contact()
-        {
-            return View();
-        }
-        public ActionResult _Appointment()
-        {
-            return View();
-        }
-        public ActionResult _Write()
-        {
-            return View();
-        }
-
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";

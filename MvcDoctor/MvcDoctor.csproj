@@ -209,41 +209,17 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\assets\ajax-loader.gif" />
+    <Content Include="Content\assets\owl.carousel.css" />
+    <Content Include="Content\assets\owl.carousel.min.css" />
+    <Content Include="Content\assets\owl.theme.default.css" />
+    <Content Include="Content\assets\owl.theme.default.min.css" />
+    <Content Include="Content\assets\owl.theme.green.css" />
+    <Content Include="Content\assets\owl.theme.green.min.css" />
+    <Content Include="Content\assets\owl.video.play.png" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
-    <Content Include="Content\css\bootstrap.min.css" />
-    <Content Include="Content\css\font-awesome.min.css" />
-    <Content Include="Content\css\style.css" />
-    <Content Include="Content\fonts\fontawesome-webfont.svg" />
-    <Content Include="Content\fonts\glyphicons-halflings-regular.svg" />
-    <Content Include="Content\img\btn-bg.jpg" />
-    <Content Include="Content\img\item1.jpg" />
-    <Content Include="Content\img\item2.jpg" />
-    <Content Include="Content\img\item3.jpg" />
-    <Content Include="Content\img\logo.png" />
-    <Content Include="Content\img\member1.jpg" />
-    <Content Include="Content\img\member2.jpg" />
-    <Content Include="Content\img\member3.jpg" />
-    <Content Include="Content\img\member4.jpg" />
-    <Content Include="Content\img\member5.jpg" />
-    <Content Include="Content\img\member6.jpg" />
-    <Content Include="Content\img\pattern.jpg" />
-    <Content Include="Content\img\service1.png" />
-    <Content Include="Content\img\service2.png" />
-    <Content Include="Content\img\service3.png" />
-    <Content Include="Content\img\service4.png" />
-    <Content Include="Content\img\slide-four.jpg" />
-    <Content Include="Content\img\slide-one.jpg" />
-    <Content Include="Content\img\slide-three.jpg" />
-    <Content Include="Content\img\slide-two.jpg" />
-    <Content Include="Content\js\bootstrap.min.js" />
-    <Content Include="Content\js\custom.js" />
-    <Content Include="Content\js\gmaps.js" />
-    <Content Include="Content\js\html5shiv.js" />
-    <Content Include="Content\js\jquery-2.1.1.js" />
-    <Content Include="Content\js\modernizr.js" />
-    <Content Include="Content\js\respond.min.js" />
-    <Content Include="Content\js\smoothscroll.js" />
+    <Content Include="Content\owl.carousel.min.js" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -253,13 +229,6 @@
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="ApplicationInsights.config" />
-    <Content Include="Content\fonts\fontawesome-webfont.eot" />
-    <Content Include="Content\fonts\fontawesome-webfont.ttf" />
-    <Content Include="Content\fonts\fontawesome-webfont.woff" />
-    <Content Include="Content\fonts\FontAwesome.otf" />
-    <Content Include="Content\fonts\glyphicons-halflings-regular.eot" />
-    <Content Include="Content\fonts\glyphicons-halflings-regular.ttf" />
-    <Content Include="Content\fonts\glyphicons-halflings-regular.woff" />
     <None Include="Scripts\jquery-1.10.2-vsdoc.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -272,6 +241,8 @@
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\_references.js" />
+    <Content Include="Uploads\Sliders\large\866d4f1a-9f58-402a-80b4-d0ffd45335eb-original.png" />
+    <Content Include="Uploads\Sliders\large\dicle.jpg" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -284,7 +255,6 @@
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\About.cshtml" />
-    <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
     <Content Include="Views\Account\ConfirmEmail.cshtml" />
@@ -306,16 +276,13 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
-    <Content Include="Views\Home\_About.cshtml" />
-    <Content Include="Views\Home\_Contact.cshtml" />
-    <Content Include="Views\Home\_Appointment.cshtml" />
-    <Content Include="Views\Home\_Write.cshtml" />
+    <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\_Header.cshtml" />
     <Content Include="Views\Members\Login.cshtml" />
-    <Content Include="Views\Members\ChangePass.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Uploads\Sliders\thumb\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -324,6 +291,20 @@
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BLL\BLL.csproj">
+      <Project>{1BD2200B-996B-4590-A524-83D61C1A607D}</Project>
+      <Name>BLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DAL\DAL.csproj">
+      <Project>{C3B83815-71C4-442B-9941-2AB66506C85B}</Project>
+      <Name>DAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Entity\Entity.csproj">
+      <Project>{29BED72E-6D3C-467E-B43D-4DD4D8F3A787}</Project>
+      <Name>Entity</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

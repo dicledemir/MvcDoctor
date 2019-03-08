@@ -10,7 +10,7 @@ namespace Entity
   public class Write: IEntity
     {
         public int Id { get; set; }
-        public virtual Write write { get; set; }
+ 
         public string Title { get; set; }
         public string Content { get; set; }
         public virtual Category Category { get; set; }
@@ -25,6 +25,8 @@ namespace Entity
         public virtual Person Person { get; set; }
         public virtual Write Write { get; set; } 
         public bool Permission { get; set; }
+        public string PersonId { get; set; }
+        public int WriteId { get; set; }
         public WriteComment()
         {
             Permission = false;

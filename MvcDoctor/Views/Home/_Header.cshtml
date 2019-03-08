@@ -1,52 +1,118 @@
-﻿@{ Layout = null;}
-<header class="top-header">
-    <div class="container">
-        <div class="row">
-            <div class="col-xs-5 header-logo">
-                <br>
-                <a href="index.html"><img src="/Content/img/logo.png" alt="" class="img-responsive logo"></a>
-            </div>
-            <div class="col-md-7">
-                <nav class="navbar navbar-default">
-                    <div class="container-fluid nav-bar">
-                        <!-- Brand and toggle get grouped for better mobile display -->
-                        <div class="navbar-header">
-                            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                                <span class="sr-only">Toggle navigation</span>
-                                <span class="icon-bar"></span>
-                                <span class="icon-bar"></span>
-                                <span class="icon-bar"></span>
-                            </button>
-                        </div>
-                        <!-- Collect the nav links, forms, and other content for toggling -->
-                        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+﻿@{
+    Layout = null;
+}
+   
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>DOCTOR - Responsive HTML &amp; Bootstrap Template</title>
+    <link rel="stylesheet" href="Content/css/font-awesome.min.css">
+    <link rel="stylesheet" href="Content/css/bootstrap.min.css">
+    <link rel="stylesheet" href="Content/css/style.css">
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:600italic,400,800,700,300' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=BenchNine:300,400,700' rel='stylesheet' type='text/css'>
+    <script src="/Content/js/modernizr.js"></script>
+</head>
+<body>
 
-                            <ul class="nav navbar-nav navbar-right">
-                                <li>
-                                    @*@Html.ActionLink("Ana Sayfa", "Home",new { @class = "menu active" })*@
-                                    <a class="menu active" href="#home">Ana Sayfa</a> 
-                                </li>
-                                <li>
-                                    @*@Html.ActionLink("Hakkımızda", "#about", new { @class = "menu" })*@
-                                  <a class="menu" href="#about">Hakkımızda</a> 
-                                </li>
-                                <li>
-                                    <a class="menu" href="#service">our services </a>
-                                </li>
-                                <li>
-                                    <a class="menu" href="#team">our team</a>
-                                </li>
-                                <li>
-                                    <a class="menu" href="#contact"> İletişim</a>
-                                </li>
-                                <li>
-                                    <a class="menu" href="/Members/Login">Giriş</a>
-                                </li>
-                            </ul>
-                        </div><!-- /navbar-collapse -->
-                    </div><!-- / .container-fluid -->
-                </nav>
+
+    <header class="top-header">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-5 header-logo">
+                    <br>
+                    <a href="index.html"><img src="Content/img/logo.png" alt="" class="img-responsive logo"></a>
+                </div>
+                <div class="col-md-7">
+                    <nav class="navbar navbar-default">
+                        <div class="container-fluid nav-bar">
+                            <!-- Brand and toggle get grouped for better mobile display -->
+                            <div class="navbar-header">
+                                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                                    <span class="sr-only">Toggle navigation</span>
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                </button>
+                            </div>
+                            <!-- Collect the nav links, forms, and other content for toggling -->
+                            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
+                                <ul class="nav navbar-nav navbar-right">
+                                    <li><a class="menu active" href="#home">Home</a></li>
+                                    <li><a class="menu" href="#about">about us</a></li>
+                                    <li><a class="menu" href="#service">our services </a></li>
+                                    <li><a class="menu" href="#team">our team</a></li>
+                                    <li><a class="menu" href="#contact"> contact us</a></li>
+                                </ul>
+                            </div><!-- /navbar-collapse -->
+                        </div><!-- / .container-fluid -->
+                    </nav>
+                </div>
             </div>
         </div>
-    </div>
-</header>
+    </header> <!-- end of header area -->
+    <section class="slider" id="home">
+        <div class="container-fluid">
+            <div class="row">
+                <div id="carouselHacked" class="carousel slide carousel-fade" data-ride="carousel">
+                    <div class="header-backup"></div>
+                    <!-- Wrapper for slides -->
+                    <div class="carousel-inner" role="listbox">
+                        <div class="item active">
+                            <img src="Content/img/slide-one.jpg" alt="">
+                            <div class="carousel-caption">
+                                <h1>providing</h1>
+                                <p>highquality service for men &amp; women</p>
+                                <button>learn more</button>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <img src="Content/img/slide-two.jpg" alt="">
+                            <div class="carousel-caption">
+                                <h1>providing</h1>
+                                <p>highquality service for men &amp; women</p>
+                                <button>learn more</button>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <img src="Content/img/slide-three.jpg" alt="">
+                            <div class="carousel-caption">
+                                <h1>providing</h1>
+                                <p>highquality service for men &amp; women</p>
+                                <button>learn more</button>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <img src="Content/img/slide-four.jpg" alt="">
+                            <div class="carousel-caption">
+                                <h1>providing</h1>
+                                <p>highquality service for men &amp; women</p>
+                                <button>learn more</button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Controls -->
+                    <a class="left carousel-control" href="#carouselHacked" role="button" data-slide="prev">
+                        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="right carousel-control" href="#carouselHacked" role="button" data-slide="next">
+                        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</html>

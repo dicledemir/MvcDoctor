@@ -14,7 +14,7 @@ namespace Entity
         public string Subject { get; set; }
         public DateTime CreationDate { get; }
         public DateTime RequestedDate { get; set; }
-
+        public string PersonId { get; set; }
         public DateTime RequestedTime { get; set; }
         public Appointment()
         {
