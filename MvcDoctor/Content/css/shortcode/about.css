@@ -1,0 +1,111 @@
+/* -----------------------------------
+Template:  Theme Name
+
+NOTE: This is About style file. All About related style included in this file.
+
+--------------------------------------*/
+.post-top-social.about-page {
+  border-top: 1px solid #aaaaaa;
+  padding-top: 15px;
+}
+h3.about-title {
+  color: #000000;
+  font-size: 18px;
+  text-transform: uppercase;
+}
+.single-about-service{
+	position:relative;
+}
+.service-icon a {
+  border: 1px solid #49b293;
+  color: #49b293;
+  display: inline-block;
+  font-size: 22px;
+  height: 60px;
+  line-height: 60px;
+  position: absolute;
+  text-align: center;
+  width: 60px;
+}
+.service-text {
+  padding-left: 80px;
+}
+.service-text > h3 {
+  color: #000000;
+  font-size: 18px;
+  font-weight: 400;
+}
+.service-text > p {
+  color: #000000;
+}
+.single-about-service:hover .service-icon a{
+	background:#49b293;
+	color:#fff
+} 
+.about-skill-text > p {
+  color: #424242;
+  font-size: 16px;
+}
+
+
+.left-anim {
+    animation: animate-positive 2s;
+    opacity: 1;
+}
+@keyframes animate-positive {
+    0% {
+        width: 0%;
+    }
+}
+.progressbar-title {
+  color: #000000;
+  margin-bottom: 10px;
+  text-transform: capitalize;
+}
+.progress {
+  background-color: #dbdbdb;
+  border-radius: 0;
+  box-shadow: none;
+  height: 5px;
+  margin-bottom: 0;
+  margin-top: 8px;
+  overflow: visible;
+}
+.progress-bar span {
+  background: #49b293 none repeat scroll 0 0;
+  color: #ffffff;
+  display: block;
+  font-family: "Montserrat",sans-serif;
+  font-size: 9px;
+  font-weight: 400;
+  height: 25px;
+  letter-spacing: 0;
+  line-height: 23px;
+  position: absolute;
+  right: -18px;
+  text-align: center;
+  top: -34px;
+  width: 25px;
+}
+.progress-bar span:before{
+	
+} 
+.progress-bar {
+  background-color: #49b293;
+  position:relative;
+}
+.skills-progress {
+  margin-bottom: 15px;
+}
+.progress-bar span::before {
+  border-left: 5px solid rgba(0, 0, 0, 0);
+  border-right: 5px solid rgba(0, 0, 0, 0);
+  border-top: 5px solid #49b293;
+  bottom: -5px;
+  content: "";
+  height: 0;
+  left: 7px;
+  position: absolute;
+  text-align: center;
+  width: 0;
+}

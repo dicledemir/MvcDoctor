@@ -4,15 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Entity
+namespace Entity.ViewModels
 {
-   public class Contact: IEntity
+  public  class ContactViewModel
     {
-        public int Id { get; set; }
         public string NameSurname { get; set; }
-        public string Title { get; set; }
-
         public string Email { get; set; }
+        public string Title { get; set; }
         public string Message { get; set; }
     }
 }

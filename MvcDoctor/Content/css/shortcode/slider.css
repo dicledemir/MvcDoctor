@@ -1,0 +1,166 @@
+/* -----------------------------------
+Template:  Theme Name
+
+NOTE: This is Slider style file. All Slider related style included in this file.
+
+--------------------------------------*/
+.slider-area{
+	position:relative;
+}
+.slider-img {
+    position: relative;
+}
+.slider-img::before {
+    background: #000 none repeat scroll 0 0;
+    content: "";
+    height: 100%;
+    left: 0;
+    opacity: 0.3;
+    position: absolute;
+    top: 0;
+    width: 100%;
+	z-index:1;
+}
+
+.slider-text {
+  bottom: 45px;
+  left: 0;
+  position: absolute;
+  width:100%;
+  z-index:1;
+}
+a.slider-btn {
+  background: #fff none repeat scroll 0 0;
+  color: #49b293;
+  display: inline-block;
+  font-family: "Montserrat",sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  letter-spacing: 0;
+  padding: 10px 40px;
+  text-transform: uppercase;
+  position:relative;
+}
+a.slider-btn::after {
+  border-right: 20px solid transparent;
+  border-top: 13px solid #ffffff;
+  bottom: -10px;
+  content: "";
+  height: 0;
+  left: 0;
+  position: absolute;
+  width: 0;
+}
+a.slider-btn::before {
+  background: #49b293 none repeat scroll 0 0;
+  bottom: -25px;
+  content: "";
+  height: 1px;
+  left: 0;
+  position: absolute;
+  width: 100%;
+  z-index: 11;
+}
+.single-slider-info h3 {
+  color: #fff;
+  font-weight: 400;
+}
+
+ul.slider-meta li {
+    display: inline-block;
+}
+ul.slider-meta li a {
+    color: #fff;
+    margin-right: 30px;
+	text-transform:capitalize;
+}
+ul.slider-meta li:hover a{
+	color:#49b293;
+}
+ul.slider-meta li a i {
+    margin-right: 10px;
+}
+.slider-area .owl-carousel .owl-controls .owl-nav div {
+  background: #e7e7eb none repeat scroll 0 0;
+  color: #49b293;
+  font-family: "Montserrat",sans-serif;
+  font-size: 18px;
+  height: 60px;
+  left: 0;
+  line-height: 57px;
+  position: absolute;
+  text-align: center;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 60px;
+}
+.slider-area .owl-carousel .owl-controls .owl-nav div.owl-next {
+	right:0;
+	left:auto;
+}
+
+.slide-pull-next {
+	transform: translateX(-40%);
+	z-index: 10;
+	transition: all 0.6s ease-in-out;
+	opacity: 0.9;
+}
+.slide-pull-stay {
+	transform: translateX(0%);
+	z-index: 10;
+	transition: all 0.6s ease-in-out;
+}
+
+
+/* home-2 */
+.slider-text-2 {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 1;
+  width:100%;
+}
+.single-slider-info-2 h3 {
+  display: inline-block;
+  font-family: "Montserrat",sans-serif;
+  font-size: 24px;
+  font-weight: 400;
+  margin-bottom: 40px;
+  position: relative;
+  z-index: 0;
+  color:#fff;
+}
+.single-slider-info-2 h1 {
+  font-size: 48px;
+  color:#fff;
+  text-transform: uppercase;
+}
+
+
+.single-slider-info-2 p {
+  color: #ffffff;
+  font-family: "Source Sans Pro",sans-serif;
+  font-size: 18px;
+  margin: 40px 0;
+}
+
+a.slider-btn-2{
+  background: #eceef1 none repeat scroll 0 0;
+  border: medium none;
+  color: #0d0d0d;
+  font-family: "Montserrat",sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  letter-spacing: 0;
+  padding: 18px 30px;
+  position: relative;
+  text-transform: uppercase;
+  z-index: 0;
+}
+
+
+
+
+
+
+

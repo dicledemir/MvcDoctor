@@ -1,0 +1,36 @@
+/* -----------------------------------
+Template:  Theme Name
+
+NOTE: This is Brand style file. All Brand style included in this file.
+
+--------------------------------------*/
+.social-feed ul li {
+  display: inline-block;
+  padding-right: 49px;
+}
+.social-feed ul li:last-child {
+  padding: 0;
+}
+.social-feed ul li a {
+  color: #000;
+  font-size: 14px;
+  letter-spacing: 0;
+}
+.social-feed ul li i {
+  background: #666666 none repeat scroll 0 0;
+  border-radius: 50%;
+  color: #ffffff;
+  display: inline-block;
+  height: 30px;
+  line-height: 30px;
+  margin-right: 10px;
+  text-align: center;
+  width: 30px;
+  transition:all .3s;
+}
+.social-feed ul li:hover a {
+  color: #49b293;
+}
+.social-feed ul li:hover i{
+	background:#49b293;
+}

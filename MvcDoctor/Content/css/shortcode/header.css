@@ -1,0 +1,149 @@
+/* -----------------------------------
+Template:  Theme Name
+
+NOTE: This is Header style file. All Header related style included in this file.
+
+--------------------------------------*/
+.header-area{}
+.logo {
+  margin-top: 27px;
+}
+.mainmenu {
+}
+.mainmenu ul {
+}
+.mainmenu ul li {
+    float:left;
+    position: relative;
+}
+.mainmenu ul li a {
+  display: block;
+  padding: 30px 15px;
+  text-transform: uppercase;
+  font-family: 'Montserrat', sans-serif;
+  transition:all .3s;
+}
+.mainmenu ul li:hover > a, .mainmenu ul li.active > a{
+	color:#fff;
+	background:#49b293;
+}
+.mainmenu ul li ul {
+  background: #ffffff none repeat scroll 0 0;
+  box-shadow: 0 1px 7px -2px rgba(0, 0, 0, 0.3);
+  left: 0;
+  opacity: 0;
+  position: absolute;
+  text-align: left;
+  top: 100%;
+  transform: scaleY(0);
+  transform-origin: 0 0 0;
+  transition: all 0.4s ease 0s;
+  visibility: hidden;
+  width: 150px;
+  z-index: 111;
+}
+.mainmenu ul li a i {
+  font-size: 13px;
+  margin-left: 2px;
+}
+.mainmenu ul li:hover ul{
+	opacity:1;
+	transform:scaleY(1);
+	visibility:visible;
+}
+.mainmenu ul li ul  li{
+	float:none;
+}
+.mainmenu ul li ul li a{
+  border-bottom: 1px solid #e2e2e2;
+  padding: 15px 14px;
+  text-transform: capitalize;
+  font-family: 'Source Sans Pro', sans-serif;
+  transition:all .3s;  
+}
+.mainmenu ul li ul li:hover a{
+	background:#fff;
+	color:#49b293;
+}
+
+/* header-search */
+.header-search {
+  margin-top: 16px;
+}
+.header-search form {
+    position: relative;
+}
+.header-search form input {
+  background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
+  border: medium none;
+  font-style: italic;
+  padding-left: 30px;
+}
+.header-search form button {
+  background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
+  border: medium none;
+  height: 100%;
+  position: absolute;
+  right: 0;
+  top: 0;
+  color:#939393;
+}
+
+/*-------------------
+ Home-2
+ -------------------- */
+ .header-bottom-area {
+  border-top: 1px solid #ccc;
+}
+.header-icon {
+  margin-top: 28px;
+  text-align: right;
+}
+.header-icon li{
+	display:inline-block;
+	padding-left:5px;
+	position:relative;
+}
+.header-icon li a{
+  border: 1px solid #adacad;
+  height: 25px;
+  line-height: 10px;
+  padding: 5px 12px;
+  text-align: center;
+  transform: skew(-20deg, 0deg);
+  width: 35px;
+  display:block;
+} 
+.header-icon li a:hover{
+	background:#000;
+	color:#fff;
+    border: 1px solid #000;	
+}
+
+.home-v2-tagline {
+  display: block;
+  height: auto;
+  padding: 20px 0;
+  position: relative;
+  text-align: center;
+  width: 100%;
+  z-index: 0;
+}
+.home-v2-tagline h2 {
+  color: #424242;
+  display: inline-block;
+  font-family: "Source Sans Pro",sans-serif;
+  font-size: 24px;
+  font-weight: 400;
+  letter-spacing: 0;
+  margin: 0 auto;
+  position: relative;
+  z-index: 0;
+}
+.sidebar-area.sidebar-area-2{
+  margin-top: 45px;
+}
+.audio-size {
+  height: 331px;
+  width: 100%;
+}

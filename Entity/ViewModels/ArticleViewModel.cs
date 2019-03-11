@@ -4,13 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Entity
+namespace Entity.ViewModels
 {
-  public  class Category: IEntity
+  public  class ArticleViewModel
     {
-        public int Id { get; set; }
-        public string Name { get; set; }
-        public string ImageUrl { get; set; }
+        public virtual List<Category> Categories { get; set; }
         public virtual List<Write> Writes { get; set; }
     }
 }

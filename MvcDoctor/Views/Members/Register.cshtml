@@ -1,0 +1,132 @@
+﻿@using Entity
+@model Person
+@{
+    ViewBag.Title = "Register";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+    .account-box
+{
+    border: 2px solid rgba(153, 153, 153, 0.75);
+    border-radius: 2px;
+    -moz-border-radius: 2px;
+    -webkit-border-radius: 2px;
+    -khtml-border-radius: 2px;
+    -o-border-radius: 2px;
+    z-index: 3;
+    font-size: 13px !important;
+    font-family: "Helvetica Neue" ,Helvetica,Arial,sans-serif;
+    background-color: #ffffff;
+    padding: 20px;
+}
+
+.logo
+{
+    width: 138px;
+    height: 30px;
+    text-align: center;
+    margin: 10px 0px 27px 40px;
+    background-position: 0px -4px;
+    position: relative;
+}
+
+.forgotLnk
+{
+    margin-top: 10px;
+    display: block;
+}
+
+.purple-bg
+{
+    background-color: #6E329D;
+    color: #fff;
+}
+.or-box
+{
+    position: relative;
+    border-top: 1px solid #dfdfdf;
+    padding-top: 20px;
+    margin-top:20px;
+}
+.or
+{
+    color: #666666;
+    background-color: #ffffff;
+    position: absolute;
+    text-align: center;
+    top: -8px;
+    width: 40px;
+    left: 90px;
+}
+.account-box .btn:hover
+{
+    color: #fff;
+}
+.btn-facebook
+{
+    background-color: #3F639E;
+    color: #fff;
+    font-weight:bold;
+}
+.btn-google
+{
+    background-color: #454545;
+    color: #fff;
+    font-weight:bold;
+}
+
+</style>
+
+
+
+<div class="container register">
+
+    <div class="row">
+        <div class="col-md-3 col-md-offset-4">
+            <div class="account-box">
+                <div class="logo ">
+                    <img src="http://placehold.it/90x38/fff/6E329D&text=LOGO" alt="" />
+                </div>
+
+
+                @using (Html.BeginForm("Register", "Members", FormMethod.Post, htmlAttributes: new { @enctype = "multipart/form-data", @class = "form-signin" }))
+                {
+                    @Html.AntiForgeryToken()
+                    @*<form class="form-signin" action="#">*@
+                    <div class="form-group">
+                        @Html.TextBoxFor(x => x.UserName, new { @placeholder = "Kullanıcı Adı", @class = "form-control", @required = "required" })
+                        @*<input type="text" class="form-control" placeholder="Email" required autofocus />*@
+                    </div>
+                    <div class="form-group">
+                        @Html.TextBoxFor(x => x.Email, new { @placeholder = "Email", @class = "form-control", @required = "required" })
+                        @*<input type="password" class="form-control" placeholder="Password" required />*@
+                    </div>
+                    <div class="form-group">
+                        <input type="radio" name="gender" id="gender1" value="girl" style="height:20px;width:20px;"/>Kadın
+                    
+                        <input type="radio" name="gender" id="gender" value="boy" style="height:20px;width:20px;" />Erkek
+                    </div>
+
+                    <div class="form-group">
+                        @Html.TextBox("Pass", null, new { @type = "password", @class = "form-control", @placeholder = "Şifre*" })
+                    </div>
+
+                            <div class="form-group">
+                                @Html.TextBox("PassR", null, new { @type = "password", @class = "form-control", @placeholder = "Şifre Tekrar*" })
+                                <br />
+
+
+                                <button class="btn btn-lg btn-block btn-warning">
+                                    Kayıt Ol
+                                </button>
+                                @*</form>*@
+                            </div>
+
+                }
+                <a class="forgotLnk" href="http://www.jquery2dotnet.com">Giriş Sayfasına Git</a>
+
+            </div>
+        </div>
+    </div>
+</div>

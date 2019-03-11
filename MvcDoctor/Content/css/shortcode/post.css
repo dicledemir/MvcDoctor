@@ -1,0 +1,330 @@
+/* -----------------------------------
+Template:  Theme Name
+
+NOTE: This is Post style file. All Post related style included in this file.
+
+--------------------------------------*/
+.section-title h4 {
+  color: #49b293;
+  font-weight: 400;
+  position: relative;
+  margin-bottom:40px;
+  font-family: 'Crimson Text', serif;
+}
+.section-title.text-center > h3 {
+  font-weight: 400;
+  text-transform: uppercase;
+  margin-bottom:20px;
+}
+.section-title h4::before {
+  background: #49b293 none repeat scroll 0 0;
+  bottom: -12px;
+  content: "";
+  height: 1px;
+  position: absolute;
+  width: 70px;
+}
+.section-title span {
+  color: #424242;
+  font-style: italic;
+  font-weight: 300;
+  text-transform: uppercase;
+}
+.post-top {
+  border-bottom: 1px solid #c3c3c3;
+  overflow: hidden;
+  padding-bottom: 15px;
+}
+.post-img{
+	overflow:hidden;
+}
+.post-img img{
+	transition:all .5s;
+}
+.post-img img:hover{
+	transform:scale(1.06);
+}
+.post-top-info p {
+  font-size: 16px;
+}
+blockquote {
+  border-left: 1px solid #49b293;
+  color: #49b293;
+  font-family: "Source Sans Pro",sans-serif;
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 24px;
+  margin: 0;
+  padding:0 10px;
+  margin-bottom:25px;
+}
+a.post-top-btn {
+  border: 1px solid #49b293;
+  display: inline-block;
+  font-family: Crimson Text;
+  font-size: 16px;
+  padding: 12px 15px;
+  color:#49b293;
+  font-family: 'Crimson Text', serif;
+  font-weight:700;
+  margin-top:30px;
+}
+a.post-top-btn:hover{
+	background:#49b293;
+	color:#fff;
+}
+a.post-top-btn i {
+  float: right;
+  margin-left: 9px;
+  margin-top: 5px;
+}
+.post-top-footer > span {
+  font-family: Crimson Text;
+  font-size: 16px;
+}
+.post-top-social span {
+  font-family: Crimson Text;
+}
+.post-top-social a {
+  background: #49b293 none repeat scroll 0 0;
+  border: 1px solid #49b293;
+  color: #fff;
+  display: inline-block;
+  height: 25px;
+  line-height: 24px;
+  margin-left: 5px;
+  text-align: center;
+  width: 25px;
+}
+.post-top-social a:hover{
+	background:#fff;
+	color:#49b293;
+} 
+
+/* post-blog-area */
+.post-blog-area{}
+.single-post{
+	position:relative;	
+}
+.single-post-img{
+	position:relative;
+}
+.single-post-img::before {
+  background: #000 none repeat scroll 0 0;
+  content: "";
+  height: 100%;
+  left: 0;
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  transition:all .4s;
+    transform:scale(0);
+}
+.single-post:hover .single-post-img::before {opacity:.4;  transform:scale(1);}
+.single-post:hover .single-post-text{opacity:1;z-index:1;transform:scale(1)}
+.single-post-text {
+  bottom: 35px;
+  position: absolute;
+  width: 100%;
+  padding-left: 30px;
+  opacity:0;
+  transition:all .3s;
+  transform:scale(0);
+}
+.single-post-text > a h3 {
+  color: #fff;
+  font-family: Crimson Text;
+  font-size: 20px;
+  font-weight: 600;
+}
+.single-post-text ul li {
+  display: inline-block;
+}
+.single-post-text ul li a{
+	color:#fff;
+	margin-right:15px;
+}
+
+.single-post-text ul li a i{
+	color:#fff;
+	margin-right:5px;
+}
+
+.single-post-right{
+  border-bottom: 1px solid #49b293;
+  border-right: 1px solid #49b293;
+  border-top: 1px solid #49b293;
+  display: block;
+  margin-top: 10px;
+  padding: 30px 30px 51px 0;
+  position: relative;
+  width: 100%;
+  z-index: 0;
+}
+.single-post-right > h3 {
+  color: #49b293;
+}
+.single-post-right .post-category h3{
+  background: #fff none repeat scroll 0 0;
+  color: #49b293;
+  display: inline-block;
+  font-family: "Montserrat",sans-serif;
+  font-size: 24px;
+  font-weight: 700;
+  height: 40px;
+  left: 0;
+  letter-spacing: 0;
+  line-height: 40px;
+  padding-right: 60px;
+  position: absolute;
+  top: -22px;
+  width: auto;
+}
+.single-post-right h4 {
+  margin-bottom: 35px;
+  margin-top: 12px;
+  position:relative;
+  transition:all .3s;
+}
+.single-post-right h4:hover{
+	color:#49b293;
+}
+.single-post-right > p {
+  font-size: 16px;
+}
+.single-post-right h4:before {
+  position: absolute;
+  width: 150px;
+  left: 0;
+  background: #000;
+  height: 1px ;
+  content: "";
+  bottom: -18px;
+}
+.post-top-btn.m-0 {
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: 400;
+  margin: 0;
+  padding: 8px 20px;
+}
+
+.single-post-left {
+  border-bottom: 1px solid #adadad;
+  border-left: 1px solid #adadad;
+  border-top: 1px solid #adadad;
+  display: block;
+  margin-top: 10px;
+  padding: 30px 0 51px 30px;
+  position: relative;
+  text-align: right;
+  width: 100%;
+  z-index: 0;
+}
+
+.single-post-left > h3 {
+  color: #49b293;
+}
+.single-post-left .post-category h3 {
+  background: #fff none repeat scroll 0 0;
+  color: #49b293;
+  display: inline-block;
+  font-family: "Montserrat",sans-serif;
+  font-size: 24px;
+  font-weight: 700;
+  height: 40px;
+  letter-spacing: 0;
+  line-height: 40px;
+  padding-left: 60px;
+  position: absolute;
+  right: 0;
+  top: -22px;
+  width: auto;
+}
+.single-post-left h4 {
+  margin-bottom: 35px;
+  margin-top: 12px;
+  position:relative;
+  transition:all .3s;
+}
+.single-post-left h4:hover{
+	color:#49b293;
+}
+.single-post-left > p {
+  font-size: 16px;
+}
+.single-post-left h4:before {
+  position: absolute;
+  width: 150px;
+  right: 0;
+  background: #000;
+  height: 1px ;
+  content: "";
+  bottom: -18px;
+}
+
+.pagination {
+  border-radius: 0px;
+  margin: 0;
+}
+.post-pagination ul li a {
+  border: 1px solid #adadad;
+  color: #242424;
+  font-family: Crimson Text;
+  font-size: 18px;
+  font-weight: 700;
+  height: 60px;
+  line-height: 60px;
+  padding: 0;
+  text-align: center;
+  width: 60px;
+}
+.pagination > li:last-child > a, .pagination > li:last-child > span {
+  border-bottom-right-radius: 0;
+  border-top-right-radius: 0;
+}
+.pagination > li:first-child > a, .pagination > li:first-child > span {
+  border-bottom-left-radius: 0;
+  border-top-left-radius: 0;
+  margin-left: 0;
+}
+.pagination > li > a:focus, .pagination > li > a:hover, .pagination > li > span:focus, .pagination > li > span:hover {
+  background-color: #fff;
+  color: #49B293;
+  z-index: 2;
+  border: 1px solid #adadad;  
+}
+.pagination > .active > a, .pagination > .active > a:focus, .pagination > .active > a:hover, .pagination > .active > span, .pagination > .active > span:focus, .pagination > .active > span:hover {
+  background-color: #fff;
+  border-color: #adadad;
+  color: #49B293;
+
+}
+
+/* home-2 */
+.post-top-footer.border-color-2 {
+  padding-bottom: 15px;
+}
+.post-top.post-top-2{
+  padding-bottom: 10px;
+}
+.video-lg {
+  height: 600px;
+  width: 100%;
+}
+.post-older {
+  height: auto;
+  padding: 0;
+  text-align: right;
+  width: 100%;
+}
+.post-older a {
+  color: #cccccc;
+  display: inline-block;
+  font-family: "Montserrat",sans-serif;
+  font-size: 24px;
+  padding-right: 40px;
+  position: relative;
+  z-index: 0;
+}

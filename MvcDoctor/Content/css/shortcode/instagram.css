@@ -1,0 +1,59 @@
+/* -----------------------------------
+Template:  Theme Name
+
+NOTE: This is Instagram style file. All Instagram style included in this file.
+
+--------------------------------------*/
+.instagram-wrap {
+  position: relative;
+  width: 100%;
+  z-index: 0;
+}
+.instagram-img-wrap img {
+  height: auto;
+  width: 100%;
+}
+.instagram-img-wrap a::after {
+  background: rgba(255, 255, 255, 0.3) none repeat scroll 0 0;
+  content: "";
+  display: block;
+  height: 96%;
+  left: 2%;
+  opacity: 0;
+  position: absolute;
+  top: 2%;
+  transform: scale(0.5);
+  transition: all 300ms ease 0s;
+  width: 96%;
+}
+.instagram-img-wrap a:hover:after{opacity:1;transform:scale(1)
+}
+.pn{
+	padding:0;
+}
+.instagram-caption {
+  height: auto;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 60px;
+  transform: scale(1);
+  transition: all 0.3s ease-in-out 0s;
+  width: 100%;
+}
+.instagram-wrap:hover .instagram-caption {
+  transform: scale(0);
+}
+.details-link {
+  text-align: center;
+}
+.instagram-caption-content li a {
+  background: #e7e7e7 none repeat scroll 0 0;
+  color: #242424;
+  font-family: "Source Sans Pro",sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  letter-spacing: 0;
+  padding: 10px 20px;
+}
+

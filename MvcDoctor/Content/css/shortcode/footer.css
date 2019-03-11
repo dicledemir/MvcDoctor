@@ -1,0 +1,117 @@
+/* -----------------------------------
+Template:  Theme Name
+
+NOTE: This is Footer style file. All footer related style included in this file.
+
+--------------------------------------*/
+.footer-area{}
+.footer-widget{}
+.footer-title h3 {
+  color: #ffffff;
+  font-weight: 400;
+}
+.widget-text > p {
+  color: #fff;
+  font-size: 16px;
+}
+
+.footer-newsletter form {
+    position: relative;
+}
+.footer-newsletter form input {
+    background: transparent none repeat scroll 0 0;
+    border: 1px solid #fff;
+    color: #fff;
+	font-size:18px;
+}
+.footer-newsletter form button {
+  -moz-border-bottom-colors: none;
+  -moz-border-left-colors: none;
+  -moz-border-right-colors: none;
+  -moz-border-top-colors: none;
+  background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
+  border-color: -moz-use-text-color;
+  border-image: none;
+  border-style: none none none solid;
+  border-width: medium medium medium 1px;
+  color: #fff;
+  font-size: 16px;
+  height: 100%;
+  position: absolute;
+  right: 0;
+  width: 50px;
+  top:0;
+}
+.footer-newsletter form input::placeholder{
+  color: #eee;
+  font-style:italic;
+  font-size:18px;
+}
+.archive-content > li {
+    border-bottom: 1px solid #6e6e6e;
+    margin-bottom: 11px;
+    padding-bottom: 11px;
+}
+ul.archive-content li a {
+    color: #fff;
+    font-family: Crimson Text;
+}
+.archive-content > li a i {
+  margin-right: 10px;
+}
+.archive-content > li:last-child {
+  border: medium none;
+  margin: 0;
+  padding: 0;
+}
+ul.archive-content li a:hover {
+  color: #49b192;
+}
+
+.weidget-twitter li p{
+  color: #fff;
+  font-family: Crimson Text;
+  margin:0;
+}
+.weidget-twitter a {
+  color: #fff;
+}
+.weidget-twitter a:hover{
+	color:#49b293;
+}
+.weidget-twitter span {
+  color: #49b293;
+}
+.weidget-twitter li {
+  border-bottom: 1px solid #6e6e6e;
+  margin-bottom: 15px;
+  padding-bottom: 15px;
+}
+.weidget-twitter li:last-child{
+	border:none;
+}
+
+
+/* copyright-area */
+.copyright-left > p {
+  color: #fff;
+  font-family: Crimson Text;
+  margin: 0;
+}
+.copyright-right p {
+  color: #fff;
+  font-family: Crimson Text;
+  margin: 0;
+  text-align: right;
+}
+.copyright-right p a {
+    color: #fff;
+}
+.copyright-right p a:hover {
+    color: #49b293;
+}
+
+.footer-newsletter form input::-moz-placeholder {
+  color: #fff;
+  font-size: 15px;
+}

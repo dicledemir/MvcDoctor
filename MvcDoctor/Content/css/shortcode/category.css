@@ -1,0 +1,53 @@
+/* -----------------------------------
+Template:  Theme Name
+
+NOTE: This is Category style file. All Category related style included in this file.
+
+--------------------------------------*/
+.page-header-area::before {
+  background: #000000 none repeat scroll 0 0;
+  content: "";
+  height: 100%;
+  left: 0;
+  opacity: 0.4;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+.page-header-text h2 {
+  color: #ffffff;
+  font-size: 24px;
+  font-weight: 400;
+  text-transform: uppercase;
+}
+.breadcrumb {
+  background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+
+.page-header-text h2 {
+    color: #ffffff;
+    font-size: 24px;
+    font-weight: 400;
+    text-transform: uppercase;
+}
+ul.breadcrumb li span {
+    color: #ffffff;
+    font-size: 16px;
+}
+.breadcrumb li a {
+    color: #ffffff;
+    font-size: 16px;
+}
+.breadcrumb li a:hover{
+	color:#49B293;
+}
+a.post-category.lifestyle h3 {
+  color: #333333;
+  transition:all .3s;
+}
+a.post-category.lifestyle h3:hover{
+	color:#49B293;
+} 

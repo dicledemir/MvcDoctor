@@ -1,0 +1,236 @@
+/*-----------------------------------------------------------------------------------
+
+    Template Name: Your template name 
+    Template URI: http://bootexperts.com
+    Description: This is html5 template
+    Author: BootExperts
+    Author URI: http://bootexperts.com
+    Version: 1.0
+
+-----------------------------------------------------------------------------------
+    
+    CSS INDEX
+    ===================
+	
+    1. Theme Default CSS (body, link color, section etc)
+
+-----------------------------------------------------------------------------------*/
+
+/*----------------------------------------*/
+/*  1.  Theme default CSS
+/*----------------------------------------*/
+/* google-fonts */
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,700|Source+Sans+Pro:300,400,600,700|Crimson+Text:400,600,700');
+
+html, body {height: 100%;font-family: 'Source Sans Pro', sans-serif;color:#242424}
+.floatleft {float:left}
+.floatright {float:right}
+.alignleft {float:left;margin-right:15px;margin-bottom: 15px}
+.alignright {float:right;margin-left:15px;margin-bottom: 15px}
+.aligncenter {display:block;margin:0 auto 15px}
+a:focus {outline:0px solid}
+img {max-width:100%;height:auto}
+.fix {overflow:hidden}
+p {margin:0 0 15px;
+line-height:24px;
+}
+h1, h2, h3, h4, h5, h6 {
+	margin: 0 0 10px;
+	font-family: 'Montserrat', sans-serif;
+	font-weight: 700;
+	color:#242424;
+}
+a {transition: all 0.3s ease 0s;text-decoration:none;}
+a:hover {
+  color: #49B293;
+  text-decoration: none;
+  transition:all .3s;
+}
+a:active, a:hover {
+  outline: 0 none;
+}
+ul{
+list-style: outside none none;
+margin: 0;
+padding: 0
+}
+.clear{clear:both}
+body {font-family: 'Source Sans Pro', sans-serif;}
+::-moz-selection {
+    background: #b3d4fc;
+    text-shadow: none;
+}
+::selection {
+    background: #b3d4fc;
+    text-shadow: none;
+}
+.browserupgrade {
+    margin: 0.2em 0;
+    background: #ccc;
+    color: #000;
+    padding: 0.2em 0;
+}
+.border-color-1{
+	border-top:1px solid#c3c3c3;
+}
+.border-color-2{
+	border-bottom:1px solid#c3c3c3;
+}
+
+div#preloader {
+    background: #000 url("img/squares.gif") no-repeat scroll center center;
+    height: 100%;
+    left: 0;
+    overflow: visible;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 999;
+}
+
+
+#scrollUp {
+  background: #49b293 none repeat scroll 0 0;
+  border-radius: 3px;
+  bottom: 30px;
+  color: #fff;
+  font-size: 18px;
+  height: 40px;
+  line-height: 36px;
+  position: absolute;
+  right: 30px;
+  text-align: center;
+  width: 40px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.5);  
+}
+#scrollUp:hover{
+	background:#238760;
+}
+.sticky {
+  animation: 300ms ease-in-out 0s normal none 1 running fadeInDown;
+  box-shadow: 2px 2px 2px #c0c0ba;
+  left: 0;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1111111;
+}
+.home-v2-tagline {
+  display: block;
+  height: auto;
+  padding: 20px 0 0;
+  position: relative;
+  text-align: center;
+  width: 100%;
+  z-index: 0;
+}
+.home-v2-tagline .title {
+  color: #424242;
+  display: inline-block;
+  font-family: "Source Sans Pro",sans-serif;
+  font-size: 24px;
+  font-weight: 400;
+  letter-spacing: 0;
+  margin: 0 auto;
+  position: relative;
+  z-index: 0;
+}
+.home-v2-tagline .title::before {
+  background: rgba(0, 0, 0, 0) url("img/before-title-img.png") repeat scroll 0 0;
+  content: "";
+  display: inline-block;
+  height: 15px;
+  left: -90px;
+  position: absolute;
+  top: 10px;
+  width: 72px;
+  z-index: 1;
+}
+
+.home-v2-tagline .title::after {
+  background: rgba(0, 0, 0, 0) url("img/after-title-img.png") repeat scroll 0 0;
+  content: "";
+  display: inline-block;
+  height: 15px;
+  position: absolute;
+  right: -90px;
+  top: 10px;
+  width: 72px;
+  z-index: 1;
+}
+
+.page-header-area {
+  background: rgba(0, 0, 0, 0) url("img/catagory/header.jpg") no-repeat scroll center center / cover ;
+  position:relative;
+}	
+
+
+.header-search-2{
+  background-clip: padding-box;
+  background-color: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  border-radius: 4px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.176);
+  float: right;
+  font-size: 14px;
+  list-style: outside none none;
+  margin: 2px 0 0;
+  min-width: 160px;
+  padding: 5px 0;
+  position: absolute;
+  right: 100px;
+  text-align: left;
+  top: 50px;
+  z-index: 1000;
+}
+.dropdown-menu {
+  background-clip: padding-box;
+  background-color: #000;
+  border: medium none;
+  border-radius: 0;
+  box-shadow: none;
+  display: none;
+  float: left;
+  font-size: 14px;
+  left: -130px;
+  list-style: outside none none;
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  text-align: left;
+  top: 53px;
+  transform: skew(-20deg, 0deg);
+  z-index: 1000;
+}
+
+.dropdown-menu.header-search-2 li form input {
+  background: #000 none repeat scroll 0 0;
+  border: medium none;
+  color:#fff;
+  height:40px;
+}
+.dropdown-menu.header-search-2 input::-moz-placeholder {
+  color: #fff;
+}
+
+
+.not-found-area {
+  background: #242424 none repeat scroll 0 0;
+  padding: 190px 0;
+  text-align: center;
+}
+.not-found-text > h3 {
+  color: #fff;
+  font-size: 30px;
+  font-weight: 400;
+  margin-top: 80px;
+}
+.not-found-btn {
+  border: 1px solid #fff;
+  border-radius: 5px;
+  color: #fff;
+  display: inline-block;
+  margin-top: 30px;
+  padding: 6px 20px;
+  text-transform: uppercase;
+}

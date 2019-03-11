@@ -1,0 +1,27 @@
+/* -----------------------------------
+Template:  Theme Name
+
+NOTE: This is Contact style file. All Contact related style included in this file.
+
+--------------------------------------*/
+.post-top-info.contact-text {
+  margin-bottom: 30px;
+}
+#googleMap {
+  height: 450px;
+  width: 100%;
+}
+.map-service-area {
+  background: #49B293;
+}
+.single-map-service-icon i {
+  font-size: 24px;
+  color: #fff;
+  margin-bottom:10px;
+}
+.single-map-service-text > p {
+  color: #fff;
+  font-size: 16px;
+  margin: 0;
+  line-height: 26px;
+}
