@@ -1,0 +1,25 @@
+﻿
+@using Entity
+@model Category
+
+@{ Layout = null;}
+
+
+<li>
+    <a href="#"> Makaleler<i class="fa fa-caret-down"></i></a>
+
+    <ul>
+        @foreach (var item in ViewBag.article)
+        {
+
+            @*<a href="/Activity/ActivityDetails?id=@item.ActivityId&kullaniciId=@item.UserId"*@ 
+
+            <li>
+                <a href="/Article/Index?id=@item.Value">
+                    @item.Text
+                </a>
+            </li>
+        }
+
+    </ul>
+</li>

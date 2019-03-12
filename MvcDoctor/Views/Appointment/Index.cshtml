@@ -1,0 +1,130 @@
+﻿@using Entity
+@model Appointment
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<style>
+    .bb {
+        background-color: #25274d;
+        width:100%;
+        height:600px;
+    }
+
+    .contact {
+        padding: 4%;
+        height: 400px;
+        background-color: #25274d;
+    }
+
+    .resim {
+        background: #ff9b00;
+        padding: 4%;
+        border-top-left-radius: 0.5rem;
+        border-bottom-left-radius: 0.5rem;
+    }
+
+    .contact-info {
+        margin-top: 15%;
+    }
+
+        .contact-info img {
+            margin-bottom: 15%;
+        }
+
+        .contact-info h2 {
+            margin-bottom: 29%;
+        }
+
+    .col-md-9 {
+        background: #fff;
+        padding: 3%;
+        border-top-right-radius: 0.5rem;
+        border-bottom-right-radius: 0.5rem;
+    }
+
+    .contact-form label {
+        font-weight: 600;
+    }
+
+    .contact-form button {
+        background: #25274d;
+        color: #fff;
+        font-weight: 600;
+        width: 25%;
+    }
+
+        .contact-form button:focus {
+            box-shadow: none;
+        }
+        #gönder{
+            width: 100%;
+    margin-left: -119px;
+        height: 0%;
+}
+        }
+</style>
+<div class="bb">
+    <div class="container contact">
+        @using (Html.BeginForm()) {
+
+        <div class="row">
+            <div class="col-md-3 resim">
+                <div class="contact-info">
+                    <img src="https://image.ibb.co/kUASdV/contact-image.png" alt="image" />
+                    <h2>Bize Ulaş</h2>
+                    <h4>Randevunu Gerçekleştir!</h4>
+                </div>
+            </div>
+            <div class="col-md-9">
+               
+                <div class="form-group">
+                    @*@Html.LabelFor(x=>x.CreationDate)*@
+                    <div class="col-sm-10">
+                        @Html.TextBoxFor(x=>x.CreationDate, new {
+                       @type = "text",
+                       @onclick = "this.type='date'",
+                       @onblur = "this.type='text'",
+                     
+                       @required = "required",
+                       @placeholder = "Tercih Edilen Gün" 
+                   })
+                    </div>
+                </div>
+
+                <br /><br />
+                <div class="form-group">
+                    @*@Html.LabelFor(x=>x.CreationDate)*@
+                    <div class="col-sm-10">
+                        @Html.TextBoxFor(x => x.RequestedTime, new { @*@type = "time"*@
+                       @type = "text", @onclick ="this.type='time'" ,@onblur = "this.type='text'"
+                       ,
+                       
+                       @required = "required",
+                       @placeholder = "Tercih Edilen Saat" })
+                    </div>
+                </div>
+                <br /><br />
+
+
+                <div class="form-group">
+                    @*@Html.LabelFor(x=>x.CreationDate)*@
+                    <div class="col-sm-10">
+                        @Html.TextAreaFor(x => x.Subject, new { @type = "", @rows = "5", @placeholder = "Konu", @required = "required" })
+                    </div>
+                </div>
+                     
+                <br /><br />
+
+                    <div class="form-group">
+                        <div class="col-sm-offset-2 col-sm-10">
+                            <button id="gönder" type="submit" class="btn btn-default btn-success">Randevu Oluştur</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+        </div>
+    </div>
+
+ 

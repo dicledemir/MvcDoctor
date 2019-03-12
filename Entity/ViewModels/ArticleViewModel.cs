@@ -8,7 +8,7 @@ namespace Entity.ViewModels
 {
   public  class ArticleViewModel
     {
-        public virtual List<Category> Categories { get; set; }
+        public virtual  Category Categories { get; set; }
         public virtual List<Write> Writes { get; set; }
     }
 }

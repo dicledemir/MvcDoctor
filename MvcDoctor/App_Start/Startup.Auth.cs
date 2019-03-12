@@ -60,11 +60,11 @@ namespace MvcDoctor
             //   appId: "",
             //   appSecret: "");
 
-            //app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
-            //{
-            //    ClientId = "",
-            //    ClientSecret = ""
-            //});
+            app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
+            {
+                ClientId = "283875949409-2gerpl5ri9a1l2799odkac6cl0mqliae.apps.googleusercontent.com",
+                ClientSecret = "EvoS_wBd1l674UKnnrMfT9Lc"
+            });
         }
     }
 }

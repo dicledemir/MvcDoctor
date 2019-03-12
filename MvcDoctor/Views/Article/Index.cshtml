@@ -1,0 +1,205 @@
+﻿@using Entity.ViewModels
+@model ArticleViewModel
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+ 
+<div class="container">
+    <div class="row"style="padding-top:20px">
+        <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12">
+            <div class="post-blog-area lifestyle-area">
+                <div class="single-post-item mb-50">
+
+                @foreach (var item in Model.Writes)
+                        {
+                    <div class="row">
+                         
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                            <div class="single-post">
+                                <div class="single-post-img">
+                                    <img src="~/Content/img/blog/6.jpg" alt="" />
+                                </div>
+                                <div class="single-post-text">
+                                    <a href="#"><h3>@item.Title</h3></a>
+                                    <ul>
+                                        <li><a href="#"><i class="fa fa-clock-o"></i> Aug 8,2016</a></li>
+                                        <li><a href="#"><i class="fa fa-commenting-o"></i> 500</a></li>
+                                        <li><a href="#"><i class="fa fa-eye"></i> 1928</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                       
+
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                            <div class="single-post-right">
+                                <a href="#" class="post-category lifestyle"><h3>@item.Category.Name</h3></a>
+                                <a href="#"><h4>@item.Title</h4></a>
+
+                                @if (item.Content.ToString().Length > 250)
+                                {
+                                    <p> @item.Content.Substring(0,250) 
+                                ...<br />
+                                <a href="#" class="post-top-btn m-0">Devamını Oku</a></p>
+                                }
+                                else
+                                {
+                                    <p>
+                                        @item.Content
+                                    </p>
+                                        }
+
+                                        
+</div>
+                        </div>
+
+
+                         
+
+                    </div>
+
+                    <br />  <br />
+}
+
+
+
+                    <div class="text-center">
+                        @if (ViewBag.PrevVisible)
+                        {
+                            int a = Model.Categories.Id;
+                            <a href="?page=@Html.Raw(ViewBag.CurrentPage-1)&id=@a">Prev</a>}
+                        @{
+                            string c = string.Empty;
+                        }
+                        @for (int i = ViewBag.Start; i <= ViewBag.End; i++)
+                        {
+                            int a = Model.Categories.Id;
+                            c = i == ViewBag.CurrentPage ? "active" : string.Empty;
+                            <a href="?page=@i&id=@a" class="@c pagination">@i</a> //direk aynı sayfaya gödereceğimiz için ? oldu tek
+                        }
+                        @if (ViewBag.PrevVisible)
+                        {
+                            int a = Model.Categories.Id;
+                            <a href="?page=@Html.Raw(ViewBag.CurrentPage+1)&id=@a">Next</a>}
+
+                    </div>
+                     
+
+                </div>
+              
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+            <div class="sidebar-area-lifestyle">
+
+                <div class="sidebar-widget mb-50">
+                    <div class="widget-title text-center">
+                        <h4 class="title mb-30">Latest News</h4>
+                    </div>
+                    <ul class="sidebar-tab mb-30">
+                        <li class="active"><a href="#home" data-toggle="tab">Post</a></li>
+                        <li><a href="#profile" data-toggle="tab">comments</a></li>
+                    </ul>
+                    <div class="tab-content fade in">
+                        <div class="tab-pane active" id="home">
+                            <ul class="thumb-list">
+                                <li class="mb-30">
+                                    <div class="thumb-img">
+                                        <a href="#"><img src="~/Content/img/sidebar/ins/3.jpg" alt="" /></a>
+                                    </div>
+                                    <div class="thumb-text">
+                                        <a href="#"><h4>Architecture blog post</h4></a>
+                                        <span>2017-05-20 17:05:22</span>
+                                    </div>
+                                </li>
+                                <li class="mb-30">
+                                    <div class="thumb-img">
+                                        <a href="#"><img src="~/Content/img/sidebar/ins/4.jpg" alt="" /></a>
+                                    </div>
+                                    <div class="thumb-text">
+                                        <a href="#"><h4>Splashing pixels on the</h4></a>
+                                        <span>2017-05-20 17:05:22</span>
+                                    </div>
+                                </li>
+                                <li class="mb-30">
+                                    <div class="thumb-img">
+                                        <a href="#"><img src="~/Content/img/sidebar/ins/2.jpg" alt="" /></a>
+                                    </div>
+                                    <div class="thumb-text">
+                                        <a href="#"><h4>Hello world!</h4></a>
+                                        <span>2017-05-20 17:05:22</span>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="thumb-img">
+                                        <a href="#"><img src="~/Content/img/sidebar/ins/1.jpg" alt="" /></a>
+                                    </div>
+                                    <div class="thumb-text">
+                                        <a href="#"><h4>Architecture blog post</h4></a>
+                                        <span>2017-05-20 17:05:22</span>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="tab-pane fade in" id="profile">
+                            <ul class="thumb-list">
+                                <li class="mb-30">
+                                    <div class="thumb-img">
+                                        <a href="#"><img src="~/Content/img/sidebar/ins/1.jpg" alt="" /></a>
+                                    </div>
+                                    <div class="thumb-text">
+                                        <a href="#"><h4>Architecture blog post</h4></a>
+                                        <span>2017-05-20 17:05:22</span>
+                                    </div>
+                                </li>
+                                <li class="mb-30">
+                                    <div class="thumb-img">
+                                        <a href="#"><img src="img/sidebar/ins/8.jpg" alt="" /></a>
+                                    </div>
+                                    <div class="thumb-text">
+                                        <a href="#"><h4>Splashing pixels on the</h4></a>
+                                        <span>2017-05-20 17:05:22</span>
+                                    </div>
+                                </li>
+                                <li class="mb-30">
+                                    <div class="thumb-img">
+                                        <a href="#"><img src="~/Content/img/sidebar/ins/3.jpg" alt="" /></a>
+                                    </div>
+                                    <div class="thumb-text">
+                                        <a href="#"><h4>Hello world!</h4></a>
+                                        <span>2017-05-20 17:05:22</span>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="thumb-img">
+                                        <a href="#"><img src="~/Content/img/sidebar/ins/7.jpg" alt="" /></a>
+                                    </div>
+                                    <div class="thumb-text">
+                                        <a href="#"><h4>Architecture blog post</h4></a>
+                                        <span>2017-05-20 17:05:22</span>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="sidebar-widget">
+                    <div class="widget-title text-center">
+                        <h4 class="title mb-30">Categories</h4>
+                    </div>
+                    <select class="form-control sidebar-select">
+                        <option value="catgory">Select Category</option>
+                        <option value="lifestyle">Lifestyle</option>
+                        <option value="music">Music</option>
+                        <option value="travels">Travels</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

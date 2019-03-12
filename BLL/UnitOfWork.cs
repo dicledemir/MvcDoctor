@@ -24,6 +24,13 @@ namespace BLL
                 }
 
             }
+
+            Categories = new BaseRepository<Category>(db);
+            Contacts = new BaseRepository<Contact>(db);
+            Appointments = new BaseRepository<Appointment>(db);
+            Notifications = new BaseRepository<Notification>(db);
+            Writes = new BaseRepository<Write>(db);
+
         }
 
         public static DoctorContext Create()

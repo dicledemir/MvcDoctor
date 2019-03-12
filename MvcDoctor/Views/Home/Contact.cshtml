@@ -4,16 +4,15 @@
     ViewBag.Title = "Contact";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
- 
+ <script src="http://maps.google.com/maps/api/js?key=AIzaSyCZ3R3HV2ECPiClKyFX8Y_UMFg6T_2L1e0"></script>
 <style>
      /* For Contact Section*/
 
-     body {
+     /*body {
     padding-top: 20px;
     padding-bottom: 20px;
-}
+}*/
             #map{
-
                 height:650px;
                 width:100%;
                 position:relative;
@@ -51,7 +50,7 @@
             }
             .contact-form-area form .contact-btn{
                 background: #dcdcdc;
-                padding: 10px 70px;
+                padding: 0px 70px;
                 color: #000000;
                 -webkit-transition: all 0.5s;
                 -moz-transition: all 0.5s;
@@ -111,16 +110,16 @@
 </section>
 
 <!-- ADD THis before ending body tag -->
-<script src="http://maps.google.com/maps/api/js?key=AIzaSyCZ3R3HV2ECPiClKyFX8Y_UMFg6T_2L1e0"></script>
 
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gmaps.js/0.4.24/gmaps.min.js"></script>
 
-<script>
+@*<script src="https://cdnjs.cloudflare.com/ajax/libs/gmaps.js/0.4.24/gmaps.min.js"></script>*@
+
+@*<script>
     var map = new GMaps({
         el: '#map',
         lat: 52.265413,
         lng: -113.827363,
         scrollwheel: false
     });
-</script>
+</script>*@
