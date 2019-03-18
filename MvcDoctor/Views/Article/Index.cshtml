@@ -5,6 +5,19 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+<style>
+    .sayi{
+         display:inline-block;
+            padding:5px 10px;
+            margin:15px 5px;
+            background-color:darkseagreen;
+            color:white;
+            cursor:pointer;
+    }
+    .sayi:hover{
+         box-shadow:0px 0px 5px black
+    }
+</style>
  
 <div class="container">
     <div class="row"style="padding-top:20px">
@@ -36,34 +49,26 @@
 
                         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                             <div class="single-post-right">
-                                <a href="#" class="post-category lifestyle"><h3>@item.Category.Name</h3></a>
+                                <a href="#" class="post-category lifestyle"><h3>@ViewBag.Name</h3></a>
                                 <a href="#"><h4>@item.Title</h4></a>
 
                                 @if (item.Content.ToString().Length > 250)
                                 {
                                     <p> @item.Content.Substring(0,250) 
                                 ...<br />
-                                <a href="#" class="post-top-btn m-0">Devamını Oku</a></p>
+                                <a href="/Article/ArticleDetails?id=@item.Id" class="post-top-btn m-0">Devamını Oku</a></p>
                                 }
                                 else
                                 {
                                     <p>
-                                        @item.Content
-                                    </p>
-                                        }
-
-                                        
+                                        @item.Content   </p> } 
 </div>
                         </div>
-
-
-                         
 
                     </div>
 
                     <br />  <br />
 }
-
 
 
                     <div class="text-center">
@@ -78,7 +83,7 @@
                         {
                             int a = Model.Categories.Id;
                             c = i == ViewBag.CurrentPage ? "active" : string.Empty;
-                            <a href="?page=@i&id=@a" class="@c pagination">@i</a> //direk aynı sayfaya gödereceğimiz için ? oldu tek
+                            <a class="sayi"  href="?page=@i&id=@a" class="@c pagination">@i</a> //direk aynı sayfaya gödereceğimiz için ? oldu tek
                         }
                         @if (ViewBag.PrevVisible)
                         {

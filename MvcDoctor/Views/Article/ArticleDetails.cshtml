@@ -1,0 +1,182 @@
+﻿@using Entity
+@model Write
+@{
+    ViewBag.Title = "ArticleDetails";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+ <style>
+        .resim {
+            width: 65% !important;
+        }
+
+            .resim img {
+                height: 100% !important;
+            }
+    </style>
+    <style>
+        .thumbnail {
+            padding: 0px;
+        }
+
+        .panel {
+            position: relative;
+        }
+
+            .panel > .panel-heading:after, .panel > .panel-heading:before {
+                position: absolute;
+                top: 11px;
+                left: -16px;
+                right: 100%;
+                width: 0;
+                height: 0;
+                display: block;
+                content: " ";
+                border-color: transparent;
+                border-style: solid solid outset;
+                pointer-events: none;
+            }
+
+            .panel > .panel-heading:after {
+                border-width: 7px;
+                border-right-color: #f7f7f7;
+                margin-top: 1px;
+                margin-left: 2px;
+            }
+
+            .panel > .panel-heading:before {
+                border-right-color: #ddd;
+                border-width: 8px;
+            }
+    </style>
+    <style>
+        .yorum {
+            margin-left: 116px;
+            width: 1530px;
+        }
+         .yorum1 {
+            margin-left: 104%;
+  
+    width: 604px;
+        }
+    </style>
+ 
+
+ 
+  <div class="container text-center">
+    <div class="row">
+        <div class="resim"></div>
+        <div class="icerik" style="width :1000px;
+             margin-left :93px;">
+              <br />
+               <h2>@ViewBag.write.Title</h2>
+                <p>@ViewBag.write.Content</p>
+
+
+         
+        </div>
+        <div class="mesaj">
+            <h2 style="margin-left:100px;">Yorumlar</h2>
+            @foreach (WriteComment item in ViewBag.Comment)
+            {
+                if (ViewBag.Comment != null)
+                {
+                    <div class="row yorum">
+                        <div class="col-lg-1"></div>
+
+
+                        <div class="col-sm-1">
+                            @if (item.Person.HasPhoto == false)
+                            {
+                                <div class="thumbnail">
+                                    <a href="#"><img class="img-responsive user-photo" src="https://ssl.gstatic.com/accounts/ui/avatar_2x.png"></a>
+                                    <strong>@item.Person.UserName</strong> 
+                                </div>
+                            }
+                            else
+                            {
+                                <div class="thumbnail">
+                                    <a href="#">   <img class="img-responsive user-photo"  src="@ViewBag.Photo?a=@DateTime.Now.Second" alt="Product" style="width:50px"></a>
+                                    <strong>@item.Person.UserName</strong> 
+                                </div>
+                            }
+                        </div>
+                        <div class="col-sm-5">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                  <span class="text-muted"> </span>
+                                    <div class="panel panel-default">
+                                        <div class="panel-body">
+                                            <p>@item.Content</p>
+                                        </div>
+
+                                    </div>
+
+                                     @if (item.Person.Id == ViewBag.ıd)
+                                     {   
+
+                                        <span class="sil btn btn-danger delete" style="width:571px;"  mesajid="@item.Id"> Sil</span>
+                                          
+                                     }
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+
+            }
+
+        </div> 
+         
+
+        <div class="col-md-4 text-center " style="">
+            <TextBox ID="Mesaj" TextMode="MultiLine" Rows="5" CssClass="form-control"></TextBox>
+         @if (User.Identity.IsAuthenticated)
+         {
+             using (Html.BeginForm("ArticleDetails", "Article", new { @id= ViewBag.WriteId }, FormMethod.Post))
+             {
+                @Html.TextArea("yorum", null, new { @type = "text", @class = "form-control yorum1",@rows="5", @placeholder = "Yorumunuzu Yazın",@id="yorumm" ,@required= "required" })
+                 <br /> 
+                    <button  id="gonder"  class="input-md btn btn-success" name="Insert" type="submit" style="width: 168%;margin-left: 373px;float: none;">Yorum Yap</button>
+                    <br /><br />
+                }}
+        </div>
+
+
+ 
+
+    </div>
+</div>
+
+<script>
+  
+
+    $(".delete").click(function () {
+       debugger
+        var _this = $(this);
+        var id = $(this).attr("mesajid");
+        $.ajax({
+            url: "/Article/DeleteComment?deleteid="+ id,
+            type: "POST",
+            success: function (IsitOk) {
+                //debugger
+                if (IsitOk) {
+                    _this.parent().slideUp("slow");
+                    _this.parent().parent().slideUp("slow");
+                    _this.parent().parent().parent().parent().slideUp("slow");
+                }
+                else {
+                    alert("bir hata oluştu")
+                }
+            }
+        })
+
+    });
+
+ 
+
+</script>
+
+
+ 

@@ -1,0 +1,16 @@
+﻿
+@{
+    ViewBag.Title = "SliderCreate";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+ 
+<h2>SliderCreate</h2>
+
+@*enctype="multipart/form-data bunu göndermemz lazm yoksa null gider"*@
+
+<form method="post" enctype="multipart/form-data">
+    <label class="control-label">Large Image:</label>
+    <input type="file" name="imagefile" class="form-control" />
+    <button>Save</button>
+
+</form>

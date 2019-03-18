@@ -29,7 +29,7 @@ html, body {height: 100%;font-family: 'Source Sans Pro', sans-serif;color:#24242
 .alignright {float:right;margin-left:15px;margin-bottom: 15px}
 .aligncenter {display:block;margin:0 auto 15px}
 a:focus {outline:0px solid}
-img {max-width:100%;height:auto}
+img {/*max-width:100%*/;height:auto}
 .fix {overflow:hidden}
 p {margin:0 0 15px;
 line-height:24px;

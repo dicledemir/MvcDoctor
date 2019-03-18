@@ -195,8 +195,9 @@
     <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
-    <Compile Include="Areas\Panel\PanelAreaRegistration.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AdminAppointmentController.cs" />
+    <Compile Include="Controllers\AppointmenStatusController.cs" />
     <Compile Include="Controllers\AppointmentController.cs" />
     <Compile Include="Controllers\ArticleController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -299,7 +300,6 @@
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="ApplicationInsights.config" />
-    <Content Include="Areas\Panel\Views\web.config" />
     <Content Include="Content\fonts\fontawesome-webfont.woff2" />
     <Content Include="Content\img\blog\Mesut Kaya - Resume.pdf" />
     <None Include="Scripts\jquery-1.10.2-vsdoc.js" />
@@ -314,9 +314,14 @@
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\_references.js" />
+    <Content Include="Uploads\contact\background1.jpg" />
+    <Content Include="Uploads\contact\contact-us-background-green.jpg" />
+    <Content Include="Uploads\contact\contact.jpg" />
     <Content Include="Uploads\Sliders\large\866d4f1a-9f58-402a-80b4-d0ffd45335eb-original.png" />
     <Content Include="Uploads\Sliders\large\dicle.jpg" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -356,12 +361,16 @@
     <Content Include="Views\Article\_Article.cshtml" />
     <Content Include="Views\Article\Index.cshtml" />
     <Content Include="Views\Appointment\AppointmentDetail.cshtml" />
+    <Content Include="Views\Members\MyAccount.cshtml" />
+    <Content Include="Views\Article\ArticleDetails.cshtml" />
+    <Content Include="Views\AppointmenStatus\Index.cshtml" />
+    <Content Include="Views\Members\ChangePass.cshtml" />
+    <Content Include="Views\Home\SliderCreate.cshtml" />
+    <Content Include="Views\AdminAppointment\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Areas\Panel\Controllers\" />
-    <Folder Include="Areas\Panel\Models\" />
-    <Folder Include="Areas\Panel\Views\Shared\" />
+    <Folder Include="Uploads\Person\" />
     <Folder Include="Uploads\Sliders\thumb\" />
   </ItemGroup>
   <ItemGroup>

@@ -26,10 +26,12 @@ namespace MvcDoctor.Controllers
             string uid = User.Identity.GetUserId();
                 
 
-            Person user = _uw.db.Users.Find(uid);
-                info.person = user;
+            //Person user = _uw.db.Users.Find(uid);
+            //    info.person = user;
                 info.PersonId = uid;
+                info.AppointmentStatus = 0;
             _uw.Appointments.Add(info);
+                _uw.Complete();
             }
             else
             {

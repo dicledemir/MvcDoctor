@@ -30,6 +30,9 @@ namespace BLL
             Appointments = new BaseRepository<Appointment>(db);
             Notifications = new BaseRepository<Notification>(db);
             Writes = new BaseRepository<Write>(db);
+            WriteComments = new BaseRepository<WriteComment>(db);
+            AppointmentStatuss = new BaseRepository<AppointmentStatus>(db);
+            //Sliders = new BaseRepository<Slider>(db);
 
         }
 
@@ -55,6 +58,9 @@ namespace BLL
         public BaseRepository<Appointment> Appointments;
         public BaseRepository<Notification> Notifications;
         public BaseRepository<Write> Writes;
+        public BaseRepository<WriteComment> WriteComments;
+        public BaseRepository<AppointmentStatus> AppointmentStatuss;
+         //public BaseRepository<Slider> Sliders;
 
     }
 }

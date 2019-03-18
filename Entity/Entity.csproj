@@ -49,6 +49,7 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -58,8 +59,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Appointment.cs" />
+    <Compile Include="AppointmentStatus.cs" />
     <Compile Include="Category.cs" />
     <Compile Include="Contact.cs" />
+    <Compile Include="Helper.cs" />
     <Compile Include="IEntity.cs" />
     <Compile Include="Notification.cs" />
     <Compile Include="Person.cs" />
@@ -69,6 +72,7 @@
     <Compile Include="ViewModels\ArticleViewModel.cs" />
     <Compile Include="ViewModels\ContactViewModel.cs" />
     <Compile Include="ViewModels\LoginViewModel.cs" />
+    <Compile Include="ViewModels\MyAccountViewModel.cs" />
     <Compile Include="Write.cs" />
   </ItemGroup>
   <ItemGroup>

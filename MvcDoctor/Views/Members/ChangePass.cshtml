@@ -1,0 +1,141 @@
+﻿
+
+<style>
+    .pass_show {
+        position: relative;
+    }
+
+        .pass_show .ptxt {
+            position: absolute;
+            top: 50%;
+            right: 10px;
+            z-index: 1;
+            color: #f36c01;
+            margin-top: -10px;
+            cursor: pointer;
+            transition: .3s ease all;
+        }
+
+            .pass_show .ptxt:hover {
+                color: #333333;
+            }
+</style>
+<style>
+    .tumsayfa{
+     height: 150px;
+        width: 100%;
+        position: relative;
+        overflow: hidden;
+    }
+
+
+     #map {
+     
+        /*background-image: url('../../Uploads/contact/background1.jpg');*/
+        /*background-image: url('../../Uploads/contact/contact-us-background-green.jpg');*/
+    }
+
+</style>
+
+
+
+<div class="tumsayfa">
+
+</div>
+@*<form method="post" onsubmit="kontrolu()"></form>*@
+@using (Html.BeginForm("ChangePass", "Members", FormMethod.Post, new { @onsubmit = "javascript:kontrol()" }))
+{
+
+
+
+    <div class="container" style="margin-left:40%;">
+        <div class="row">
+            <div class="col-sm-4">
+                @if (ViewBag.Success != null && ViewBag.Success)
+                {
+                    <div class="alert alert-success">Şifreniz Değiştirildi</div>
+                }
+
+                @if (ViewBag.WrongPassword != null && ViewBag.WrongPassword)
+                {
+                    <div class="alert alert-danger">Mevcut Şifrenizi Yalnış Girdiniz</div>
+                }
+                @if (ViewBag.Errors != null)
+                {
+                    <div class="alert alert-danger">
+                        @foreach (string item in ViewBag.Errors)
+                        {
+                            @item <br />
+
+
+                        }
+
+                    </div>
+                }
+
+            </div>
+        </div>
+
+        <div class="row">
+
+            <div class="col-sm-4">
+                @Html.Label("Mevcut Şifreniz")
+                @*<label>Mevcut Şifre</label>*@
+                <div class="form-group pass_show">
+                    @Html.TextBox("oldp", null, new { @class = "form-control", @type = "password", @placeholder = "Mevcut Şifreniz" })
+                    @*<input type="password" value="faisalkhan@123" class="form-control" placeholder="Current Password">*@
+                </div>
+                @Html.Label("Yeni Şifreniz")
+                @*<label>New Password</label>*@
+                <div class="form-group pass_show">
+                    @Html.TextBox("newp", null, new { @class = "form-control", @type = "password", @placeholder = "Yeni Şifre" })
+                    @*<input type="password" value="faisal.khan@123" class="form-control" placeholder="New Password">*@
+                </div>
+                @Html.Label("Yeni Şifre tekrar ")
+                <div class="form-group pass_show">
+                    @Html.TextBox("tekrar", null, new { @class = "form-control", @type = "password", @placeholder = " Şifre Tekrar" })
+                    @*<input type="password" value="faisal.khan@123" class="form-control" placeholder="Confirm Password">*@
+                </div>
+                <button class="btn btn-primary" style="width:362px"> Kaydet</button>
+            </div>
+
+        </div>
+    </div>
+}
+<div class="tumsayfa">
+
+</div>
+
+<script>
+    function kontrol() {
+        var yeni = $("input[name='newp']").val();
+        var tekrar = $("input[name='tekrar']").val();
+
+        if (yeni != tekrar)
+        {
+            alert("Yeni Şifre ve Tekrarı eşleşmiyor.");
+            //e.preventDefault();
+        }
+
+        return yeni == tekrar;
+
+    }
+
+
+
+
+
+
+
+
+    $(document).ready(function () {
+        $('.pass_show').append('<span class="ptxt">Show</span>');
+    });
+    $(document).on('click', '.pass_show .ptxt', function () {
+
+        $(this).text($(this).text() == "Show" ? "Hide" : "Show");
+
+        $(this).prev().attr('type', function (index, attr) { return attr == 'password' ? 'text' : 'password'; });
+
+    });
+</script>

@@ -10,10 +10,10 @@ using System.Threading.Tasks;
 
 namespace DAL
 {
-    public class DoctorContext: IdentityDbContext<Person>
+    public class DoctorContext : IdentityDbContext<Person>
     {
         public DoctorContext() : base("DoctorContext")
-		{
+        {
 
         }
         public virtual DbSet<Category> Categories { get; set; }
@@ -22,14 +22,17 @@ namespace DAL
         public virtual DbSet<Notification> Notifications { get; set; }
         public virtual DbSet<WriteComment> WriteComments { get; set; }
         public virtual DbSet<Appointment> Appointments { get; set; }
+        public virtual DbSet<AppointmentStatus> AppointmentStatus { get; set; }
+        public virtual DbSet<Slider> Sliders { get; set; }
+
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
-             
+
             modelBuilder.Entity<Category>()
                 .HasKey(x => x.Id)
-                .HasOptional(x=>x.Writes);
+                .HasOptional(x => x.Writes);
 
             modelBuilder.Entity<Write>()
                 .HasKey(x => x.Id);
@@ -46,6 +49,11 @@ namespace DAL
             modelBuilder.Entity<Appointment>()
                 .HasKey(x => x.Id);
 
+            modelBuilder.Entity<AppointmentStatus>()
+               .HasKey(x => x.Id);
+
+            modelBuilder.Entity<Slider>()
+                .HasKey(x => x.SliderId);
 
 
 
@@ -57,14 +65,14 @@ namespace DAL
 
             modelBuilder.Entity<Category>()
                .HasMany(x => x.Writes)
-               .WithRequired(x=>x.Category)
-               .HasForeignKey(x=>x.CategoryId);
+               .WithRequired(x => x.Category)
+               .HasForeignKey(x => x.CategoryId);
 
 
             modelBuilder.Entity<Person>()
                 .HasMany(x => x.Appointments)
-                .WithRequired(x=>x.person)
-                .HasForeignKey(x=>x.PersonId);
+                .WithRequired(x => x.person)
+                .HasForeignKey(x => x.PersonId);
 
 
             modelBuilder.Entity<Person>()
@@ -75,7 +83,7 @@ namespace DAL
             modelBuilder.Entity<Person>()
                 .HasMany(x => x.Notifications)
                 .WithMany();
-                
+
 
             //modelBuilder.Entity<Language>()
             //.HasMany(x => x.Words)

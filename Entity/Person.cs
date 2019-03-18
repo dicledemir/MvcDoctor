@@ -22,6 +22,7 @@ namespace Entity
         public virtual List<Appointment> Appointments { get; set; }
         public virtual  List <Notification> Notifications { get; set; }
         public virtual List<WriteComment> WriteComments { get; set; }
+        public virtual List<Appointment> Appointment { get; set; }
         public bool HasPhoto { get; set; }
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<Person> manager)
         {

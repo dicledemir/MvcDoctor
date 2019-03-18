@@ -52,16 +52,16 @@ namespace BLL
         }
         public bool Delete(int id) //parametre IEntity entity de olabilir
         {
-            try
-            {
+            //try
+            //{
                 T t = GetOne(id);
                 _db.Set<T>().Remove(t);
                 return true;
-            }
-            catch
-            {
-                return false;
-            }
+            //}
+            //catch
+            //{
+            //    return false;
+            //}
         }
         public bool Update(T newRecord)
         {

@@ -9,5 +9,8 @@ namespace Entity
   public  class Notification: IEntity
     {
         public int Id { get; set; }
+        //public virtual List<Person> person { get; set; }
+
+
     }
 }

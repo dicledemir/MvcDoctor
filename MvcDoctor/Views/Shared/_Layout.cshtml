@@ -16,8 +16,11 @@
         <!-- Place favicon.ico in the root directory -->
         <!-- all css here -->
         <!-- bootstrap.min.css -->
+        <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+                integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+                crossorigin="anonymous"></script>
         @*<script src="http://maps.google.com/maps/api/js?key=AIzaSyCZ3R3HV2ECPiClKyFX8Y_UMFg6T_2L1e0"></script>*@
-
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
         <link rel="stylesheet" href="~/Content/css/bootstrap.min.css">
         <!-- font-awesome.min.css -->
         <link rel="stylesheet" href="~/Content/css/font-awesome.min.css">
@@ -84,10 +87,44 @@
                                                 <p class="navbar-text">Merhaba @User.Identity.Name</p>
                                             </li>*@
 
-                                            <li  class="nav navbar-right"> @Html.ActionLink("Çıkış Yap", "LogOff", "Members")</li>
+                                            <li  class="nav navbar-right"> @Html.ActionLink("Çıkış", "LogOff", "Members")
+                                        
+                                        </li>
+                                     
+                                        @*<li><a>a</a></li>*@
+
+                                            <li class="nav navbar-right"> <a href="/Members/MyAccount">Profilim<i class="fa fa-caret-down"></i></a>
+                                           
+                                                 
+                                                    <ul>
+
+                                                        @*<i class="fa fa-caret-down">*@
+
+
+                                                            <li>
+                                                                @Html.ActionLink("Şifreni Değiştir", "ChangePass", "Members")
+                                                            </li>
+                                                            <li>
+                                                                <a href="/Members/MyAccount">
+                                                                    Sayfam
+                                                                </a>
+                                                            </li>
+
+
+</ul>
+
+
+
+
+</li>
+
+                                            @*<li class="nav navbar-right">@Html.ActionLink("Çıkış", "Login", "Members")</li>
+                                            <li class="nav navbar-right">@Html.ActionLink("Profilim", "Register", "Members")</li>*@
+
+
                                         }
                                         else
-                                        { 
+                                        {
                                             <li class="nav navbar-right">@Html.ActionLink("Giriş", "Login", "Members")</li>
                                             <li class="nav navbar-right">@Html.ActionLink("Kayıt Ol", "Register", "Members")</li>
                                         }
@@ -203,11 +240,11 @@
                         </div>
                         <div class="instagram-caption">
                             <div class="instagram-caption-inside">
-                                <div class="instagram-caption-content">
+                                @*<div class="instagram-caption-content">
                                     <ul class="details-link">
                                         <li><a href="#">Follow us @@Instagram</a></li>
                                     </ul>
-                                </div>
+                                </div>*@
                             </div>
                         </div>
                     </div>
