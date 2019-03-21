@@ -124,8 +124,7 @@ namespace MvcDoctor.Controllers
 
             myaccountmodel.Email = person.Email;
             myaccountmodel.PhoneNumber = person.PhoneNumber;
-
-
+            
             myaccountmodel.AppointmentAccept = _uw.Appointments.Search(x => x.Status ==Status.Denied).ToList();
             myaccountmodel.AppointmentDenied= _uw.Appointments.Search(x => x.Status == Status.Accepted).ToList();
             myaccountmodel.AppointmentWaiting = _uw.Appointments.Search(x => x.Status == Status.Waiting).ToList();
