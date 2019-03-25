@@ -1,0 +1,28 @@
+﻿@using Entity
+
+@model List<Slider>
+@{
+    ViewBag.Title = "Slider";
+}
+<br />
+
+<h2 class="text-center">Yüklenen Resimler</h2>
+<a href="/Home/SliderCreate/">Create New Slider</a>
+<br /> <br />
+<table class="table table-bordered table-striped">
+    <tr>
+        <th>
+            Thumbnail
+        </th>
+        <th>
+            Actions
+        </th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td><img src="@item.ThumbnailUrl" /></td>
+            <td><a href="/Home/DeleteSlider/@item.SliderId" />X</td>
+        </tr>
+    }
+</table>

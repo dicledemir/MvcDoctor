@@ -71,7 +71,7 @@ background: linear-gradient(to bottom, #734b6d, #42275a); /* W3C, IE 10+/ Edge, 
                         </div>
                         <div class="media-right align-self-center">
                          <br /> <br />
-                            <a href="#" class="btn btn-default">Hastayı Görüntüle</a>
+                            <a href="/AdminAppointment/PersonDetails?id=@item.person.Id" class="btn btn-default">Hastayı Görüntüle</a>
                         </div>
                     </div>
                 </li>
@@ -102,8 +102,11 @@ background: linear-gradient(to bottom, #734b6d, #42275a); /* W3C, IE 10+/ Edge, 
                  url: "/AdminAppointment/Update/?id=" + _this.attr("rel") + "&sonuc=" + 1 + "&RandevuId=" + _this.attr("RandevuId"),
                  type:"POST",
                  success:function(data){
-                     if(data.result){
+                     if(data){
                          alert("Kullanıcı Kaydı iptal edildi");
+                     }
+                     else {
+                         alert("Bir Hata Oluştu.Tekrar Deneyin");
                      }
                  }
 
@@ -125,8 +128,12 @@ background: linear-gradient(to bottom, #734b6d, #42275a); /* W3C, IE 10+/ Edge, 
                  url: "/AdminAppointment/Update/?id=" + _this.attr("rel") + "&sonuc=" + 2 + "&RandevuId=" + _this.attr("RandevuId"),
                  type:"POST",
                  success:function(data){
-                     if(data.result){
+                     if(data){
                          alert("Kullanıcı Kaydı Oluşturuldu");
+                     }
+
+                     else {
+                         alert("Bir Hata Oluştu.Tekrar Deneyin");
                      }
                  }
 

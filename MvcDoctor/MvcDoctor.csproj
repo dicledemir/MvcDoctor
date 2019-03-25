@@ -197,6 +197,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AdminAppointmentController.cs" />
+    <Compile Include="Controllers\AdminContactController.cs" />
     <Compile Include="Controllers\AppointmenStatusController.cs" />
     <Compile Include="Controllers\AppointmentController.cs" />
     <Compile Include="Controllers\ArticleController.cs" />
@@ -317,8 +318,6 @@
     <Content Include="Uploads\contact\background1.jpg" />
     <Content Include="Uploads\contact\contact-us-background-green.jpg" />
     <Content Include="Uploads\contact\contact.jpg" />
-    <Content Include="Uploads\Sliders\large\866d4f1a-9f58-402a-80b4-d0ffd45335eb-original.png" />
-    <Content Include="Uploads\Sliders\large\dicle.jpg" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -367,10 +366,14 @@
     <Content Include="Views\Members\ChangePass.cshtml" />
     <Content Include="Views\Home\SliderCreate.cshtml" />
     <Content Include="Views\AdminAppointment\Index.cshtml" />
+    <Content Include="Views\AdminAppointment\PersonDetails.cshtml" />
+    <Content Include="Views\Home\Slider.cshtml" />
+    <Content Include="Views\AdminContact\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Uploads\Person\" />
+    <Folder Include="Uploads\Sliders\large\" />
     <Folder Include="Uploads\Sliders\thumb\" />
   </ItemGroup>
   <ItemGroup>

@@ -1,5 +1,5 @@
-﻿@using Entity.ViewModels
-@model MyAccountViewModel
+﻿@using Entity
+@model Person
 @{
     ViewBag.Title = "MyAccount";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -8,8 +8,7 @@
 
 <div class="container bootstrap snippet">
     <div class="row">
-        <br />
-        <div class="col-sm-10"><h1>Hoşgeldin @User.Identity.Name</h1></div>
+        @*<div class="col-sm-10"><h1>@Model.person.NameSurname</h1></div>*@
         <div>
             @using (Html.BeginForm("MyAccount", "Members", FormMethod.Post, new { @class = "form", @enctype = "multipart/form-data" }))
             {
@@ -23,22 +22,27 @@
                         {
                             <img src="@ViewBag.Photo?a=@DateTime.Now.Second" class="avatar img-circle img-thumbnail" alt="avatar">
                         }
-                    <br />
-                        <h6>Profil Resimini Güncelle.</h6>
-                        @Html.TextBox("Image", null, new
-                   {
-                       @type = "file",
-                       @class = "text-center center-block file-upload"
-                   })
+                        <br />
+
+
                         @*<input  type="file" class="text-center center-block file-upload">*@
                     </div> <br>
-                     
+
+
+                    <ul class="list-group">
+                        <li class="list-group-item text-muted">Activity <i class="fa fa-dashboard fa-1x"></i></li>
+                        <li class="list-group-item text-right"><span class="pull-left"><strong>Yorum Sayısı</strong></span>@Model.WriteComments.Count()</li>
+                        <li class="list-group-item text-right"><span class="pull-left"><strong>Randevu Sayısı</strong></span>@Model.Appointment.Count()</li>
+                        <li class="list-group-item text-right"><span class="pull-left"><strong>Cinsiyet</strong></span> @Model.Gender</li>
+                        <li class="list-group-item text-right"><span class="pull-left"><strong>Sisteme Kayıt Tarihi</strong></span> @Model.RegisterDate.ToShortDateString()</li>
+                    </ul>
+
                 </div>
 
                 <div class="col-sm-9">
 
                     <ul class="nav nav-tabs">
-                        <li class="active"><a data-toggle="tab" href="#home">Bilgilerini Güncelle</a></li>
+                        <li class="active"><a data-toggle="tab" href="#home">Bilgilerini</a></li>
                         <li><a data-toggle="tab" href="#messages">Kabul Edilmiş Randevular</a></li>
                         <li><a data-toggle="tab" href="#settings">İptal Edilmiş Randevular</a></li>
                         <li><a data-toggle="tab" href="#beklemede">Sonuclanmamış Randevular</a></li>
@@ -49,79 +53,33 @@
                     <div class="tab-content">
                         <div class="tab-pane active" id="home">
 
+                            <form class="form" action="##" method="post" id="registrationForm">
+                                <table class="table table-hover table-bordered table-striped ">
+                                    <tr>
+                                        <td>Ad Soyad</td>
+                                        <td>Email</td>
+                                        <td>Telefon</td>
+                                    </tr>
+                                    <tr>
+                                        <td>@Model.UserName</td>
+                                        <td>@Model.Email</td>
+                                        <td>@Model.PhoneNumber</td>
+                                    </tr>
+
+                                </table>
+                            </form>
 
 
-                            <div class="form-group">
-
-                                <div class="col-xs-6">
-                                    @Html.LabelFor(x => x.PhoneNumber)
-                                    @Html.TextBoxFor(x => x.PhoneNumber, new { @class = "form-control", @placeholder = "Telefon" })
-                                    @*<input type="text" class="form-control" name="phone" id="phone" placeholder="enter phone" title="enter your phone number if any.">*@
-                                </div>
-                            </div>
-
-
-                            <div class="form-group">
-
-                                <div class="col-xs-6">
-                                    @Html.LabelFor(x => x.Email)
-                                    @Html.TextBoxFor(x => x.Email, new { @class = "form-control", @type = "email", @required = "required", @placeholder = "you@email.com" })
-                                    @*<input type="email" class="form-control" name="email" id="email" placeholder="you@email.com" title="enter your email.">*@
-                                </div>
-                            </div>
-
-
-                            <div class="form-group">
-                                <div class="col-xs-12">
-                                    <br>
-                                    <button class="btn btn-lg btn-success" type="submit"><i class="glyphicon glyphicon-ok-sign"></i> Kaydet</button>
-                                </div>
-                            </div>
-
-
-                            <hr>
 
                         </div><!--/tab-pane-->
+
 
                         <div class="tab-pane" id="messages">
 
                             <form class="form" action="##" method="post" id="registrationForm">
                                 <table class="table table-hover table-bordered table-striped ">
 
-                                    @foreach (var item in ViewBag.AppointmentAccept)
-                                    {
-                                        <tr>
-                                            <td>Randevu Konusu</td>
-                                            <td>Kabul Durumu</td>
-                                            <td>İşlem Tarihi</td>
-                                        </tr>
-
-
-                                        <tr>
-
-                                            <td>@item.Subject</td>
-                                            <td>Kabul edildi</td>
-                                            <td>@item.RequestedDate.ToShortDateString()</td>
-                                        </tr>
-
-                                    }
-
-                                </table>
-
-                            </form>
-
-                        </div><!--/tab-pane-->
-
-
-
-                        <div class="tab-pane" id="settings">
-
-
-                            <form class="form" action="##" method="post" id="registrationForm">
-                                <table class="table table-hover table-bordered table-striped ">
-
-
-                                    @foreach (var item in ViewBag.AppointmentDenied)
+                                    @foreach (Appointment item in ViewBag.AppointmentAccept)
                                     {
                                         <tr>
                                             <td>Randevu Konusu</td>
@@ -133,13 +91,47 @@
                                         <tr>
                                              
                                             <td>@item.Subject</td>
+                                            <td>Kabul edildi</td>
+                                            <td>@item.RequestedDate.ToShortDateString()</td>
+                                        </tr>
+
+                                    }
+                                     
+                                </table>
+
+                            </form>
+
+                        </div><!--/tab-pane-->
+
+
+                        <div class="tab-pane" id="settings">
+
+
+                            <form class="form" action="##" method="post" id="registrationForm">
+                                <table class="table table-hover table-bordered table-striped ">
+
+
+                                    @foreach (Appointment item in ViewBag.AppointmentDenied)
+                                    {
+                                        <tr>
+                                            <td>Randevu Konusu</td>
+                                            <td>Kabul Durumu</td>
+                                            <td>İşlem Tarihi</td>
+                                        </tr>
+
+
+                                        <tr>
+
+
+
+                                            <td>@item.Subject</td>
                                             <td>Reddedildi</td>
                                             <td>@item.RequestedDate.ToShortDateString()</td>
                                         </tr>
                                     }
-
+                                      
                                 </table>
-
+                                 
                             </form>
                         </div>
 
@@ -150,14 +142,14 @@
 
                             <form class="form" action="##" method="post" id="registrationForm">
                                 <table class="table table-hover table-bordered table-striped ">
-                                    @foreach (var item in ViewBag.AppointmentWaiting)
+                                    @foreach (Appointment item in ViewBag.AppointmentWaiting)
                                     {
                                         <tr>
                                             <td>Randevu Konusu</td>
                                             <td>Kabul Durumu</td>
                                             <td>İşlem Tarihi</td>
                                         </tr>
-
+                                         
                                         <tr>
                                             <td>@item.Subject</td>
                                             <td>Bekleniyor</td>
@@ -167,7 +159,7 @@
 
                                     }
 
-
+                                     
 
                                 </table>
 
@@ -175,6 +167,8 @@
 
                             </form>
                         </div>
+
+
 
 
 

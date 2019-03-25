@@ -15,24 +15,16 @@ namespace MvcDoctor.Controllers
         UnitOfWork _uw = new UnitOfWork();
         
         public ActionResult Index(int? id)
-        {
-
-            ViewBag.Person = _uw.Appointments.Search(x => x.Id == id).FirstOrDefault();
-
-
-
+        { 
+            ViewBag.Person = _uw.Appointments.Search(x => x.Id == id).FirstOrDefault();             
             ViewBag.appointmentList = _uw.Appointments.Search(x => x.Status ==Status.Waiting).ToList();
            var  appointmentList = _uw.Appointments.Search(x => x.Status == Status.Waiting).ToList();
             ViewBag.kandir =".jpg";
- 
             return View(appointmentList);
         }
         [HttpPost]
         public ActionResult Index(int id)
-        {
-
-
-
+        { 
             ViewBag.appointmentList = _uw.Appointments.Search(x => x.Status == Status.Waiting).ToList();
             var appointmentList = _uw.Appointments.Search(x => x.Status == Status.Waiting).ToList();
             ViewBag.kandir = ".jpg";
@@ -43,45 +35,39 @@ namespace MvcDoctor.Controllers
         {
             var appointmentstatus = _uw.Appointments.Search(x => x.PersonId == id&x.Id== RandevuId).FirstOrDefault();
             //var a=   _uw.Appointments.Search(id).FirstOrDefault();
+            var data = false;
             if (sonuc == 2)
-            {
-               
+            { 
                 appointmentstatus.Status = Status.Accepted;
                 _uw.Complete();
+                data = true;
 
             }
             else if (sonuc == 1)
             {
                 appointmentstatus.Status = Status.Denied;
                 _uw.Complete();
+                data = true;
 
             }
-
-
-
-            var result=sonuc;
-            
-            return Json(result);
+             
+            return Json(data);
         }
 
-        public ActionResult PersonDeatils(int id)
-        {
-
-            Appointment Appointmentlist = new Appointment();
-           
-            Person person = _uw.db.Users.Find(id);
-            if (person.HasPhoto)
+        public ActionResult PersonDetails(string id)
+        { 
+              Person person = _uw.db.Users.Find(id);
+             if (person.HasPhoto)
                 ViewBag.Photo = "/Uploads/Person/" + id + ".jpg";
+              
+            ViewBag.AppointmentAccept = _uw.Appointments.Search(x => x.Status == Status.Denied).ToList();
+            ViewBag.AppointmentDenied = _uw.Appointments.Search(x => x.Status == Status.Accepted).ToList();
+            ViewBag.AppointmentWaiting = _uw.Appointments.Search(x => x.Status == Status.Waiting).ToList();
 
-            //Appointmentlist = _uw.Appointments.Search(x=>x.Id==)
-            //myaccountmodel.PhoneNumber = person.PhoneNumber;
 
+            return View(person);
 
-            //myaccountmodel.AppointmentAccept = _uw.Appointments.Search(x => x.Status == Status.Denied).ToList();
-            //myaccountmodel.AppointmentDenied = _uw.Appointments.Search(x => x.Status == Status.Accepted).ToList();
-            //myaccountmodel.AppointmentWaiting = _uw.Appointments.Search(x => x.Status == Status.Waiting).ToList();
-
-            return View();
+            
         }
     }
 }

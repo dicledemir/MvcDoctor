@@ -74,8 +74,6 @@
                             </div>
                         </div>
 
-                      
-
                         <div class="col-lg-2 col-md-2 col-sm-4">
                             <div class="mainmenu">
                               
@@ -83,56 +81,61 @@
 
                                         @if (User.Identity.IsAuthenticated)
                                         {
-                                            @*<li class="nav navbar-right">
-                                                <p class="navbar-text">Merhaba @User.Identity.Name</p>
-                                            </li>*@
 
-                                            <li  class="nav navbar-right"> @Html.ActionLink("Çıkış", "LogOff", "Members")
-                                        
-                                        </li>
-                                     
-                                        @*<li><a>a</a></li>*@
+                                            if (User.IsInRole("Administrator"))
+                                            {
+                                                <li class="nav navbar-right">
+                                                    @Html.ActionLink("Çıkış", "LogOff", "Members")
 
-                                            <li class="nav navbar-right"> <a href="/Members/MyAccount">Profilim<i class="fa fa-caret-down"></i></a>
-                                           
-                                                 
+                                                </li>
+
+                                                <li class="nav navbar-right">
+                                                    <a href="/Members/MyAccount">Profilim<i class="fa fa-caret-down"></i></a>
+
                                                     <ul>
-
-                                                        @*<i class="fa fa-caret-down">*@
-
-
+                                                        <li>
+                                                            @Html.ActionLink("Şifreni Değiştir", "ChangePass", "Members")
+                                                        </li>
+                                                        <li>
+                                                            <a href="/Members/MyAccount">Sayfam </a>
+                                                        </li>
+                                                        <li>
+                                                            @Html.ActionLink("Slider Kontrol Et", "ChangePass", "Members")
+                                                        </li>
+                                                        <li>
+                                                            @Html.ActionLink("Randevuları Yönet", "ChangePass", "Members")
+                                                        </li>
+                                                        <li>
+                                                            @Html.ActionLink("Mesajları Yönet", "ChangePass", "Members")
+                                                        </li>
+                                                        <li>
+                                                            @Html.ActionLink("Makale Oluştur", "ChangePass", "Members")
+                                                        </li>
+                                                    </ul>
+                                                </li>
+                                            }
+                                            else
+                                            {
+                                                 
+                                            <li  class="nav navbar-right"> @Html.ActionLink("Çıkış", "LogOff", "Members") </li>
+                                       
+                                            <li class="nav navbar-right"> <a href="/Members/MyAccount">Profilim<i class="fa fa-caret-down"></i></a>               
+                                                    <ul> 
                                                             <li>
                                                                 @Html.ActionLink("Şifreni Değiştir", "ChangePass", "Members")
                                                             </li>
                                                             <li>
-                                                                <a href="/Members/MyAccount">
-                                                                    Sayfam
-                                                                </a>
-                                                            </li>
-
-
-</ul>
-
-
-
-
-</li>
-
-                                            @*<li class="nav navbar-right">@Html.ActionLink("Çıkış", "Login", "Members")</li>
-                                            <li class="nav navbar-right">@Html.ActionLink("Profilim", "Register", "Members")</li>*@
-
-
+                                                                <a href="/Members/MyAccount">  Sayfam </a>
+                                                            </li></ul> </li>
+                                            }
                                         }
+                                   
                                         else
                                         {
                                             <li class="nav navbar-right">@Html.ActionLink("Giriş", "Login", "Members")</li>
                                             <li class="nav navbar-right">@Html.ActionLink("Kayıt Ol", "Register", "Members")</li>
                                         }
                                     </ul>
-
-
-
-
                                  
                             </div>
                         </div>

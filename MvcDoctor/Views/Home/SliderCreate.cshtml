@@ -3,14 +3,19 @@
     ViewBag.Title = "SliderCreate";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
- 
-<h2>SliderCreate</h2>
+ <div class="container">
+     <br />
+    <h2 class="text-center">SliderCreate</h2>
 
-@*enctype="multipart/form-data bunu göndermemz lazm yoksa null gider"*@
+    @*enctype="multipart/form-data bunu göndermemz lazm yoksa null gider"*@
 
-<form method="post" enctype="multipart/form-data">
-    <label class="control-label">Large Image:</label>
-    <input type="file" name="imagefile" class="form-control" />
-    <button>Save</button>
+    <form method="post" enctype="multipart/form-data" class="text-center">
+        <label class="control-label">Büyük Resim Seç</label>
+        <input type="file" name="imagefile" class="form-control text-center" style="width:35%;margin-left: 369px;" required /><br />
+        <button class="btn btn-success"  style="width:35%">Kaydet</button>
+        <br /><br />
+        <a href="/Home/Slider">Yüklediğin Resimleri Gör</a>
+        <br /><br />
 
-</form>
+    </form>
+</div>

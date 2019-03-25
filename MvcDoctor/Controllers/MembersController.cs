@@ -124,11 +124,11 @@ namespace MvcDoctor.Controllers
 
             myaccountmodel.Email = person.Email;
             myaccountmodel.PhoneNumber = person.PhoneNumber;
-            
-            myaccountmodel.AppointmentAccept = _uw.Appointments.Search(x => x.Status ==Status.Denied).ToList();
-            myaccountmodel.AppointmentDenied= _uw.Appointments.Search(x => x.Status == Status.Accepted).ToList();
-            myaccountmodel.AppointmentWaiting = _uw.Appointments.Search(x => x.Status == Status.Waiting).ToList();
-    
+
+            ViewBag.AppointmentAccept = _uw.Appointments.Search(x => x.Status == Status.Denied).ToList();
+            ViewBag.AppointmentDenied = _uw.Appointments.Search(x => x.Status == Status.Accepted).ToList();
+            ViewBag.AppointmentWaiting = _uw.Appointments.Search(x => x.Status == Status.Waiting).ToList();
+
 
             return View(myaccountmodel);
         }
@@ -146,8 +146,11 @@ namespace MvcDoctor.Controllers
 
             person.Email = info.Email;
             person.PhoneNumber = info.PhoneNumber;
-            info.AppointmentAccept = _uw.Appointments.Search(x => x.Status == Status.Accepted).ToList();
-            info.AppointmentDenied = _uw.Appointments.Search(x => x.Status ==Status.Denied).ToList();
+
+
+            ViewBag.AppointmentAccept = _uw.Appointments.Search(x => x.Status == Status.Denied).ToList();
+            ViewBag.AppointmentDenied = _uw.Appointments.Search(x => x.Status == Status.Accepted).ToList();
+            ViewBag.AppointmentWaiting = _uw.Appointments.Search(x => x.Status == Status.Waiting).ToList();
 
             if (Image != null)
             {

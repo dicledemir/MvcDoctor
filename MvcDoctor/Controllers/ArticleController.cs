@@ -17,18 +17,15 @@ namespace MvcDoctor.Controllers
 
         public ActionResult Index(int id, int? page)
         {
-
-
             ViewBag.Write = _uw.db.Writes.Where(x => x.CategoryId == id);
-
             var a = _uw.db.Categories.Find(id);
-
             ViewBag.Name = a.Name;
-
+            ViewBag.Comments = _uw.WriteComments.GetAll().Take(5);
+            ViewBag.Writes = _uw.Writes.GetAll().Take(5);
+            ViewBag.kandir = ".jpg";
 
             List<Write> list = _uw.db.Writes.Where(x => x.CategoryId == id).ToList();
-
-
+            
             if (page.HasValue)
             {
                 int b = (page.Value - 1) * 3;

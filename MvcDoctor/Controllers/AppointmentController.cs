@@ -22,16 +22,20 @@ namespace MvcDoctor.Controllers
         [HttpPost]
         public ActionResult Index(Appointment info)
         {
-            if (User.Identity.IsAuthenticated) { 
-            string uid = User.Identity.GetUserId();
-                
-
-            //Person user = _uw.db.Users.Find(uid);
-            //    info.person = user;
-                info.PersonId = uid;
-                info.AppointmentStatus = 0;
-            _uw.Appointments.Add(info);
-                _uw.Complete();
+            if (User.Identity.IsAuthenticated) {
+                if (ModelState.IsValid)
+                {
+                    string uid = User.Identity.GetUserId();
+                    //Person user = _uw.db.Users.Find(uid);
+                    //info.person = user;
+                    info.PersonId = uid;
+                    info.AppointmentStatus = 0;
+                    _uw.Appointments.Add(info);
+                    _uw.Complete();
+                    ViewBag.A = "AA";
+                    return RedirectToAction("Index");
+                }
+                 
             }
             else
             {

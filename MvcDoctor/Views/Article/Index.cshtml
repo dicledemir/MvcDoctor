@@ -102,108 +102,62 @@
 
                 <div class="sidebar-widget mb-50">
                     <div class="widget-title text-center">
-                        <h4 class="title mb-30">Latest News</h4>
+                        <h4 class="title mb-30">Son Haberler</h4>
                     </div>
                     <ul class="sidebar-tab mb-30">
-                        <li class="active"><a href="#home" data-toggle="tab">Post</a></li>
-                        <li><a href="#profile" data-toggle="tab">comments</a></li>
+                        <li class="active"><a href="#home" data-toggle="tab">Makaleler</a></li>
+                        <li><a href="#profile" data-toggle="tab">Yorumlar</a></li>
                     </ul>
                     <div class="tab-content fade in">
                         <div class="tab-pane active" id="home">
                             <ul class="thumb-list">
-                                <li class="mb-30">
-                                    <div class="thumb-img">
-                                        <a href="#"><img src="~/Content/img/sidebar/ins/3.jpg" alt="" /></a>
-                                    </div>
-                                    <div class="thumb-text">
-                                        <a href="#"><h4>Architecture blog post</h4></a>
-                                        <span>2017-05-20 17:05:22</span>
-                                    </div>
-                                </li>
-                                <li class="mb-30">
-                                    <div class="thumb-img">
-                                        <a href="#"><img src="~/Content/img/sidebar/ins/4.jpg" alt="" /></a>
-                                    </div>
-                                    <div class="thumb-text">
-                                        <a href="#"><h4>Splashing pixels on the</h4></a>
-                                        <span>2017-05-20 17:05:22</span>
-                                    </div>
-                                </li>
-                                <li class="mb-30">
-                                    <div class="thumb-img">
-                                        <a href="#"><img src="~/Content/img/sidebar/ins/2.jpg" alt="" /></a>
-                                    </div>
-                                    <div class="thumb-text">
-                                        <a href="#"><h4>Hello world!</h4></a>
-                                        <span>2017-05-20 17:05:22</span>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="thumb-img">
-                                        <a href="#"><img src="~/Content/img/sidebar/ins/1.jpg" alt="" /></a>
-                                    </div>
-                                    <div class="thumb-text">
-                                        <a href="#"><h4>Architecture blog post</h4></a>
-                                        <span>2017-05-20 17:05:22</span>
-                                    </div>
-                                </li>
+
+                                @foreach (var item in ViewBag.Writes)
+                                {
+                                    <li class="mb-30">
+                                        <div class="thumb-img">
+                                            <a href="#"><img src="~/Content/img/sidebar/ins/3.jpg" alt="" /></a>
+                                        </div>
+                                        <div class="thumb-text">
+                                            <span>Kategori: @item.Category.Name</span>
+                                            <a href="#"><h4>@item.Title</h4></a>
+                                            
+                                        </div>
+                                    </li>
+                                }
+                                
                             </ul>
                         </div>
                         <div class="tab-pane fade in" id="profile">
                             <ul class="thumb-list">
-                                <li class="mb-30">
-                                    <div class="thumb-img">
-                                        <a href="#"><img src="~/Content/img/sidebar/ins/1.jpg" alt="" /></a>
-                                    </div>
-                                    <div class="thumb-text">
-                                        <a href="#"><h4>Architecture blog post</h4></a>
-                                        <span>2017-05-20 17:05:22</span>
-                                    </div>
-                                </li>
-                                <li class="mb-30">
-                                    <div class="thumb-img">
-                                        <a href="#"><img src="img/sidebar/ins/8.jpg" alt="" /></a>
-                                    </div>
-                                    <div class="thumb-text">
-                                        <a href="#"><h4>Splashing pixels on the</h4></a>
-                                        <span>2017-05-20 17:05:22</span>
-                                    </div>
-                                </li>
-                                <li class="mb-30">
-                                    <div class="thumb-img">
-                                        <a href="#"><img src="~/Content/img/sidebar/ins/3.jpg" alt="" /></a>
-                                    </div>
-                                    <div class="thumb-text">
-                                        <a href="#"><h4>Hello world!</h4></a>
-                                        <span>2017-05-20 17:05:22</span>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="thumb-img">
-                                        <a href="#"><img src="~/Content/img/sidebar/ins/7.jpg" alt="" /></a>
-                                    </div>
-                                    <div class="thumb-text">
-                                        <a href="#"><h4>Architecture blog post</h4></a>
-                                        <span>2017-05-20 17:05:22</span>
-                                    </div>
-                                </li>
+                                @foreach (var item in ViewBag.Comments)
+                                {
+                                    <li class="mb-30">
+                                        
+                                        <div class="thumb-img">
+                                            @if (@item.Person.HasPhoto)
+                                            {
+                                                <a href="#"><img src="/Uploads/Person/@item.Person.Id@ViewBag.kandir" alt="" /></a>
+                                            }
+                                            else
+                                            {
+                                            <a href="#"><img src="~/Content/img/sidebar/ins/1.jpg" alt="" /></a>
+                                            }
+                                        </div>
+                                        <div class="thumb-text">
+                                            <a><h4>@item.Content</h4></a>
+                                            <span>@item.createComment</span>
+                                        </div>
+                                    </li>
+                                }
+                                
                             </ul>
                         </div>
                     </div>
                 </div>
 
 
-                <div class="sidebar-widget">
-                    <div class="widget-title text-center">
-                        <h4 class="title mb-30">Categories</h4>
-                    </div>
-                    <select class="form-control sidebar-select">
-                        <option value="catgory">Select Category</option>
-                        <option value="lifestyle">Lifestyle</option>
-                        <option value="music">Music</option>
-                        <option value="travels">Travels</option>
-                    </select>
-                </div>
+                
             </div>
         </div>
     </div>

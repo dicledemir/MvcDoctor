@@ -1,4 +1,5 @@
-﻿
+﻿@using Entity.ViewModels
+@model HomeViewModel
 
 @section CSS{
 
@@ -18,24 +19,24 @@
             loop: true,
             margin: 10,
             autoplay: true,
-            autoplayTimeout: 5000,
+            autoplayTimeout: 2000,
             autoplayHoverPause: true
         });
     </script>
 
 
 }
-<div class="container">
+<div class="text-center">
 
     <div class="owl-carousel owl-theme">
-        <div class="item">
-            <img style="width:1000px;height:800px" src="~/Uploads/Sliders/large/866d4f1a-9f58-402a-80b4-d0ffd45335eb-original.png" />
 
-        </div>
-        <div class="item">
-            <img style="width:1000px;height:800px" src="~/Uploads/Sliders/large/dicle.jpg" />
+        @foreach (var item in Model.Sliders)
+        {
+            <div class="item">
+                <img src="@item.LargeImageUrl" style="width:1500px;height:800px;margin-left:50px" />
+            </div>
 
-        </div>
+        }
     </div>
 
 </div>
