@@ -1,0 +1,41 @@
+﻿@using Entity
+@model Category
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using (Html.BeginForm("CreateCategory", "AdminArticle", FormMethod.Post, new { @class = "form", @enctype = "multipart/form-data" }))
+{ 
+    <a>Kategorileri Görüntüle</a>
+
+    <div class="container">
+      <div class="alert alert-success ">@ViewBag.a</div>
+        <hr />
+        <div class="form-group">
+            <div class="col-md-8" >
+                @Html.TextBox("Category",null, new { @placeholder = "Kategori Adı", @class = "form-control" })
+            </div>
+
+        </div>
+        <br /><br />
+        <div class="form-group">
+            <div class="col-md-8">
+                <h6>Resim Seç</h6>
+                @Html.TextBox("Image",null, new
+            {
+                @type = "file",
+
+            })
+            </div>
+        </div>
+        <br /><br />
+        <div class="form-group">
+            <div class="col-md-8">
+                <input type="submit" class="btn btn-success" value="Kaydet" style="margin-top:10px;margin-bottom:10px"/>
+            </div>
+        </div>
+    </div>
+}
+
+ 

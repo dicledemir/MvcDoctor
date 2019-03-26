@@ -33,7 +33,7 @@ namespace MvcDoctor.Controllers
                     _uw.Appointments.Add(info);
                     _uw.Complete();
                     ViewBag.A = "AA";
-                    return RedirectToAction("Index");
+                    return View();
                 }
                  
             }

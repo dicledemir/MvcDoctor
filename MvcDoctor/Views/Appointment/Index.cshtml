@@ -77,32 +77,34 @@
                 </div>
             </div>
             <div class="col-md-9">
-                @if (ViewBag.a!=null) { 
-              
-                    <div class="alert alert-success">Randevu talebiniz alınmıştır</div>
-                     
+                @if (ViewBag.a != null)
+                {
+
+                    <div class="alert alert-success" style="margin-bottom: 221px;">Randevu talebiniz alınmıştır</div>
+
                 }
+                else
+                {
                 <div class="form-group">
                     @*@Html.LabelFor(x=>x.CreationDate)*@
                     <div class="col-sm-10">
-                        @Html.TextBoxFor(x=>x.CreationDate, new {
+                        @Html.TextBoxFor(x => x.CreationDate, new
+                   {
                        @type = "text",
                        @onclick = "this.type='date'",
                        @onblur = "this.type='text'",
-                     
                        @required = "required",
-                       @placeholder = "Tercih Edilen Gün" 
+                       @placeholder = "Tercih Edilen Gün"
                    })
                     </div>
                 </div>
-
+               
                 <br /><br />
                 <div class="form-group">
                     @*@Html.LabelFor(x=>x.CreationDate)*@
                     <div class="col-sm-10">
                         @Html.TextBoxFor(x => x.RequestedTime, new { @*@type = "time"*@
-                       @type = "text", @onclick ="this.type='time'" ,@onblur = "this.type='text'"
-                       ,
+                       @type = "text", @onclick ="this.type='time'" ,@onblur = "this.type='text'",
                        
                        @required = "required",
                        @placeholder = "Tercih Edilen Saat" })
@@ -125,6 +127,9 @@
                             <button id="gönder" type="submit" class="btn btn-default btn-success">Randevu Oluştur</button>
                         </div>
                     </div>
+
+                }
+
                 </div>
             </div>
         }

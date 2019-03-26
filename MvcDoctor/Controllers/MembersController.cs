@@ -26,17 +26,13 @@ namespace MvcDoctor.Controllers
             //1 Signin manegare  ulaş
             ApplicationSignInManager sigInManager = HttpContext.GetOwinContext().Get<ApplicationSignInManager>();
             //2. Giriş yapmayı dene(result dene.)
-
             SignInStatus result = sigInManager.PasswordSignIn(info.Email, info.Password, true, false);
             //3. ilgili Durumlara göre sonucu döndür
-
-
             switch (result)
             {
                 case SignInStatus.Success:
                     return Json(new { success = true, url = "/Index/Members" });//giriş yaptıysa ana sayfaya gitsin
                                                                        //case SignInStatus.LockedOut://bu kişiyi kitlediysek
-
                 //   break;
                 //case SignInStatus.RequiresVerification:
                 //    //tüm hatalar için view oluşturursun onun view yollarsın( mail ile dogrulama)
@@ -124,12 +120,9 @@ namespace MvcDoctor.Controllers
 
             myaccountmodel.Email = person.Email;
             myaccountmodel.PhoneNumber = person.PhoneNumber;
-
             ViewBag.AppointmentAccept = _uw.Appointments.Search(x => x.Status == Status.Denied).ToList();
             ViewBag.AppointmentDenied = _uw.Appointments.Search(x => x.Status == Status.Accepted).ToList();
             ViewBag.AppointmentWaiting = _uw.Appointments.Search(x => x.Status == Status.Waiting).ToList();
-
-
             return View(myaccountmodel);
         }
         [HttpPost]
@@ -143,11 +136,8 @@ namespace MvcDoctor.Controllers
 
             if (person.HasPhoto)
                 ViewBag.Photo = "/Uploads/Person/" + uid + ".jpg";
-
             person.Email = info.Email;
             person.PhoneNumber = info.PhoneNumber;
-
-
             ViewBag.AppointmentAccept = _uw.Appointments.Search(x => x.Status == Status.Denied).ToList();
             ViewBag.AppointmentDenied = _uw.Appointments.Search(x => x.Status == Status.Accepted).ToList();
             ViewBag.AppointmentWaiting = _uw.Appointments.Search(x => x.Status == Status.Waiting).ToList();
@@ -166,8 +156,6 @@ namespace MvcDoctor.Controllers
 
             if (person.HasPhoto)
                 ViewBag.Photo = "/Uploads/Person/" + uid + ".jpg";
-
-
             return View(info);
         }
 

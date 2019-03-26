@@ -1,0 +1,59 @@
+﻿@using Entity
+@model Write
+@{
+    ViewBag.Title = "CreateArticle";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using (Html.BeginForm())
+
+{
+    <div class="container text-center">
+        <a href="/AdminArticle/CreateCategory"><strong> Yeni Kategori  Oluştur</strong></a>
+        <h2 class="text-center" >Makale Oluştur</h2>
+        <hr />
+        <div class="form-group">
+            <div class="col-md-12">
+                @Html.TextBoxFor(x => x.Title, new { @placeholder = "Başlık", @class = "form-control" })
+
+            </div>
+        </div>
+        <br /><br />
+        <div class="form-group">
+            <div class="col-md-12">
+                @Html.DropDownList("CategoryId", (IEnumerable<SelectListItem>)TempData["Category"], "Kategori Seç", new { @class = "form-control" })
+            </div>
+        </div>
+        <br />    <br />
+        <div class="form-group">
+            <div class="col-md-12 text-center">
+                @Html.TextArea("editor", new { @class = "form-control" })
+            </div>
+        </div>
+
+        <br />    <br />
+        <br />    <br />
+        <div class="form-group">
+         
+            <div class="col-md-12">
+                <input type="submit" class="btn btn-success" value="Kaydet" style="margin-top: 10px;margin-bottom:10px" />
+            </div>
+        </div>
+        <br />    <br />
+    </div>
+}
+   
+
+
+            @section Scripts {
+                <script src="~/Content/ckeditor/ckeditor.js"></script>
+                <script>
+                    CKEDITOR.replace('editor');
+                </script>
+            }

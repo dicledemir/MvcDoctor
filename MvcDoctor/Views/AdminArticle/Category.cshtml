@@ -1,0 +1,32 @@
+﻿ @using Entity
+
+@model List<Category>
+@{
+    ViewBag.Title = "Slider";
+}
+<br />
+
+<h2 class="text-center">Kategoriler</h2>
+<a href="/AdminArticle/CreateCategory/" style="margin-left:10px"><strong> Yeni Kategori Ekle</strong></a>
+<br /> <br />
+<table class="table table-bordered table-striped">
+    <tr>
+        <th>
+            Resimler
+        </th>
+        <th>
+           Kategori Adı:
+        </th>
+        <th>
+            Sil
+        </th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td><img src="@item.ImageUrl" style="width:150px;height:150px;" /></td>
+            <td> @item.Name</td>
+            <td><a href="/AdminArticle/DeleteCategory/@item.Id"/>X</td>
+        </tr>
+    }
+</table>
