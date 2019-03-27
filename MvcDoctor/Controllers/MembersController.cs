@@ -16,10 +16,15 @@ namespace MvcDoctor.Controllers
     {
         // GET: Members
         UnitOfWork _uw = new UnitOfWork();
-       
+        [HttpGet]
         public ActionResult Login()
         {
             return View();
+        }
+        [HttpPost]
+        public ActionResult Login(string a)
+        {
+            return RedirectToAction("Index", "Home");
         }
         public JsonResult _Login(LoginViewModel info)
         {

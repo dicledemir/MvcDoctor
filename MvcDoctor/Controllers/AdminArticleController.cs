@@ -19,8 +19,9 @@ namespace MvcDoctor.Controllers
         [HttpGet]
         public ActionResult CreateCategory()
         {
-            return View();
             ViewBag.a = "Kategori Oluştur";
+            return View();
+          
 
         }
         [HttpPost]
@@ -47,7 +48,38 @@ namespace MvcDoctor.Controllers
             return View();
 
         }
+         
+        [HttpGet]
+        public ActionResult UpdateCategory(int Id)
+        {
 
+
+            Category c = new Category();
+            c = _uw.db.Categories.Find(Id);
+             
+            return View(c);
+        }
+        [HttpPost]
+        public ActionResult UpdateCategory(int Id,HttpPostedFileBase Image, Category category)
+        {
+          
+            Category c = new Category();
+            c = _uw.db.Categories.Find(Id);
+
+            c.Name = category.Name;
+            var path = Server.MapPath("/");
+            var ct = path + c.ImageUrl;
+            System.IO.File.Delete(ct);
+
+            string klasor = Server.MapPath("/Uploads/Category/");
+            Image.SaveAs(klasor + Image.FileName);          
+            c.ImageUrl = "/Uploads/Category/" + Image.FileName;      
+            _uw.Categories.Update(c);
+            _uw.Complete();
+            return View(c);
+        }
+
+        [HttpGet]
         public ActionResult CreateArticle()
         {
             TempData["Category"] = _uw.Categories  // ekstradan cont cont veri de aktarır ama bir kereye mahsusyr bu özelliği
@@ -57,6 +89,29 @@ namespace MvcDoctor.Controllers
                      Text = x.Name,
                      Value = x.Id.ToString()
                  });
+            return View();
+        }
+        [HttpPost]
+        [ValidateInput(false)]
+        public ActionResult CreateArticle(string editor,string title,int CategoryId)
+        {
+            TempData["Category"] = _uw.Categories  // ekstradan cont cont veri de aktarır ama bir kereye mahsusyr bu özelliği
+                .GetAll()
+                .Select(x => new SelectListItem
+                {
+                    Text = x.Name,
+                    Value = x.Id.ToString()
+                });
+
+
+            Write w = new Write();
+            w.CategoryId = CategoryId;
+            w.Content = editor;
+            w.Title = title;
+            w.ReadingCount = 0;
+            _uw.Writes.Add(w);
+            _uw.Complete();
+             
             return View();
         }
         public ActionResult DeleteCategory(int Id)

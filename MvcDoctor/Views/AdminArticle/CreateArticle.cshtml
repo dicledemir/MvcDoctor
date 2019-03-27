@@ -1,39 +1,37 @@
 ﻿@using Entity
 @model Write
 @{
-    ViewBag.Title = "CreateArticle";
+  
     Layout = "~/Views/Shared/_Layout.cshtml";
-}
-
-
-@{
-    ViewBag.Title = "Index";
-    Layout = "~/Views/Shared/_Layout.cshtml";
-}
-
-@using (Html.BeginForm())
+} 
+@using (Html.BeginForm("CreateArticle", "AdminArticle", FormMethod.Post))
 
 {
+    <br />
+    <a href="/AdminArticle/CreateCategory"><h4> Makaleleri Görüntüle</h4></a>
     <div class="container text-center">
-        <a href="/AdminArticle/CreateCategory"><strong> Yeni Kategori  Oluştur</strong></a>
+    
         <h2 class="text-center" >Makale Oluştur</h2>
         <hr />
         <div class="form-group">
             <div class="col-md-12">
-                @Html.TextBoxFor(x => x.Title, new { @placeholder = "Başlık", @class = "form-control" })
+
+                @Html.TextBox("title",null, new { @placeholder ="Başlık", @class = "form-control", @required = "required" })
 
             </div>
         </div>
-        <br /><br />
+        <br /><br /><br />
         <div class="form-group">
             <div class="col-md-12">
-                @Html.DropDownList("CategoryId", (IEnumerable<SelectListItem>)TempData["Category"], "Kategori Seç", new { @class = "form-control" })
+                @Html.DropDownList("CategoryId", (IEnumerable<SelectListItem>)TempData["Category"], "Kategori Seç", new { @class = "form-control",
+               @required = "required"
+           })
             </div>
         </div>
-        <br />    <br />
+        <br /> <br /> 
         <div class="form-group">
             <div class="col-md-12 text-center">
-                @Html.TextArea("editor", new { @class = "form-control" })
+                @Html.TextArea("editor", new { @class = "form-control", @required = "required" })
             </div>
         </div>
 
@@ -48,9 +46,6 @@
         <br />    <br />
     </div>
 }
-   
-
-
             @section Scripts {
                 <script src="~/Content/ckeditor/ckeditor.js"></script>
                 <script>

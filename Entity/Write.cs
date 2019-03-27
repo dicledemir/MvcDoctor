@@ -15,7 +15,7 @@ namespace Entity
         public string Content { get; set; }
         public virtual Category Category { get; set; }
         public int CategoryId { get; set; }
-        public string ImageUrl { get; set; }
+        
         public int ReadingCount { get; set; }
         public virtual List<WriteComment> WriteComments { get; set; }
         //yeni yazı eklendiğinde bildirim olarak kullanıcılara gitsin

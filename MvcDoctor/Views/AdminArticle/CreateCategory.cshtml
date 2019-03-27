@@ -7,14 +7,15 @@
 
 @using (Html.BeginForm("CreateCategory", "AdminArticle", FormMethod.Post, new { @class = "form", @enctype = "multipart/form-data" }))
 { 
-    <a>Kategorileri Görüntüle</a>
+    <br />
+    <a href="/AdminArticle/Category"><h4> Kategorileri Görüntüle</h4></a>
 
     <div class="container">
-      <div class="alert alert-success ">@ViewBag.a</div>
+      <div class="alert alert-success " style="width:750px;">@ViewBag.a</div>
         <hr />
         <div class="form-group">
             <div class="col-md-8" >
-                @Html.TextBox("Category",null, new { @placeholder = "Kategori Adı", @class = "form-control" })
+                @Html.TextBox("Category",null, new { @placeholder = "Kategori Adı", @class = "form-control",@required= "required" })
             </div>
 
         </div>
@@ -23,10 +24,11 @@
             <div class="col-md-8">
                 <h6>Resim Seç</h6>
                 @Html.TextBox("Image",null, new
-            {
-                @type = "file",
+           {
+               @type = "file",
+               @required = "required"
 
-            })
+           })
             </div>
         </div>
         <br /><br />

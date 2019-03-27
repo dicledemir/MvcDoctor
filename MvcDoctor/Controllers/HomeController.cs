@@ -112,13 +112,13 @@ namespace MvcDoctor.Controllers
                 db.Contacts.Add(contact);
                 db.SaveChanges();
                 ViewBag.Message = "Mesajınız İletilmiştir";
-                return RedirectToAction("Contact", "Home");
+                return View();
             
             }
             else
             {
                 ViewBag.Message = "Bir Hata oluştu Tekrar Deneyiniz";
-                return RedirectToAction("Contact", "Home");
+                return View();
             }
             //ViewBag.Message = "Your contact page.";
 

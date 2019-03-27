@@ -76,7 +76,11 @@ namespace MvcDoctor.Controllers
             ViewBag.ıd = User.Identity.GetUserId();
             Person person = _uw.db.Users.Find(uid);
             if (person.HasPhoto)
-                ViewBag.Photo = "/Uploads/Person/" + uid + ".jpg";
+            {
+                ViewBag.Photo = "/Uploads/Person/";
+                ViewBag.jpg = ".jpg";
+            }
+
             ViewBag.Comment = _uw.db.WriteComments.Where(x => x.WriteId == id).ToList();
             Write write = _uw.db.Writes.Where(x => x.Id == id).FirstOrDefault();
             ViewBag.WriteId = id;

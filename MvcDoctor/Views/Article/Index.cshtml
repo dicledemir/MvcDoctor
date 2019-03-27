@@ -32,14 +32,15 @@
                         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                             <div class="single-post">
                                 <div class="single-post-img">
-                                    <img src="~/Content/img/blog/6.jpg" alt="" />
+                                    <img src="@item.Category.ImageUrl"style="width:800px;height:300px">
+                                    @*<img src="~/Content/img/blog/6.jpg" alt="" />*@
                                 </div>
                                 <div class="single-post-text">
                                     <a href="#"><h3>@item.Title</h3></a>
                                     <ul>
-                                        <li><a href="#"><i class="fa fa-clock-o"></i> Aug 8,2016</a></li>
-                                        <li><a href="#"><i class="fa fa-commenting-o"></i> 500</a></li>
-                                        <li><a href="#"><i class="fa fa-eye"></i> 1928</a></li>
+                                        @*<li><a href="#"><i class="fa fa-clock-o"></i> Aug 8,2016</a></li>*@
+                                        <li><a href="#"><i class="fa fa-commenting-o"></i>@item.WriteComments.Count()</a></li>
+                                        <li><a href="#"><i class="fa fa-eye"></i> @item.ReadingCount</a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -61,7 +62,12 @@
                                 else
                                 {
                                     <p>
-                                        @item.Content   </p> } 
+                                        @item.Content 
+                                <br /><br />
+                                        <a href="/Article/ArticleDetails?id=@item.Id" class="post-top-btn m-0">Ayrıntıları Gör</a>
+
+                                
+                                  </p> } 
 </div>
                         </div>
 

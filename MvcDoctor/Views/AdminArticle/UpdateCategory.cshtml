@@ -1,0 +1,78 @@
+﻿
+@using Entity
+@model Category
+
+ <div class="container bootstrap snippet"> 
+     
+        <br />
+        <div class="col-sm-10"><h1 class="text-center">Hoşgeldin @User.Identity.Name</h1></div>
+     <div>
+         @using (Html.BeginForm("UpdateCategory", "AdminArticle", FormMethod.Post, new { @class = "form", @enctype = "multipart/form-data" }))
+         {
+
+            <div class="col-md-10">
+                <div class="text-center">
+                     
+                        <img src="@Model.ImageUrl?a=@DateTime.Now.Second" class="avatar img-rounded img-thumbnail" alt="avatar" style="width:350px;height:250px">
+                    
+                    <br /><br />
+                    <h5>Kategori Resimini Güncelle.</h5>
+                    @Html.TextBox("Image", null, new
+               {
+                   @type = "file",
+                   @class = "text-center center-block file-upload",
+                   @required = "required"
+               })
+                    @*<input  type="file" class="text-center center-block file-upload">*@
+                </div> <br>
+            </div>
+
+
+                <div class="col-md-10">
+
+                    <div class="tab-content">
+                        <div class="form-group">
+                            <div class="col-md-12">
+
+                                @Html.TextBoxFor(x => x.Name, new { @class = "form-control", @required = "required", @placeholder = "Kategori Adı" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-12">
+                                <br>
+                                <button class="btn btn-lg btn-success" type="submit" style="margin-bottom:10px;    width: 100%;"> Kaydet</button>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+                }
+
+
+            </div>
+
+</div>
+ 
+<script>
+    $(document).ready(function () {
+
+
+        var readURL = function (input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+
+                reader.onload = function (e) {
+                    $('.avatar').attr('src', e.target.result);
+                }
+
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+
+
+        $(".file-upload").on('change', function () {
+            readURL(this);
+        });
+    });
+</script>

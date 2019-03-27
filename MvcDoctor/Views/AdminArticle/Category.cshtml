@@ -20,13 +20,17 @@
         <th>
             Sil
         </th>
+        <th>
+           Düzenle
+        </th>
     </tr>
     @foreach (var item in Model)
     {
         <tr>
-            <td><img src="@item.ImageUrl" style="width:150px;height:150px;" /></td>
+            <td><img src="@item.ImageUrl" style="width:150px;height:100px;" /></td>
             <td> @item.Name</td>
-            <td><a href="/AdminArticle/DeleteCategory/@item.Id"/>X</td>
+            <td><a href="/AdminArticle/DeleteCategory/@item.Id"  class="btn btn-danger"/>Sil</td>
+            <td><a href="/AdminArticle/UpdateCategory/@item.Id" class="btn btn-warning" /> Düzenle</td>
         </tr>
     }
 </table>
