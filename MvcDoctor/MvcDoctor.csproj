@@ -703,6 +703,8 @@
     <Content Include="Views\AdminArticle\CreateArticle.cshtml" />
     <Content Include="Views\AdminArticle\Category.cshtml" />
     <Content Include="Views\AdminArticle\UpdateCategory.cshtml" />
+    <Content Include="Views\AdminArticle\Article.cshtml" />
+    <Content Include="Views\AdminArticle\UpdateArticle.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

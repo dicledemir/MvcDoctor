@@ -21,7 +21,7 @@ namespace MvcDoctor.Controllers
             var a = _uw.db.Categories.Find(id);
             ViewBag.Name = a.Name;
             ViewBag.Comments = _uw.WriteComments.GetAll().Take(5);
-            ViewBag.Writes = _uw.Writes.GetAll().Take(5);
+            ViewBag.Writes = _uw.db.Writes.OrderByDescending(x => x.ReadingCount).ToList().Take(5);
             ViewBag.kandir = ".jpg";
 
             List<Write> list = _uw.db.Writes.Where(x => x.CategoryId == id).ToList();
@@ -70,7 +70,10 @@ namespace MvcDoctor.Controllers
         [HttpGet]
         public ActionResult ArticleDetails(int id)
         {
+            Write w = _uw.db.Writes.Find(id);
+            w.ReadingCount += 1;
 
+            _uw.Complete();
             string uid = User.Identity.GetUserId();
             ViewBag.write = _uw.db.Writes.Where(x => x.Id == id).FirstOrDefault();
             ViewBag.ıd = User.Identity.GetUserId();

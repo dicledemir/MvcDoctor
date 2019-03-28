@@ -1,0 +1,33 @@
+﻿@using Entity
+
+@model List<Write>
+@{
+    ViewBag.Title = "Slider";
+}
+<br />
+
+<h2 class="text-center">Kategoriler</h2>
+<a href="/AdminArticle/CreateArticle/" style="margin-left:10px"><strong> Yeni Makale Ekle</strong></a>
+<br /> <br />
+<table class="table table-bordered table-striped">
+    <tr>
+        
+        <th>
+            Yazı Adı:
+        </th>
+        <th>
+            Sil
+        </th>
+        <th>
+            Düzenle
+        </th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr> 
+            <td> @item.Title</td>
+            <td><a href="/AdminArticle/DeleteArticle/@item.Id" class="btn btn-danger" />Sil</td>
+            <td><a href="/AdminArticle/UpdateArticle/@item.Id" class="btn btn-warning" /> Düzenle</td>
+        </tr>
+    }
+</table>

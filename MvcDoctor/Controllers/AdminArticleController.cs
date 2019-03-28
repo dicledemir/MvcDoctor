@@ -78,6 +78,11 @@ namespace MvcDoctor.Controllers
             _uw.Complete();
             return View(c);
         }
+        public ActionResult Article()
+        {
+            return View(_uw.db.Writes.ToList());
+        }
+
 
         [HttpGet]
         public ActionResult CreateArticle()
@@ -126,5 +131,53 @@ namespace MvcDoctor.Controllers
             _uw.Complete();
             return RedirectToAction("Category");
         }
+
+        public ActionResult DeleteArticle(int Id)
+        {
+            Write s = _uw.db.Writes.Find(Id);
+            var path = Server.MapPath("/");//klasörlerdende silmek için gerekli
+             
+            _uw.db.Writes.Remove(s);
+            _uw.Complete();
+            return RedirectToAction("Article");
+        }
+
+        [HttpGet]
+        public ActionResult UpdateArticle(int Id)
+        {
+            TempData["Category"] = _uw.Categories  // ekstradan cont cont veri de aktarır ama bir kereye mahsusyr bu özelliği
+               .GetAll()
+               .Select(x => new SelectListItem
+               {
+                   Text = x.Name,
+                   Value = x.Id.ToString()
+               });
+
+        Write w=_uw.db.Writes.Find(Id);
+            return View(w);
+        }
+
+        [HttpPost]
+        [ValidateInput(false)]
+        public ActionResult UpdateArticle(Write w)
+        {
+            TempData["Category"] = _uw.Categories  // ekstradan cont cont veri de aktarır ama bir kereye mahsusyr bu özelliği
+               .GetAll()
+               .Select(x => new SelectListItem
+               {
+                   Text = x.Name,
+                   Value = x.Id.ToString()
+               });
+
+            _uw.Writes.Update(w);
+            _uw.Complete();
+            //Write wrt = _uw.db.Writes.Find()
+            //wrt.Category = w.Category;
+            //wrt.Content = w.Content;
+            //wrt.Id
+
+            return View();
+        }
+
     }
 }

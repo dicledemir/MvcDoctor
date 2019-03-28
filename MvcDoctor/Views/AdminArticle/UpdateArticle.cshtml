@@ -1,44 +1,47 @@
 ﻿@using Entity
 @model Write
 @{
-  
+
     Layout = "~/Views/Shared/_Layout.cshtml";
-} 
-@using (Html.BeginForm("CreateArticle", "AdminArticle", FormMethod.Post))
+}
+@using (Html.BeginForm("UpdateArticle", "AdminArticle", FormMethod.Post))
 
 {
     <br />
     <a href="/AdminArticle/Article"><h4> Makaleleri Görüntüle</h4></a>
     <div class="container text-center">
-    
-        <h2 class="text-center" >Makale Oluştur</h2>
+
+        <h2 class="text-center">Makale Güncelle</h2>
         <hr />
         <div class="form-group">
             <div class="col-md-12">
 
-                @Html.TextBox("title",null, new { @placeholder ="Başlık", @class = "form-control", @required = "required" })
+                @Html.TextBox("title", null, new { @placeholder = "Başlık", @class = "form-control", @required = "required" })
 
             </div>
         </div>
         <br /><br /><br />
         <div class="form-group">
             <div class="col-md-12">
-                @Html.DropDownList("CategoryId", (IEnumerable<SelectListItem>)TempData["Category"], "Kategori Seç", new { @class = "form-control",
+                @Html.DropDownList("CategoryId", (IEnumerable<SelectListItem>)TempData["Category"], "Kategori Seç", new
+           {
+               @class = "form-control",
                @required = "required"
            })
             </div>
         </div>
-        <br /> <br /> 
+        <br /> <br />
         <div class="form-group">
             <div class="col-md-12 text-center">
-                @Html.TextArea("editor", new { @class = "form-control", @required = "required" })
+                @Html.TextAreaFor(x=>x.Content, new { @class = "form-control", @required = "required" })
+              @Html.TextAreaFor(x => x.ReadingCount, new { @class="hidden"})
             </div>
         </div>
 
         <br />    <br />
         <br />    <br />
         <div class="form-group">
-         
+
             <div class="col-md-12">
                 <input type="submit" class="btn btn-success" value="Kaydet" style="margin-top: 10px;margin-bottom:10px" />
             </div>
@@ -46,9 +49,9 @@
         <br />    <br />
     </div>
 }
-            @section Scripts {
-                <script src="~/Content/ckeditor/ckeditor.js"></script>
-                <script>
-                    CKEDITOR.replace('editor');
-                </script>
-            }
+@section Scripts {
+    <script src="~/Content/ckeditor/ckeditor.js"></script>
+    <script>
+                    CKEDITOR.replace('Content');
+    </script>
+}

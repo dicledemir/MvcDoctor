@@ -55,14 +55,14 @@
 
                                 @if (item.Content.ToString().Length > 250)
                                 {
-                                    <p> @item.Content.Substring(0,250) 
+                                    <p> @Html.Raw(@item.Content.Substring(0, 250))
                                 ...<br />
                                 <a href="/Article/ArticleDetails?id=@item.Id" class="post-top-btn m-0">Devamını Oku</a></p>
                                 }
                                 else
                                 {
                                     <p>
-                                        @item.Content 
+                                             @Html.Raw(@item.Content)
                                 <br /><br />
                                         <a href="/Article/ArticleDetails?id=@item.Id" class="post-top-btn m-0">Ayrıntıları Gör</a>
 
@@ -122,7 +122,8 @@
                                 {
                                     <li class="mb-30">
                                         <div class="thumb-img">
-                                            <a href="#"><img src="~/Content/img/sidebar/ins/3.jpg" alt="" /></a>
+                                            @*~/Content/img/sidebar/ins/3.jpg*@
+                                            <a href="/Article/ArticleDetails?id=@item.Id"><img src="@item.Category.ImageUrl" alt="" style="width:80px;height:50px" /></a>
                                         </div>
                                         <div class="thumb-text">
                                             <span>Kategori: @item.Category.Name</span>

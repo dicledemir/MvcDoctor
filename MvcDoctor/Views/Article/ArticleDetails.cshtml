@@ -71,7 +71,7 @@
              margin-left :93px;">
               <br />
                <h2>@ViewBag.write.Title</h2>
-                <p>@ViewBag.write.Content</p>
+                @Html.Raw(@ViewBag.write.Content)
 
 
          
@@ -108,16 +108,22 @@
                                   <span class="text-muted"> </span>
                                     <div class="panel panel-default">
                                         <div class="panel-body">
-                                            <p>@item.Content</p>
+
+                                            @Html.Raw(@item.Content)
+                                           
                                         </div>
 
                                     </div>
 
                                      @if (item.Person.Id == ViewBag.ıd)
-                                     {   
+                                     {
 
                                         <span class="sil btn btn-danger delete" style="width:571px;"  mesajid="@item.Id"> Sil</span>
-                                          
+
+                                     }
+                                     else if (User.IsInRole("Administrator"))
+                                     {
+                                        <span class="sil btn btn-danger delete" style="width:571px;" mesajid="@item.Id"> Sil</span>
                                      }
                                 </div>
                             </div>
