@@ -27,7 +27,8 @@ namespace MvcDoctor
             app.UseCookieAuthentication(new CookieAuthenticationOptions
             {
                 AuthenticationType = DefaultAuthenticationTypes.ApplicationCookie,
-                LoginPath = new PathString("/Account/Login"),
+                LoginPath = new PathString("/Members/Login"),
+                //LoginPath = new PathString("/Account/Login"),
                 Provider = new CookieAuthenticationProvider
                 {
                     // Enables the application to validate the security stamp when the user logs in.
@@ -56,9 +57,9 @@ namespace MvcDoctor
             //   consumerKey: "",
             //   consumerSecret: "");
 
-            //app.UseFacebookAuthentication(
-            //   appId: "",
-            //   appSecret: "");
+            app.UseFacebookAuthentication(
+               appId: "1121849364659310",
+               appSecret: "9e37999695f898230ee85026fa0b930b");
 
             app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
             {

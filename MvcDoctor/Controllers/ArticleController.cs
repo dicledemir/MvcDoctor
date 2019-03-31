@@ -25,11 +25,11 @@ namespace MvcDoctor.Controllers
             ViewBag.kandir = ".jpg";
 
             List<Write> list = _uw.db.Writes.Where(x => x.CategoryId == id).ToList();
-            
+
             if (page.HasValue)
             {
                 int b = (page.Value - 1) * 3;
-                list = _uw.db.Writes
+                list =list 
                     .OrderBy(x => x.Id)
                     .Skip(b)
                     .Take(3)
@@ -77,8 +77,16 @@ namespace MvcDoctor.Controllers
             string uid = User.Identity.GetUserId();
             ViewBag.write = _uw.db.Writes.Where(x => x.Id == id).FirstOrDefault();
             ViewBag.ıd = User.Identity.GetUserId();
-            Person person = _uw.db.Users.Find(uid);
-            if (person.HasPhoto)
+            if (User.Identity.IsAuthenticated)
+            {
+                Person person = _uw.db.Users.Find(uid);
+                if (person.HasPhoto)
+                {
+                    ViewBag.Photo = "/Uploads/Person/";
+                    ViewBag.jpg = ".jpg";
+                }
+            }
+            else
             {
                 ViewBag.Photo = "/Uploads/Person/";
                 ViewBag.jpg = ".jpg";
@@ -92,42 +100,46 @@ namespace MvcDoctor.Controllers
         [HttpPost]
         public ActionResult ArticleDetails(int id, string yorum)
         {
-    
+
             string uid = User.Identity.GetUserId();
             WriteComment wc = new WriteComment();
             wc.PersonId = uid;
             wc.Content = yorum;
-             wc.WriteId = id;
-            Person person = _uw.db.Users.Find(uid);
-            if (person.HasPhoto)
-                ViewBag.Photo = "/Uploads/Person/" + uid + ".jpg";
+            wc.WriteId = id;
+            if (User.Identity.IsAuthenticated)
+            {
+                Person person = _uw.db.Users.Find(uid);
+                if (person.HasPhoto)
+                    ViewBag.Photo = "/Uploads/Person/" + uid + ".jpg";
+
+            }
             ViewBag.ıd = User.Identity.GetUserId();
             //Person person = _uw.db.Users.Find(uid);
-          
+
             ViewBag.Comment = _uw.db.WriteComments.Where(x => x.WriteId == id).ToList();
             Write write = _uw.db.Writes.Where(x => x.Id == id).FirstOrDefault();
-            ViewBag.write= _uw.db.Writes.Where(x => x.Id == id).FirstOrDefault();
+            ViewBag.write = _uw.db.Writes.Where(x => x.Id == id).FirstOrDefault();
             _uw.WriteComments.Add(wc);
-             _uw.Complete();
+            _uw.Complete();
 
             return RedirectToAction("ArticleDetails");
 
-           
+
         }
 
         public bool DeleteComment(int? deleteid)
         {
             //WriteComment delete = _uw.db.WriteComments.FirstOrDefault(x=>x.Id==deleteid);
-            if(deleteid.HasValue)
+            if (deleteid.HasValue)
             {
                 _uw.WriteComments.Delete(deleteid.Value);
                 _uw.Complete();
                 return true;
             }
-            
+
             else
                 return false;
 
-         }
+        }
     }
 }

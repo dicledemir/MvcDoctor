@@ -91,7 +91,10 @@
                 <div class="logo ">
                     <img src="http://placehold.it/90x38/fff/6E329D&text=LOGO" alt="" />
                 </div>
-
+                 @if (ViewBag.error != null)
+                 {
+                     <div class="alert alert-danger">@ViewBag.error</div>
+                 }
                 @using (Html.BeginForm(null, null, FormMethod.Post, new
             {
                 @class = "form-signin",
@@ -121,9 +124,7 @@
                                             @Html.LabelFor(x => x.RememberMe)
                                         </label>
                                     </div>
-
-                                            @*<input type="checkbox" value="remember-me" />
-                                                Keep me signed in*@
+                                     
                     <div class="form-group">
                         <button type="button" class="btn btn-lg btn-block btn-success">GirişYap </button>
                     </div>
@@ -131,8 +132,29 @@
                                             
                 }
 
-                <a class="forgotLnk" href="http://www.jquery2dotnet.com">Şifreni mi Unuttun!</a>
-                <div class="or-box">
+                <a class="forgotLnk" href="/Members/RecoverPassword">Şifreni mi Unuttun!</a>
+
+                 
+                @*@using (Html.BeginForm("ExternalLogin", "Account", new { ReturnUrl = Model.ReturnUrl })) {
+                @Html.AntiForgeryToken()
+                <div id="socialLoginList">
+                    <p>
+                        @foreach (AuthenticationDescription p in loginProviders)
+                        {
+                            <button type="submit" class="btn btn-default" id="@p.AuthenticationType" name="provider" value="@p.AuthenticationType" title="Log in using your @p.Caption account">@p.AuthenticationType</button>
+                        }
+                    </p>
+                </div>
+                }
+                }
+                }*@
+
+
+ 
+
+              
+
+                @*<div class="or-box">
                     <span class="or">veya</span>
                     <div class="row">
                         <div class="col-md-6 row-block">
@@ -142,12 +164,14 @@
                             <a href="http://www.jquery2dotnet.com" class="btn btn-google btn-block">Google</a>
                         </div>
                     </div>
-                </div>
+                </div>*@
+
+
                 <div class="or-box row-block">
                     <div class="row">
                         <div class="col-md-12 row-block">
                             <a href="/Members/Register" class="btn btn-primary btn-block">Yeni Kayıt Oluştur</a>
-                            <a href="~/Views/Account/_ExternalLoginsListPartial.cshtml">aaaaaaaaaaa</a>
+                            
                         </div>
                     </div>
                 </div>
@@ -159,11 +183,7 @@
 <div class="tum">
 
 </div>
-
-@*<script src="https://code.jquery.com/jquery-3.3.1.min.js"
-        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-        crossorigin="anonymous"></script>*@
-<!------ Include the above in your HEAD tag ---------->
+ 
 @section scripts{
 <script>
 
@@ -174,8 +194,11 @@
             method: "POST",
             data: gidecekVeri,
             success: function (result) {
-                if (result.success)
+                if (result.success){
                     window.location = window.location;
+                  
+                    //alert("Giriş Başarılı");
+                }
                 else
                     alert("Giriş Başarısız.Tekrar deneyin.");
             }

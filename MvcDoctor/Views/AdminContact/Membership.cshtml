@@ -1,0 +1,262 @@
+﻿@using Entity
+@model  List<Person>
+
+@*<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>*@
+@*<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>*@
+<style>
+    @@import url('https://fonts.googleapis.com/css?family=Libre+Baskerville:400,700');
+    @@import url("//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css");
+
+    .row-section {
+        float: left;
+        width: 100%;
+        background: #42275a; /* fallback for old browsers */
+        background: -webkit-linear-gradient(to bottom, #734b6d, #42275a); /* Chrome 10-25, Safari 5.1-6 */
+        background: linear-gradient(to bottom, #734b6d, #42275a); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    }
+
+        .row-section h2 {
+            float: left;
+            width: 100%;
+            color: #fff;
+            margin-bottom: 30px;
+            font-size: 14px;
+        }
+
+            .row-section h2 span {
+                font-family: 'Libre Baskerville', serif;
+                display: block;
+                font-size: 45px;
+                text-transform: none;
+                margin-bottom: 20px;
+                margin-top: 30px;
+                font-weight: 700;
+            }
+
+            .row-section h2 a {
+                color: #d2abce;
+            }
+
+        .row-section .row-block {
+            background: #fff;
+            padding: 20px;
+            margin-bottom: 50px;
+        }
+
+            .row-section .row-block ul {
+                margin: 0;
+                padding: 0;
+            }
+
+                .row-section .row-block ul li {
+                    list-style: none;
+                    margin-bottom: 20px;
+                }
+
+                    .row-section .row-block ul li:last-child {
+                        margin-bottom: 0;
+                    }
+
+                    .row-section .row-block ul li:hover {
+                        cursor: grabbing;
+                    }
+
+            .row-section .row-block .media {
+                border: 1px solid #d5dbdd;
+                padding: 5px 20px;
+                border-radius: 5px;
+                box-shadow: 0px 2px 1px rgba(0,0,0,0.04);
+                background: #fff;
+            }
+
+        .row-section .media .media-left img {
+            width: 75px;
+        }
+
+        .row-section .media .media-body p {
+            padding: 0 15px;
+            font-size: 14px;
+        }
+
+        .row-section .media .media-body h4 {
+            color: #6b456a;
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 0;
+            padding-left: 14px;
+            margin-top: 12px;
+        }
+
+    .btn-default {
+        background: #6B456A;
+        color: #fff;
+        border-radius: 30px;
+        border: none;
+        font-size: 16px;
+    }
+</style>
+
+<style>
+    .sayi {
+        display: inline-block;
+        padding: 4px 8px;
+        margin: 12px 4px;
+        background-color: #42275a;
+        color: white;
+        cursor: pointer;
+    }
+
+        .sayi:hover {
+            box-shadow: 0px 0px 5px black;
+        }
+
+    .pagination {
+        display: inline-block;
+        margin: 4px 12px 4px 12px;
+    }
+
+        .pagination.active {
+            color: gold;
+            font-size: 24px;
+        }
+</style>
+<style>
+    #search {
+        float: right;
+        top: -45px;
+        width: 250px;
+    }
+
+    .search {
+        padding: 5px 0;
+        width: 230px;
+        height: 30px;
+        position: relative;
+        left: 10px;
+        float: left;
+        line-height: 22px;
+    }
+
+        .search input {
+            position: absolute;
+            width: 0px;
+            float: Left;
+            margin-left: 210px;
+            -webkit-transition: all 0.7s ease-in-out;
+            -moz-transition: all 0.7s ease-in-out;
+            -o-transition: all 0.7s ease-in-out;
+            transition: all 0.7s ease-in-out;
+            height: 30px;
+            line-height: 18px;
+            padding: 0 2px 0 2px;
+            border-radius: 1px;
+        }
+
+            .search:hover input, .search input:focus {
+                width: 150px;
+                margin-left: 0px;
+            }
+
+    .searchbtn {
+        height: 30px;
+        position: absolute;
+        right: 0;
+        top: 5px;
+        border-radius: 1px;
+    }
+
+    .aa {
+        margin-top: -15px;
+        margin-left: 71%;
+        height: 46px;
+        margin-bottom: 13px;
+    }
+</style>
+<section class="row-section">
+    <div class="container">
+        <div class="row">
+            <h2 class="text-center"><span>Üyeler</span></h2>
+        </div>
+        <div class="col-md-10 offset-md-1 row-block" style="margin-left: 111px;">
+
+            @using (Html.BeginForm("Membership", "AdminContact", FormMethod.Post))
+            {
+                <div class="row aa">
+                    <div class="search">
+                        <input type="text" class="form-control input-sm" maxlength="64" placeholder="Kişi Adını Giriniz" name="Search" required />
+                        <button type="submit" class="btn btn-primary btn-sm searchbtn">Kişi Ara</button>
+                    </div>
+                </div>
+
+            }
+
+
+            <ul id="sortable">
+                @foreach (Person item in Model)
+                {
+                    <li>
+                        <div class="media">
+                            <div class="media-left align-self-center">
+                                @if (@item.HasPhoto)
+                                {
+                                    <img style="max-width:130px !important" class="rounded-circle" src="/Uploads/Person/@item.Id@ViewBag.kandir?a=@DateTime.Now.Second">
+
+                                }
+                                else
+                                {
+                                    <img class="rounded-circle" src="http://ssl.gstatic.com/accounts/ui/avatar_2x.png">
+                                }
+                            </div>
+                            <div class="media-body">
+                                <p> Kulanıcı adı :<strong> @item.UserName</strong></p>    
+                                <p>Sisteme Kayıt Tarihi: @item.RegisterDate.ToShortDateString() </p>  
+                                 
+                            </div>
+                            <div class="media-right align-self-center">
+                                <br />
+                                 
+                               
+                            </div>
+                            <div class="media-right align-self-center">
+                                <br /> <br />
+                                <a href="/AdminAppointment/PersonDetails?id=@item.Id" class="btn btn-default">Üyeyi Görüntüle</a>
+                            </div>
+                        </div>
+                    </li>
+                }
+            </ul>
+            <div class="text-center">
+                @if (ViewBag.PrevVisible)
+            {
+                    <a class="sayi" href="?page=@Html.Raw(ViewBag.CurrentPage-1)"><<</a>}
+                @{
+                    string c = string.Empty;
+                }
+                @for (int i = ViewBag.Start; i <= ViewBag.End; i++)
+                {
+                    c = i == ViewBag.CurrentPage ? "active" : string.Empty;
+                    <a href="?page=@i" class="@c pagination sayi">@i</a> //direk aynı sayfaya gödereceğimiz için ? oldu tek
+                }
+                @if (ViewBag.PrevVisible)
+            {
+                    <a class="sayi" href="?page=@Html.Raw(ViewBag.CurrentPage+1)&">>></a>}
+            </div>
+        </div>
+    </div>
+</section>
+@section scripts{
+
+    <script>
+  $( function() {
+    $("#sortable").sortable();
+    $("#sortable").disableSelection();
+  } );
+    </script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js" integrity="sha256-T0Vest3yCU7pafRw9r+settMBX6JkKN06dqBnpQ8d30=" crossorigin="anonymous"></script>
+
+     
+
+ 
+
+}

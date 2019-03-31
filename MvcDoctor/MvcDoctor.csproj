@@ -19,8 +19,8 @@
     <MvcBuildViews>false</MvcBuildViews>
     <UseIISExpress>true</UseIISExpress>
     <IISExpressSSLPort>44312</IISExpressSSLPort>
-    <IISExpressAnonymousAuthentication />
-    <IISExpressWindowsAuthentication />
+    <IISExpressAnonymousAuthentication>enabled</IISExpressAnonymousAuthentication>
+    <IISExpressWindowsAuthentication>disabled</IISExpressWindowsAuthentication>
     <IISExpressUseClassicPipelineMode />
     <UseGlobalApplicationHostFile />
     <NuGetPackageImportStamp>
@@ -705,6 +705,9 @@
     <Content Include="Views\AdminArticle\UpdateCategory.cshtml" />
     <Content Include="Views\AdminArticle\Article.cshtml" />
     <Content Include="Views\AdminArticle\UpdateArticle.cshtml" />
+    <Content Include="Views\Members\RecoverPassword.cshtml" />
+    <Content Include="Views\AdminContact\MyAccount.cshtml" />
+    <Content Include="Views\AdminContact\Membership.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

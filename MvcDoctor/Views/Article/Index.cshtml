@@ -7,7 +7,7 @@
 
 <style>
     .sayi{
-         display:inline-block;
+           display:inline-block;
             padding:5px 10px;
             margin:15px 5px;
             background-color:darkseagreen;
@@ -17,6 +17,17 @@
     .sayi:hover{
          box-shadow:0px 0px 5px black
     }
+       
+.pagination{
+    display:inline-block;
+    margin:4px 12px 4px 12px;
+    /*yukarıdan düşünüp saat yönünde ilerliyoruz*/
+}
+/*bir şey hem pagination ve active ise button css işlev görecek*/
+.pagination.active{
+    color:gold;
+    font-size:24px;
+}
 </style>
  
 <div class="container">
@@ -81,7 +92,7 @@
                         @if (ViewBag.PrevVisible)
                         {
                             int a = Model.Categories.Id;
-                            <a href="?page=@Html.Raw(ViewBag.CurrentPage-1)&id=@a">Prev</a>}
+                            <a href="?page=@Html.Raw(ViewBag.CurrentPage-1)&id=@a"><<</a>}
                         @{
                             string c = string.Empty;
                         }
@@ -89,12 +100,12 @@
                         {
                             int a = Model.Categories.Id;
                             c = i == ViewBag.CurrentPage ? "active" : string.Empty;
-                            <a class="sayi"  href="?page=@i&id=@a" class="@c pagination">@i</a> //direk aynı sayfaya gödereceğimiz için ? oldu tek
+                            <a   href="?page=@i&id=@a" class="@c pagination sayi">@i</a> //direk aynı sayfaya gödereceğimiz için ? oldu tek
                         }
                         @if (ViewBag.PrevVisible)
                         {
                             int a = Model.Categories.Id;
-                            <a href="?page=@Html.Raw(ViewBag.CurrentPage+1)&id=@a">Next</a>}
+                            <a href="?page=@Html.Raw(ViewBag.CurrentPage+1)&id=@a">>></a>}
 
                     </div>
                      

@@ -74,6 +74,7 @@
     <Compile Include="ViewModels\HomeViewModel.cs" />
     <Compile Include="ViewModels\LoginViewModel.cs" />
     <Compile Include="ViewModels\MyAccountViewModel.cs" />
+    <Compile Include="ViewModels\RecoverPasswordViewModel.cs" />
     <Compile Include="Write.cs" />
   </ItemGroup>
   <ItemGroup>

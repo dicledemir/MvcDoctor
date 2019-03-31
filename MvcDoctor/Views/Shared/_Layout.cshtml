@@ -1,103 +1,99 @@
 ﻿
-    <!DOCTYPE html>
-    <html class="no-js" lang="en">
-    <head>
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+<head>
 
-       
-        @RenderSection("CSS", false);
 
-        <meta charset="utf-8">
-        <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>Arleomary | Lifestyle</title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+    @RenderSection("CSS", false);
 
-        <link rel="icon" href="~/Content/img/favicon.png" />
-        <!-- Place favicon.ico in the root directory -->
-        <!-- all css here -->
-        <!-- bootstrap.min.css -->
-        <script src="https://code.jquery.com/jquery-3.3.1.min.js"
-                integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-                crossorigin="anonymous"></script>
-        @*<script src="http://maps.google.com/maps/api/js?key=AIzaSyCZ3R3HV2ECPiClKyFX8Y_UMFg6T_2L1e0"></script>*@
-        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-        <link rel="stylesheet" href="~/Content/css/bootstrap.min.css">
-        <!-- font-awesome.min.css -->
-        <link rel="stylesheet" href="~/Content/css/font-awesome.min.css">
-        <!-- owl.carousel.min.css -->
-        <link rel="stylesheet" href="~/Content/css/owl.carousel.css">
-        <!-- animate.css -->
-        <link rel="stylesheet" href="~/Content/css/animate.css">
-        <!-- meanmenu.min.css -->
-        <link rel="stylesheet" href="~/Content/css/meanmenu.min.css">
-        <!-- shortcodes.css -->
-        <link rel="stylesheet" href="~/Content/css/shortcode/shortcodes.css">
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Arleomary | Lifestyle</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <!-- style.css -->
-        <link href="~/Content/style.css" rel="stylesheet" />
+    <link rel="icon" href="~/Content/img/favicon.png" />
+    <!-- Place favicon.ico in the root directory -->
+    <!-- all css here -->
+    <!-- bootstrap.min.css -->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+            integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+            crossorigin="anonymous"></script>
+    @*<script src="http://maps.google.com/maps/api/js?key=AIzaSyCZ3R3HV2ECPiClKyFX8Y_UMFg6T_2L1e0"></script>*@
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <link rel="stylesheet" href="~/Content/css/bootstrap.min.css">
+    <!-- font-awesome.min.css -->
+    <link rel="stylesheet" href="~/Content/css/font-awesome.min.css">
+    <!-- owl.carousel.min.css -->
+    <link rel="stylesheet" href="~/Content/css/owl.carousel.css">
+    <!-- animate.css -->
+    <link rel="stylesheet" href="~/Content/css/animate.css">
+    <!-- meanmenu.min.css -->
+    <link rel="stylesheet" href="~/Content/css/meanmenu.min.css">
+    <!-- shortcodes.css -->
+    <link rel="stylesheet" href="~/Content/css/shortcode/shortcodes.css">
 
-        <!-- responsive.css -->
-        <link rel="stylesheet" href="~/Content/css/responsive.css">
-        <!-- modernizr-js -->
-        <script src="~/Content/js/vendor/modernizr-2.8.3.min.js"></script>
-    </head>
-    <body>
-        <!--[if lt IE 8]>
-            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-        <![endif]-->
-        <!-- Add your site or application content here -->
-        <!-- header-start -->
-        <div id="preloader"></div>
-        <header>
-            <div class="header-area white-bg" id="main_h">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-lg-3 col-md-3 col-sm-8">
-                            <div class="logo">
-                                <a href="index.html"><img src="~/Content/img/logo.png" alt="" /></a>
-                            </div>
+    <!-- style.css -->
+    <link href="~/Content/style.css" rel="stylesheet" />
+
+    <!-- responsive.css -->
+    <link rel="stylesheet" href="~/Content/css/responsive.css">
+    <!-- modernizr-js -->
+    <script src="~/Content/js/vendor/modernizr-2.8.3.min.js"></script>
+</head>
+<body>
+
+    <div id="preloader"></div>
+    <header>
+        <div class="header-area white-bg" id="main_h">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-3 col-md-3 col-sm-8">
+                        <div class="logo">
+                            <a href="index.html"><img src="~/Content/img/logo.png" alt="" /></a>
                         </div>
-                        <div class="col-lg-7 hidden-sm hidden-xs col-md-7">
-                            <div class="mainmenu">
-                                <nav>
-                                    <ul>
-                                        <li> @Html.ActionLink("AnaSayfa", "Index", "Home") </li>
-                                        <li> @Html.ActionLink("Randevu", "Index", "Appointment")  </li>
-                                 
-                                            @Html.Action("_Article", "Article")
-                                           
-                                        
-                                        <li><a href="about.html">Hakkımızda</a></li>
-                                        <li>@Html.ActionLink("İletişim", "Contact", "Home")</li>
-                                    </ul>
-                                </nav>
-                            </div>
+                    </div>
+                    <div class="col-lg-7 hidden-sm hidden-xs col-md-7">
+                        <div class="mainmenu">
+                            <nav>
+                                <ul>
+                                    <li> @Html.ActionLink("AnaSayfa", "Index", "Home") </li>
+                                    <li> @Html.ActionLink("Randevu", "Index", "Appointment")  </li>
+
+                                    @Html.Action("_Article", "Article")
+
+
+                                    <li><a href="about.html">Hakkımızda</a></li>
+                                    <li>@Html.ActionLink("İletişim", "Contact", "Home")</li>
+                                </ul>
+                            </nav>
                         </div>
+                    </div>
 
-                        <div class="col-lg-2 col-md-2 col-sm-4">
-                            <div class="mainmenu">
-                              
-                                    <ul class="nav navbar-nav navbar-right">
+                    <div class="col-lg-2 col-md-2 col-sm-4">
+                        <div class="mainmenu">
 
-                                        @if (User.Identity.IsAuthenticated)
-                                        {
+                            <ul class="nav navbar-nav navbar-right">
 
-                                            if (User.IsInRole("Administrator"))
-                                            {
-                                                <li class="nav navbar-right">
-                                                    @Html.ActionLink("Çıkış", "LogOff", "Members")
+                                @if (User.Identity.IsAuthenticated)
+                                {
 
-                                                </li>
+                                    if (User.IsInRole("Administrator"))
+                                    {
+                                        <li class="nav navbar-right">
+                                            @Html.ActionLink("Çıkış", "LogOff", "Members")
+
+                                        </li>
 
                                                 <li class="nav navbar-right">
-                                                    <a href="/Members/MyAccount">Profilim<i class="fa fa-caret-down"></i></a>
+                                                    <a href="/AdminContact/MyAccount">Profilim<i class="fa fa-caret-down"></i></a>
 
                                                     <ul>
                                                         <li>
                                                             @Html.ActionLink("Şifreni Değiştir", "ChangePass", "Members")
                                                         </li>
                                                         <li>
-                                                            <a href="/Members/MyAccount">Sayfam </a>
+                                                            <a href="/AdminContact/MyAccount">Sayfam </a>
                                                         </li>
                                                         <li>
                                                             @Html.ActionLink("Slider Kontrol Et", "Slider", "Home")
@@ -116,194 +112,190 @@
                                                         </li>
                                                     </ul>
                                                 </li>
-                                            }
-                                            else
-                                            {
-                                                 
-                                            <li  class="nav navbar-right"> @Html.ActionLink("Çıkış", "LogOff", "Members") </li>
-                                       
-                                            <li class="nav navbar-right"> <a href="/Members/MyAccount">Profilim<i class="fa fa-caret-down"></i></a>               
-                                                    <ul> 
-                                                            <li>
-                                                                @Html.ActionLink("Şifreni Değiştir", "ChangePass", "Members")
-                                                            </li>
-                                                            <li>
-                                                                <a href="/Members/MyAccount">  Sayfam </a>
-                                                            </li></ul> </li>
-                                            }
-                                        }
-                                   
-                                        else
-                                        {
-                                            <li class="nav navbar-right">@Html.ActionLink("Giriş", "Login", "Members")</li>
+                                    }
+                                    else
+                                    {
+
+                                        <li class="nav navbar-right"> @Html.ActionLink("Çıkış", "LogOff", "Members") </li>
+
+                                            <li class="nav navbar-right">
+                                                <a href="/Members/MyAccount">Profilim<i class="fa fa-caret-down"></i></a>
+                                                <ul>
+                                                    <li>
+                                                        @Html.ActionLink("Şifreni Değiştir", "ChangePass", "Members")
+                                                    </li>
+                                                    <li>
+                                                        <a href="/Members/MyAccount">  Sayfam </a>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                    }
+                                }
+
+                                else
+                                {
+                                    <li class="nav navbar-right">@Html.ActionLink("Giriş", "Login", "Members")</li>
                                             <li class="nav navbar-right">@Html.ActionLink("Kayıt Ol", "Register", "Members")</li>
-                                        }
-                                    </ul>
-                                 
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- mobile-menu-area-start -->
-                <div class="mobile-menu-area visible-xs visible-sm">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="mobile-menu">
-                                    <nav id="mobile-menu">
-                                        <ul>
-                                            <li class="active">
-                                                <a href="#">home</a>
-                                                <ul>
-                                                    <li><a href="index.html">home page 1</a></li>
-                                                    <li><a href="index-2.html">Home-page-2</a></li>
-                                                    <li><a href="index-3.html">Home-page-3</a></li>
-                                                    <li><a href="index-4.html">Home-page-4</a></li>
-                                                </ul>
-                                            </li>
-                                            <li>
-                                                <a href="#">Feature</a>
-                                                <ul>
-                                                    <li><a href="standard-post.html">standard post</a></li>
-                                                    <li><a href="left-sidebar-post.html">left sidebar post</a></li>
-                                                    <li><a href="full-width-post.html">full width post</a></li>
-                                                    <li><a href="video-post.html">video post</a></li>
-                                                    <li><a href="music-post.html">music post</a></li>
-                                                    <li><a href="gallery-post.html">gallery post</a></li>
-                                                </ul>
-                                            </li>
-                                            <li>
-                                                <a href="#">Category</a>
-                                                <ul>
-                                                    <li><a href="category-lifestyle.html">Lifestyle</a></li>
-                                                    <li><a href="category-travel.html">travel</a></li>
-                                                    <li><a href="category-video.html">video</a></li>
-                                                    <li><a href="category-music.html">music</a></li>
-                                                </ul>
-                                            </li>
-                                            <li><a href="about.html">Hakkımızda</a></li>
-                                            <li><a href="contact.html">İletişim</a></li>
-                                        </ul>
-                                    </nav>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- mobile-menu-area-end -->
-            </div>
-        </header>
-        <!-- header-end -->
-        <!-- page-header-area-start -->
-        <div class="page-header-area ptb-140">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="page-header-text text-center text-white">
-                            <h2 class="page-title">Lifestyle</h2>
-                            <ul class="breadcrumb">
-                                <li><a href="#">Home</a></li>
-                                <li class="active"><span>Lifestyle</span></li>
+                                }
                             </ul>
+
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <!-- page-header-area-end -->
-        <!-- post-content-area-start -->
-        <div class="post-content-area ptb-80">
-            @RenderBody()
 
 
 
-        </div>
-        <!-- post-content-area-end -->
-        <!-- instagram-area-start -->
-        <div class="instagram-area">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="instagram-wrap">
-                        <div class="instagram-img-wrap">
-                            <div class="col-xs-12 col-sm-2 pn">
-                                <a href="#"><img src="~/Content/img/instagram/1.jpg" alt="Responsive Image"></a>
-                            </div>
-                            <div class="col-xs-12 col-sm-2 pn">
-                                <a href="#"><img src="~/Content/img/instagram/2.jpg" alt="Responsive Image"></a>
-                            </div>
-                            <div class="col-xs-12 col-sm-2 pn">
-                                <a href="#"><img src="~/Content/img/instagram/3.jpg" alt="Responsive Image"></a>
-                            </div>
-                            <div class="col-xs-12 col-sm-2 pn">
-                                <a href="#"><img src="~/Content/img/instagram/4.jpg" alt="Responsive Image"></a>
-                            </div>
-                            <div class="col-xs-12 col-sm-2 pn">
-                                <a href="#"><img src="~/Content/img/instagram/1.jpg" alt="Responsive Image"></a>
-                            </div>
-                            <div class="col-xs-12 col-sm-2 pn">
-                                <a href="#"><img src="~/Content/img/instagram/5.jpg" alt="Responsive Image"></a>
+
+            <!-- mobile-menu-area-start -->
+            <div class="mobile-menu-area visible-xs visible-sm">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="mobile-menu">
+                                <nav id="mobile-menu">
+
+                                    <ul>
+                                        <li> @Html.ActionLink("AnaSayfa", "Index", "Home") </li>
+                                        <li> @Html.ActionLink("Randevu", "Index", "Appointment")  </li>
+
+                                        @Html.Action("_Article", "Article")
+
+
+                                        <li><a href="about.html">Hakkımızda</a></li>
+                                        <li>@Html.ActionLink("İletişim", "Contact", "Home")</li>
+                                    </ul>
+
+
+
+
+
+
+
+
+
+
+                                </nav>
                             </div>
                         </div>
-                        <div class="instagram-caption">
-                            <div class="instagram-caption-inside">
-                                @*<div class="instagram-caption-content">
+                    </div>
+                </div>
+            </div>
+            <!-- mobile-menu-area-end -->
+        </div>
+    </header>
+    <!-- header-end -->
+    <!-- page-header-area-start -->
+    <div class="page-header-area ptb-140">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="page-header-text text-center text-white">
+                        <h2 class="page-title">Hoşgeldiniz</h2>
+                        @if (User.Identity.IsAuthenticated)
+                        {
+                            <ul class="breadcrumb">
+                                <li><a href="#">@User.Identity.Name</a></li>
+
+                            </ul>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- page-header-area-end -->
+    <!-- post-content-area-start -->
+    <div class="post-content-area ptb-80">
+        @RenderBody()
+
+
+
+    </div>
+    <!-- post-content-area-end -->
+    <!-- instagram-area-start -->
+    <div class="instagram-area">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="instagram-wrap">
+                    <div class="instagram-img-wrap">
+                        <div class="col-xs-12 col-sm-2 pn">
+                            <a href="#"><img src="~/Content/img/instagram/1.jpg" alt="Responsive Image"></a>
+                        </div>
+                        <div class="col-xs-12 col-sm-2 pn">
+                            <a href="#"><img src="~/Content/img/instagram/2.jpg" alt="Responsive Image"></a>
+                        </div>
+                        <div class="col-xs-12 col-sm-2 pn">
+                            <a href="#"><img src="~/Content/img/instagram/3.jpg" alt="Responsive Image"></a>
+                        </div>
+                        <div class="col-xs-12 col-sm-2 pn">
+                            <a href="#"><img src="~/Content/img/instagram/4.jpg" alt="Responsive Image"></a>
+                        </div>
+                        <div class="col-xs-12 col-sm-2 pn">
+                            <a href="#"><img src="~/Content/img/instagram/1.jpg" alt="Responsive Image"></a>
+                        </div>
+                        <div class="col-xs-12 col-sm-2 pn">
+                            <a href="#"><img src="~/Content/img/instagram/5.jpg" alt="Responsive Image"></a>
+                        </div>
+                    </div>
+                    <div class="instagram-caption">
+                        <div class="instagram-caption-inside">
+                            @*<div class="instagram-caption-content">
                                     <ul class="details-link">
                                         <li><a href="#">Follow us @@Instagram</a></li>
                                     </ul>
                                 </div>*@
-                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <!-- instagram-area-end -->
-        <!-- brand-area-start -->
-        
-        <!-- brand-area-end -->
-        <!-- footer-start -->
-       
-        <!-- footer-end -->
-        <!-- copyright-area-start -->
-        <div class="copyright-area ptb-30 black-bg">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-6 col-md-6 col-sm-7 col-xs-12">
-                        <div class="copyright-left">
-                            <p>� Copyright 2016 - Perculatheme. All Rights Reserved.</p>
-                        </div>
+    </div>
+    <!-- instagram-area-end -->
+    <!-- brand-area-start -->
+    <!-- brand-area-end -->
+    <!-- footer-start -->
+    <!-- footer-end -->
+    <!-- copyright-area-start -->
+    <div class="copyright-area ptb-30 black-bg">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 col-md-6 col-sm-7 col-xs-12">
+                    <div class="copyright-left">
+                        <p>� Copyright 2019 - Dicle-Demir. All Rights Reserved.</p>
                     </div>
-                    <div class="col-lg-6 col-md-6 col-sm-5 col-xs-12">
-                        <div class="copyright-right">
-                            <p>Designed & Developed by : <a href="#">Perculatheme</a></p>
-                        </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-5 col-xs-12">
+                    <div class="copyright-right">
+                        <p>Designed & Developed by : <a href="#">Dicle Demir</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        <!-- copyright-area-end -->
-        <!-- all js here -->
-        <!-- main-js -->
-        <script src="~/Content/js/vendor/jquery-1.12.0.min.js"></script>
-        <!-- bootstrap.min.js -->
-        <script src="~/Content/js/bootstrap.min.js"></script>
-        <!-- owl.carousel.min.js -->
-        <script src="~/Content/js/owl.carousel.min.js"></script>
-        <!-- jquery.scrollUp.js -->
-        <script src="~/Content/js/jquery.scrollUp.js"></script>
-        <!-- jquery.waypoints.min.js -->
-        <script src="~/Content/js/jquery.waypoints.min.js"></script>
-        <!-- jquery.meanmenu.js -->
-        <script src="~/Content/js/jquery.meanmenu.js"></script>
-        <!-- jquery.sticky.js -->
-        <script src="~/Content/js/jquery.sticky.js"></script>
-        <!-- plugins.js -->
-        <script src="~/Content/js/plugins.js"></script>
-        <!-- main.js -->
-        <script src="~/Content/js/main.js"></script>
+    </div>
+    <!-- copyright-area-end -->
+    <!-- all js here -->
+    <!-- main-js -->
+    <script src="~/Content/js/vendor/jquery-1.12.0.min.js"></script>
+    <!-- bootstrap.min.js -->
+    <script src="~/Content/js/bootstrap.min.js"></script>
+    <!-- owl.carousel.min.js -->
+    <script src="~/Content/js/owl.carousel.min.js"></script>
+    <!-- jquery.scrollUp.js -->
+    <script src="~/Content/js/jquery.scrollUp.js"></script>
+    <!-- jquery.waypoints.min.js -->
+    <script src="~/Content/js/jquery.waypoints.min.js"></script>
+    <!-- jquery.meanmenu.js -->
+    <script src="~/Content/js/jquery.meanmenu.js"></script>
+    <!-- jquery.sticky.js -->
+    <script src="~/Content/js/jquery.sticky.js"></script>
+    <!-- plugins.js -->
+    <script src="~/Content/js/plugins.js"></script>
+    <!-- main.js -->
+    <script src="~/Content/js/main.js"></script>
 
-        @RenderSection("scripts", required: false)
-    </body>
+    @RenderSection("scripts", required: false)
+</body>
 
 </html>
 

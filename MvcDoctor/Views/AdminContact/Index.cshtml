@@ -1,10 +1,7 @@
 ﻿@using Entity
 @model  List<Contact>
 
-@*<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>*@
-@*<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>*@
-<style>
+ <style>
     @@import url('https://fonts.googleapis.com/css?family=Libre+Baskerville:400,700');
     @@import url("//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css");
 
@@ -96,89 +93,162 @@
         font-size: 16px;
     }
 </style>
-<!------ Include the above in your HEAD tag ---------->
+
+
+
+<style>
+    .sayi {
+        display: inline-block;
+        padding: 4px 8px;
+        margin: 12px 4px;
+        background-color: #42275a;
+        color: white;
+        cursor: pointer;
+    }
+
+        .sayi:hover {
+            box-shadow: 0px 0px 5px black;
+        }
+
+    .pagination {
+        display: inline-block;
+        margin: 4px 12px 4px 12px;
+        /*yukarıdan düşünüp saat yönünde ilerliyoruz*/
+    }
+        /*bir şey hem pagination ve active ise button css işlev görecek*/
+        .pagination.active {
+            color: gold;
+            font-size: 24px;
+        }
+</style>
+
+<style>
+    #search {
+    float: right;
+    top: -45px;
+    width: 250px;
+}
+
+.search {
+    padding: 5px 0;
+    width: 230px;
+    height: 30px;
+    position: relative;
+    left: 10px;
+    float: left;
+    line-height: 22px;
+}
+
+    .search input {
+        position: absolute;
+        width: 0px;
+        float: Left;
+        margin-left: 210px;
+        -webkit-transition: all 0.7s ease-in-out;
+        -moz-transition: all 0.7s ease-in-out;
+        -o-transition: all 0.7s ease-in-out;
+        transition: all 0.7s ease-in-out;
+        height: 30px;
+        line-height: 18px;
+        padding: 0 2px 0 2px;
+        border-radius:1px;
+    }
+
+        .search:hover input, .search input:focus {
+            width: 150px;
+            margin-left: 0px;
+        }
+
+.searchbtn {
+    height: 30px;
+    position: absolute;
+    right: 0;
+    top: 5px;
+    border-radius:1px;
+}
+.aa{
+    margin-top: -15px;
+    margin-left: 71%;
+    height: 46px;
+    margin-bottom: 13px;
+}
+
+
+</style>
+ 
+
+
 <section class="row-section">
     <div class="container">
         <div class="row">
             <h2 class="text-center"><span>Mesajlar</span></h2>
         </div>
-
         <div class="col-md-10 offset-md-1 row-block" style="margin-left: 111px;">
-            <ul id="sortable">
 
-                @foreach (Contact item in Model)
-                {
+       @using(Html.BeginForm("Index", "AdminContact", FormMethod.Post))
+       {             
+                <div class="row aa">
+                    <div class="search">
+                        <input type="text" class="form-control input-sm" maxlength="64" placeholder="Kişi Adını Giriniz" name="Search" required />
+                        <button type="submit" class="btn btn-primary btn-sm searchbtn">Mesaj Ara</button>
+                    </div>
+                </div>
+             
+            }
+                <ul id="sortable">
 
+                    @foreach (Contact item in Model)
+                    {
+                        <li>
+                            <div class="media">
 
-                    <li>
-                        <div class="media">
-                            @*<div class="media-left align-self-center">
-                                @if (@item)
-                                {
-                                    <img style="max-width:130px !important" class="rounded-circle" src="/Uploads/Person/@item.person.Id@ViewBag.kandir?a=@DateTime.Now.Second">
+                                <div class="media-body">
+                                    <p>Adı :<strong> @item.NameSurname</strong></p>
+                                    <p>Email: @item.Email</p>
+                                    <p>Mesaj Başlığı: @item.Title</p>
+                                    <p>Mesaj: @item.Message</p>
 
-                                }
+                                </div>
 
-                                else
-                                {
-                                    <img class="rounded-circle" src="https://randomuser.me/api/portraits/women/50.jpg">
-                                }
-                            </div>*@
-                            <div class="media-body">
-                                <p>Adı :<strong> @item.NameSurname</strong></p>
-                                <p>Email: @item.Email</p>
-                                <p>Mesaj Başlığı: @item.Title</p>
-                                <p>Mesaj: @item.Message</p>
+                                <div class="media-right align-self-center">
+                                    <br />
 
+                                    <a href="/AdminContact/Index?DeleteId=@item.Id&page=@ViewBag.page" class="btn btn-danger Denied">Sil</a><br /><br />
 
-
-                            </div>
-
-                            <div class="media-right align-self-center">
-                                <br />
-
-
-
-                                <a href="/AdminContact/Index?DeleteId=@item.Id&page=@ViewBag.page" class="btn btn-danger Denied">Sil</a><br /><br />
+                                </div>
 
                             </div>
+                        </li>
 
-                        </div>
-                    </li>
+                    }
 
-                }
+                </ul>
 
-            </ul>
-
-
+                <br />  <br />
 
 
 
-            <br />  <br />
+                <div class="text-center">
+                    @if (ViewBag.PrevVisible)
+                    {
 
+                        <a href="?page=@Html.Raw(ViewBag.CurrentPage - 1)"><<</a>}
+                    @{
+                        string c = string.Empty;
+                    }
+                    @for (int i = ViewBag.Start; i <= ViewBag.End; i++)
+                    {
 
+                        c = i == ViewBag.CurrentPage ? "active" : string.Empty;
+                        <a href="?page=@i" class="@c pagination sayi">@i</a> //direk aynı sayfaya gödereceğimiz için ? oldu tek
+                    }
+                    @if (ViewBag.PrevVisible)
+                    {
 
-            <div class="text-center">
-                @if (ViewBag.PrevVisible)
-                {
+                        <a href="?page=@Html.Raw(ViewBag.CurrentPage + 1)">>></a>}
 
-                    <a href="?page=@Html.Raw(ViewBag.CurrentPage-1)"><<</a>}
-                @{
-                    string c = string.Empty;
-                }
-                @for (int i = ViewBag.Start; i <= ViewBag.End; i++)
-                {
-
-                    c = i == ViewBag.CurrentPage ? "active" : string.Empty;
-                    <a class="sayi" href="?page=@i" class="@c pagination">@i</a> //direk aynı sayfaya gödereceğimiz için ? oldu tek
-                }
-                @if (ViewBag.PrevVisible)
-                {
-
-                    <a href="?page=@Html.Raw(ViewBag.CurrentPage+1)">>></a>}
-
-            </div>
-        </div>
+                </div>
+</div>
 
 
 

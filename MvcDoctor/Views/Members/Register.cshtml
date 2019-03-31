@@ -95,6 +95,10 @@
                     <img src="http://placehold.it/90x38/fff/6E329D&text=LOGO" alt="" />
                 </div>
 
+                @if (ViewBag.a != null)
+                {
+                    <div class="alert alert-danger">@ViewBag.a</div>
+                }
 
                 @using (Html.BeginForm("Register", "Members", FormMethod.Post, htmlAttributes: new { @enctype = "multipart/form-data", @class = "form-signin" }))
                 {
@@ -130,7 +134,7 @@
                             </div>
 
                 }
-                <a class="forgotLnk" href="http://www.jquery2dotnet.com">Giriş Sayfasına Git</a>
+                <a class="forgotLnk" href="/Members/Login">Giriş Sayfasına Git</a>
 
             </div>
         </div>

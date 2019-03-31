@@ -8,6 +8,7 @@ using System.Web.Mvc;
 
 namespace MvcDoctor.Controllers
 {
+    [Authorize(Roles = "Administrator")]
     public class AdminArticleController : Controller
     {
         UnitOfWork _uw = new UnitOfWork();

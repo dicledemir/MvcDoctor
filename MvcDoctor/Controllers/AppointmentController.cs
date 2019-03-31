@@ -17,7 +17,16 @@ namespace MvcDoctor.Controllers
         [HttpGet]
         public ActionResult Index()
         {
-            return View();
+            if (User.Identity.IsAuthenticated)
+            {
+                return View();
+            }else
+            {
+                return RedirectToAction("Login", "Members", new
+                {
+                    error = "Randevu oluşturmak için Girş Yapmanız Gerekmektedir."
+                });
+            }
         }
         [HttpPost]
         public ActionResult Index(Appointment info)

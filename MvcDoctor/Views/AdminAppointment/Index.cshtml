@@ -26,60 +26,162 @@ background: linear-gradient(to bottom, #734b6d, #42275a); /* W3C, IE 10+/ Edge, 
 .btn-default{background:#6B456A; color:#fff; border-radius:30px; border:none; font-size:16px;}
 
 </style>
-<!------ Include the above in your HEAD tag ---------->
+
+<style>
+     
+    .sayi{
+           display:inline-block;
+            padding:4px 8px;
+            margin:12px 4px;
+            background-color:#42275a;
+            color:white;
+            cursor:pointer;
+    }
+    .sayi:hover{
+         box-shadow:0px 0px 5px black
+    }
+    
+.pagination{
+    display:inline-block;
+    margin:4px 12px 4px 12px;
+}
+.pagination.active{
+    color:gold;
+    font-size:24px;
+}
+</style>
+<style>
+      #search {
+    float: right;
+    top: -45px;
+    width: 250px;
+}
+
+.search {
+    padding: 5px 0;
+    width: 230px;
+    height: 30px;
+    position: relative;
+    left: 10px;
+    float: left;
+    line-height: 22px;
+}
+
+    .search input {
+        position: absolute;
+        width: 0px;
+        float: Left;
+        margin-left: 210px;
+        -webkit-transition: all 0.7s ease-in-out;
+        -moz-transition: all 0.7s ease-in-out;
+        -o-transition: all 0.7s ease-in-out;
+        transition: all 0.7s ease-in-out;
+        height: 30px;
+        line-height: 18px;
+        padding: 0 2px 0 2px;
+        border-radius:1px;
+    }
+
+        .search:hover input, .search input:focus {
+            width: 150px;
+            margin-left: 0px;
+        }
+
+.searchbtn {
+    height: 30px;
+    position: absolute;
+    right: 0;
+    top: 5px;
+    border-radius:1px;
+}
+.aa{
+    margin-top: -15px;
+    margin-left: 71%;
+    height: 46px;
+    margin-bottom: 13px;
+}
+
+</style>
 <section class="row-section">
     <div class="container">
         <div class="row">
             <h2 class="text-center"><span>Randevu İstekleri</span</h2>
         </div>
-        
-        <div class="col-md-10 offset-md-1 row-block"style="margin-left: 111px;">
-            <ul id="sortable">
+        <div class="col-md-10 offset-md-1 row-block" style="margin-left: 111px;">
 
+
+
+
+            @using (Html.BeginForm("Index", "AdminAppointment", FormMethod.Post))
+            {
+                <div class="row aa">
+                    <div class="search">
+                        <input type="text" class="form-control input-sm" maxlength="64" placeholder="Kişi Adını Giriniz" name="Search" required />
+                        <button type="submit" class="btn btn-primary btn-sm searchbtn">Kişi Ara</button>
+                    </div>
+                </div>
+
+            }
+
+
+
+
+
+
+
+
+
+            <ul id="sortable">
                 @foreach (Appointment item in Model)
                 {
+                    <li>
+                        <div class="media">
+                            <div class="media-left align-self-center">
+                                @if (@item.person.HasPhoto)
+                                {
+                                    <img style="max-width:130px !important" class="rounded-circle" src="/Uploads/Person/@item.person.Id@ViewBag.kandir?a=@DateTime.Now.Second">
 
-
-                <li>
-                    <div class="media">
-                        <div class="media-left align-self-center">
-                            @if (@item.person.HasPhoto)
-                            {
-                                <img style="max-width:130px !important" class="rounded-circle" src= "/Uploads/Person/@item.person.Id@ViewBag.kandir?a=@DateTime.Now.Second">
-
-                            }
-
-                            else
-                            {
-                            <img class="rounded-circle" src="https://randomuser.me/api/portraits/women/50.jpg">
-                            }
+                                }
+                                else
+                                {
+                                    <img class="rounded-circle" src="https://randomuser.me/api/portraits/women/50.jpg">
+                                }
+                            </div>
+                            <div class="media-body">
+                                <p> Kulanıcı adı :<strong> @item.person.UserName</strong></p>
+                                <p>Randevu konusu: @item.Subject</p>
+                                <p>İstenilen Gün: @item.RequestedDate.ToShortDateString() / @item.RequestedTime.ToShortTimeString()</p>
+                                <p>Randevu oluşturulma Tarihi : @item.RequestedDate</p>
+                            </div>
+                            <div class="media-right align-self-center">
+                                <br />
+                                <a href="#" class="btn btn-danger Denied" rel="@item.person.Id" RandevuId="@item.Id">Reddet</a><br /><br />
+                                <a class="btn btn-success Accept" rel="@item.person.Id" RandevuId="@item.Id">Kabul Et</a>
+                            </div>
+                            <div class="media-right align-self-center">
+                                <br /> <br />
+                                <a href="/AdminAppointment/PersonDetails?id=@item.person.Id" class="btn btn-default">Hastayı Görüntüle</a>
+                            </div>
                         </div>
-                        <div class="media-body">
-                             <p> Kulanıcı adı :<strong> @item.person.UserName</strong></p> 
-                            
-                            <p>Randevu konusu: @item.Subject</p>
-                            <p>İstenilen Gün: @item.RequestedDate.ToShortDateString() / @item.RequestedTime.ToShortTimeString()</p>
-                            <p>Randevu oluşturulma Tarihi : @item.RequestedDate</p>
-                            
-                                  
-                        </div>
-                    
-                        <div class="media-right align-self-center">
-                            <br />
-                            <a href="#" class="btn btn-danger Denied" rel="@item.person.Id"  RandevuId="@item.Id">Reddet</a><br /><br />
-                            <a class="btn btn-success Accept" rel="@item.person.Id" RandevuId="@item.Id">Kabul Et</a>
-                        </div>
-                        <div class="media-right align-self-center">
-                         <br /> <br />
-                            <a href="/AdminAppointment/PersonDetails?id=@item.person.Id" class="btn btn-default">Hastayı Görüntüle</a>
-                        </div>
-                    </div>
-                </li>
-
+                    </li>
                 }
-
-
             </ul>
+            <div class="text-center">
+                @if (ViewBag.PrevVisible)
+            {
+            <a class="sayi" href="?page=@Html.Raw(ViewBag.CurrentPage-1)"><<</a>}
+                @{
+                string c = string.Empty;
+                }
+                @for(int i = ViewBag.Start; i <= ViewBag.End; i++)
+            {
+                c = i == ViewBag.CurrentPage ? "active" : string.Empty;
+            <a  href="?page=@i" class="@c pagination sayi">@i</a> //direk aynı sayfaya gödereceğimiz için ? oldu tek
+            }
+                @if (ViewBag.PrevVisible)
+            {
+            <a class="sayi" href="?page=@Html.Raw(ViewBag.CurrentPage+1)&">>></a>}
+            </div>
         </div>
     </div>
 </section>

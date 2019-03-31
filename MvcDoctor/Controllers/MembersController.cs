@@ -7,7 +7,10 @@ using Microsoft.AspNet.Identity.Owin;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Mail;
+using System.Text;
 using System.Web;
+using System.Web.Helpers;
 using System.Web.Mvc;
 
 namespace MvcDoctor.Controllers
@@ -16,16 +19,21 @@ namespace MvcDoctor.Controllers
     {
         // GET: Members
         UnitOfWork _uw = new UnitOfWork();
-        [HttpGet]
-        public ActionResult Login()
-        {
-            return View();
+      
+        public ActionResult Login(string error)
+        { 
+            ViewBag.error = error;
+            if (User.Identity.IsAuthenticated)
+            {
+                return RedirectToAction("Index", "Home");
+            }
+            else
+            {
+                return View();
+            }
+           
         }
-        [HttpPost]
-        public ActionResult Login(string a)
-        {
-            return RedirectToAction("Index", "Home");
-        }
+        
         public JsonResult _Login(LoginViewModel info)
         {
             //1 Signin manegare  ulaş
@@ -36,12 +44,7 @@ namespace MvcDoctor.Controllers
             switch (result)
             {
                 case SignInStatus.Success:
-                    return Json(new { success = true, url = "/Index/Members" });//giriş yaptıysa ana sayfaya gitsin
-                                                                       //case SignInStatus.LockedOut://bu kişiyi kitlediysek
-                //   break;
-                //case SignInStatus.RequiresVerification:
-                //    //tüm hatalar için view oluşturursun onun view yollarsın( mail ile dogrulama)
-                //    break;
+                    return Json(new { success = true,});//giriş 
 
                 case SignInStatus.Failure:
                     return Json(new { success = false });
@@ -101,7 +104,11 @@ namespace MvcDoctor.Controllers
                     person.HasPhoto = false;
                     return RedirectToAction("Index", "Home");
                 }
-
+                else
+                {
+                    ViewBag.a = "Hata oluştu Tekrar deneyiniz.";
+                    return View();
+                }
             }
 
             return View();
@@ -164,5 +171,66 @@ namespace MvcDoctor.Controllers
             return View(info);
         }
 
+
+        [HttpGet]
+         public ActionResult RecoverPassword()
+        {
+            return View();
+        }
+        [HttpPost]
+         public ActionResult RecoverPassword(RecoverPasswordViewModel model)
+        {
+
+            UserStore<Person> store = new UserStore<Person>(_uw.db);
+            UserManager<Person> userManager = new UserManager<Person>(store);
+            var user = userManager.FindByEmail(model.Email);
+  
+            if (user != null)
+            {
+                var newPass = CreatePassword();
+                store.SetPasswordHashAsync(user, userManager.PasswordHasher.HashPassword(newPass));
+                _uw.Complete();
+                
+                var body = $"Merhaba <b>{user.UserName}</br> Hesabınızın Parolası sıfırlanmıştır.  Yeni Parolanız:{newPass}<p>Yukarıdaki parolayı kullanarak sisteme giriş yapabilirsiniz";
+                
+                WebMail.SmtpServer= "smtp.gmail.com";
+                WebMail.EnableSsl = true;
+                WebMail.UserName = "MmvcDoctor@gmail.com";
+                WebMail.Password = "Aa123456!";
+                WebMail.SmtpPort = 587;
+                WebMail.Send(
+                    model.Email,
+                    "Şifre sıfırlama",
+                    body
+                    );
+                ViewBag.b = "Email adresinizize yeni şifreniz gönderilmiştir.";
+                return View();
+
+
+
+            }
+            else
+            {
+                ViewBag.a = "Email adresine kayıtlı üyelik bulunamadı";
+                return View();
+            }
+                return View();
+        }
+
+
+
+        public string CreatePassword()
+        {
+            Random number = new Random();
+
+            StringBuilder sb = new StringBuilder();
+            for (int i = 0; i < 8; i++)
+            {
+                int ascii = number.Next(32, 127);
+                char character = Convert.ToChar(ascii);
+                   sb.Append(character);
+            }
+            return (sb.ToString());
+        }
     }
 }
