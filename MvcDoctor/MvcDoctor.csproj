@@ -648,6 +648,7 @@
     <Content Include="Uploads\contact\background1.jpg" />
     <Content Include="Uploads\contact\contact-us-background-green.jpg" />
     <Content Include="Uploads\contact\contact.jpg" />
+    <Content Include="Uploads\Sliders\iconfinder_Psychology_3436581.png" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>

@@ -112,7 +112,6 @@ namespace MvcDoctor.Controllers
             {
                 if (Search == null)
                 {
-
                     int b = (page.Value - 1) * 4;
                     list = list
                         .Skip(b)

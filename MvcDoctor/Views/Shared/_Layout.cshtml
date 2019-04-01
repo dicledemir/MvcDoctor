@@ -4,15 +4,16 @@
 <head>
 
 
-    @RenderSection("CSS", false);
+    @RenderSection("CSS", false)
 
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Arleomary | Lifestyle</title>
+    <title>Dicle-Demir</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    @*<img src="~/Uploads/Sliders/iconfinder_Psychology_3436581.png" style="margin-top: -24px" />*@
 
-    <link rel="icon" href="~/Content/img/favicon.png" />
+    <link rel="icon" href="~/Uploads/Sliders/iconfinder_Psychology_3436581.png" />
     <!-- Place favicon.ico in the root directory -->
     <!-- all css here -->
     <!-- bootstrap.min.css -->
@@ -50,8 +51,12 @@
                 <div class="row">
                     <div class="col-lg-3 col-md-3 col-sm-8">
                         <div class="logo">
-                            <a href="index.html"><img src="~/Content/img/logo.png" alt="" /></a>
-                        </div>
+                            
+                                <img src="~/Uploads/Sliders/iconfinder_Psychology_3436581.png" style="margin-top: -24px" />
+                           
+
+                                @*<a href="index.html"><img src="~/Content/img/logo.png" alt="" /></a>*@
+</div>
                     </div>
                     <div class="col-lg-7 hidden-sm hidden-xs col-md-7">
                         <div class="mainmenu">
@@ -160,20 +165,9 @@
                                         <li> @Html.ActionLink("Randevu", "Index", "Appointment")  </li>
 
                                         @Html.Action("_Article", "Article")
-
-
                                         <li><a href="about.html">Hakkımızda</a></li>
                                         <li>@Html.ActionLink("İletişim", "Contact", "Home")</li>
                                     </ul>
-
-
-
-
-
-
-
-
-
 
                                 </nav>
                             </div>
@@ -195,7 +189,7 @@
                         @if (User.Identity.IsAuthenticated)
                         {
                             <ul class="breadcrumb">
-                                <li><a href="#">@User.Identity.Name</a></li>
+                                <li> @User.Identity.Name </li>
 
                             </ul>
                         }
